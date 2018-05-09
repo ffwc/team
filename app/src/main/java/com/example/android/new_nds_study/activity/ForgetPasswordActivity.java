@@ -51,6 +51,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 break;
             case R.id.forget_next:
                 break;
+                default:
+                    break;
         }
     }
 }

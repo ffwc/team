@@ -84,7 +84,8 @@ public class LoginActivity extends AppCompatActivity{
                 intentw = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intentw);
                 break;
-
+                default:
+                    break;
         }
 
     }

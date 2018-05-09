@@ -85,6 +85,8 @@ public class ResourceFragment extends Fragment{
                     case R.id.yunfileitem:
                         mViewPager.setCurrentItem(1, true);
                         break;
+                        default:
+                            break;
 
                 }
             }

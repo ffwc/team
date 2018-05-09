@@ -61,6 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String pass = registEdPassAskFor.getText().toString().trim();
                 registerPresenter.setRegist(phone, pass);
                 break;
+                default:
+                    break;
         }
     }
 
