@@ -80,7 +80,7 @@ public class ClassnameActivity extends AppCompatActivity {
         remoteFragment = new RemoteFragment();
         resourceFragment = new ResourceFragment();
         writingFragment = new WritingFragment();
-        fragments = new ArrayList<Fragment>();
+        fragments = new ArrayList<>();
         fragments.add(remoteFragment);
         fragments.add(resourceFragment);
         fragments.add(writingFragment);
@@ -147,6 +147,8 @@ public class ClassnameActivity extends AppCompatActivity {
             case R.id.btn_beginclass:
                 viewPager.setCurrentItem(0, true);
                 break;
+                default:
+                    break;
         }
     }
 }
