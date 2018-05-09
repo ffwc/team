@@ -33,7 +33,7 @@ public class ClassnameActivity extends AppCompatActivity {
 
     private static final String TAG = "ClassnameActivity";
     @BindView(R.id.classname_textview)
-    TextView classnameTextviewqqq;
+    TextView classnameTextview;
     @BindView(R.id.classname_iv_remote)
     LinearLayout classnameIvRemote;
     @BindView(R.id.classname_iv_resource)
