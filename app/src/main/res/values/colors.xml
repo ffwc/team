@@ -6,7 +6,8 @@
     <color name="color_gray">#B5B5B5</color>
     <color name="color_yellow">#FFD700</color>
     <color name="register_account_text_click_color">#F9BA00</color>
-<color name="color_blue">#63B8FF</color>
+    <color name="color_blue">#63B8FF</color>
+    <color name="line_color">#F0F0F0</color>
     <color name="progress_bar_bg_color">#D8D8D8</color>
     <color name="color_write">#ffffff</color>
     <color name="circle_black">#000000</color>
