@@ -9,7 +9,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -148,8 +147,8 @@ public class ClassnameActivity extends AppCompatActivity {
             case R.id.btn_beginclass:
                 viewPager.setCurrentItem(0, true);
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
     }
 }
