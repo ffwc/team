@@ -25,5 +25,6 @@
     <string name="get_back">返回</string>
     <string name="laster">探照灯</string>
     <string name="my">我的</string>
+    <string name="this_classname">本堂课的名称</string>
 
 </resources>
