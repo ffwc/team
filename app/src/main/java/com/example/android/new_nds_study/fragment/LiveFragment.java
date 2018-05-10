@@ -59,7 +59,7 @@ public class LiveFragment extends Fragment {
 
         initListener();
         onScrollChanged(t);
-        mScrollView.setScrollViewListener();
+
 
         //设置ScrollVIew的滚动监听,一般滑动时,最上面的标题显示,参数是ScrollViewListener,我们让Activity去实现
         mScrollView.setScrollViewListener(getActivity());
