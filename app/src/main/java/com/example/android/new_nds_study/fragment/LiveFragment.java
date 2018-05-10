@@ -57,6 +57,9 @@ public class LiveFragment extends Fragment {
             }
         });
 
+
+
+
         initListener();
         onScrollChanged(t);
 
