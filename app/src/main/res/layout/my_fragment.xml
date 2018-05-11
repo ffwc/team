@@ -11,8 +11,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-          android:gravity="center_horizontal"
             android:layout_marginTop="13px"
+            android:gravity="center_horizontal"
             android:text="@string/my"
             android:textSize="18dp" />
 
@@ -24,7 +24,7 @@
             android:layout_alignParentTop="true"
             android:layout_margin="10sp"
             android:gravity="center"
-            android:text="@string/set"/>
+            android:text="@string/set" />
     </RelativeLayout>
 
     <TextView
@@ -33,18 +33,18 @@
         android:background="@color/line_color" />
 
     <LinearLayout
-        android:layout_marginTop="22px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22px"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginTop="11px"
+            android:layout_gravity="center"
             android:layout_marginLeft="11px"
             android:layout_marginRight="25px"
-            android:layout_gravity="center"
+            android:layout_marginTop="11px"
             android:src="@mipmap/live_above_yellow_circles" />
 
         <LinearLayout
@@ -77,12 +77,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="26px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="26px"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/layout_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,16 +93,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/mine_icon_news"/>
+                android:src="@mipmap/mine_icon_news" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="消息"/>
+                android:text="消息" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/layout_plant"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -111,33 +115,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/mine_icon_plan"/>
+                android:src="@mipmap/mine_icon_plan" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="安排"/>
+                android:text="安排" />
 
-        </LinearLayout> <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layout_order"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/mine_icon_order"/>
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="我的订单"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/mine_icon_order" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="我的订单" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -155,40 +162,46 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/line_color" />
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:textSize="19sp"
-        android:layout_margin="10dp"
-    android:text="我的机构"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/mine_icon_next"
-        android:layout_marginRight="11px"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="true"/>
 
-</RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="19sp"
             android:layout_margin="10dp"
-            android:text="我的好友"/>
+            android:text="我的机构"
+            android:textSize="19sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/mine_icon_next"
-            android:layout_marginRight="11px"
+            android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_marginRight="11px"
+            android:src="@mipmap/mine_icon_next" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="我的好友"
+            android:textSize="19sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="11px"
+            android:src="@mipmap/mine_icon_next" />
 
     </RelativeLayout>
 

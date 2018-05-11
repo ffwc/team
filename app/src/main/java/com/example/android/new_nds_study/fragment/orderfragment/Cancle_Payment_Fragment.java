@@ -1,4 +1,4 @@
-package com.example.android.new_nds_study.fragment.find;
+package com.example.android.new_nds_study.fragment.orderfragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,9 +13,9 @@ import com.example.android.new_nds_study.R;
  * Created by android on 2018/4/17.
  */
 
-public class AllFragment extends Fragment{
+public class Cancle_Payment_Fragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.class_fragment, container, false);
+        return inflater.inflate(R.layout.order_cancle_payment_fragment, container, false);
     }
 }

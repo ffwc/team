@@ -4,8 +4,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -15,10 +13,6 @@ import android.widget.LinearLayout;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.MyPagerAdapter;
-import com.example.android.new_nds_study.fragment.find.AllFragment;
-import com.example.android.new_nds_study.fragment.find.GongGaoFragment;
-import com.example.android.new_nds_study.fragment.find.HuoDongFragment;
-import com.example.android.new_nds_study.fragment.find.NewsFragment;
 import com.example.android.new_nds_study.fragment.resourcefragment.PlaceFragment;
 import com.example.android.new_nds_study.fragment.resourcefragment.YunFileFragment;
 
@@ -52,7 +46,7 @@ public class ResourceFragment extends Fragment{
         yunFileFragment = new YunFileFragment();
         fragments.add(placeFragment);
         fragments.add(yunFileFragment);
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getChildFragmentManager(), fragments);
+        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getFragmentManager(), fragments);
         // 创建ViewPager适配器
         mViewPager.setAdapter(myPagerAdapter);
 

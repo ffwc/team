@@ -2,7 +2,6 @@ package com.example.android.new_nds_study.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -24,9 +23,8 @@ import butterknife.OnClick;
  * Created by android on 2018/4/17.
  */
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG = "LoginActivity";
     @BindView(R.id.login_tv_register)
     TextView loginTvRegister;
     @BindView(R.id.login_account_edittext)
@@ -45,13 +43,14 @@ public class LoginActivity extends AppCompatActivity{
     private Intent intentw;
     private LoginPresenter loginPresenter;
 
+    private static final String TAG = "LOGINACTIVITY";
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         loginPresenter = new LoginPresenter(this);
-
     }
 
     @OnClick({R.id.login_tv_register, R.id.login_btn, R.id.login_forget_password})
@@ -84,8 +83,8 @@ public class LoginActivity extends AppCompatActivity{
                 intentw = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intentw);
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
 
     }
@@ -111,5 +110,6 @@ public class LoginActivity extends AppCompatActivity{
             Log.i(TAG, "showLogin: 输入有误请重新输入");
         }
     }
+
 }
 
