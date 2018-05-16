@@ -15,7 +15,7 @@ public class MyPaint extends Paint {
 
     public void setStrokeColor(String color) {
         this.color = color;
-        // setColor(Color.parseColor(color));
+        //setColor(Color.parseColor(color));
         try {
             setColor(Color.parseColor(color));
         } catch (Exception e) {

@@ -6,14 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.logion_refister.bean.LoginBean;
 import com.example.android.new_nds_study.logion_refister.presnster.LoginPresenter;
+import com.example.android.new_nds_study.logion_refister.view.LoginModuleListener;
+import com.example.android.new_nds_study.logion_refister.view.LoginPresenterListener;
+import com.example.android.new_nds_study.util.LogUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +24,7 @@ import butterknife.OnClick;
  * Created by android on 2018/4/17.
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginPresenterListener, LoginModuleListener {
 
     @BindView(R.id.login_tv_register)
     TextView loginTvRegister;
@@ -35,8 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     TextView loginBtn;
     @BindView(R.id.login_forget_password)
     TextView loginForgetPassword;
-    @BindView(R.id.login_logo)
-    ImageView loginLogo;
     //@BindView(R.id.login_wxlogin)
     //ImageView loginWechat;
     private Intent intentq;
@@ -62,20 +61,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.login_btn:
+                String loginid = loginAccountEdittext.getText().toString().trim();
+                String password = loginPasswordEdittext.getText().toString().trim();
+                loginPresenter.getData(loginid, password);
 
-                Log.i(TAG, "onClick: 登录成功");
-                String account = loginAccountEdittext.getText().toString().trim();
-                String pass = loginPasswordEdittext.getText().toString().trim();
-                loginPresenter.setLogin(account, pass);
-                LoginBean loginBean = new LoginBean();
-                int errcode = loginBean.getErrcode();
-                if (errcode == 0) {
-                    intentq = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intentq);
-                    finish();
-                } else {
-                    Toast.makeText(this, "请重新输入", Toast.LENGTH_LONG).show();
-                }
                 break;
 
             case R.id.login_forget_password:
@@ -89,27 +78,52 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void showLogin(LoginBean loginBean, int errcode, String errmsg) {
-        if (errcode == 0) {
-            Toast.makeText(this, errmsg, Toast.LENGTH_SHORT).show();
-            LoginBean.DataEntity data = loginBean.getData();
-            String access_token = data.getAccess_token();
-            int expires_in = data.getExpires_in();
-            String refresh_token = data.getRefresh_token();
-            String scope = data.getScope();
-            String token_type = data.getToken_type();
-            MyApp.edit.putString("access_token", access_token);
-            MyApp.edit.putString("refresh_token", refresh_token);
-            MyApp.edit.putInt("expires_in", expires_in);
-            MyApp.edit.putString("scope", scope);
-            MyApp.edit.putString("token_type", token_type);
-            MyApp.edit.commit();
-            MyApp.edit.putBoolean("flag", true);
-
+    @Override
+    public void success(LoginBean loginBean) {
+        LoginBean.DataEntity data = loginBean.getData();
+        String access_token = data.getAccess_token();
+        LogUtil.i(TAG + "access_token", access_token);
+        System.out.print(access_token);
+    }
+    @Override
+    public void success(String s) {
+        Log.i(TAG, s.toString());
+        if (("OK").equals(s)) {
+            //Toast.makeText(LoginActivity.this, , Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
-            Log.i(TAG, "showLogin: 输入有误请重新输入");
+            Toast.makeText(LoginActivity.this, "账号或密码错误请重新输入", Toast.LENGTH_SHORT).show();
+
         }
     }
+
+    @Override
+    public void failed(String s) {
+        Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void adminEmpty(String s) {
+        Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void pwdEmpty(String s) {
+        Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+    //销毁防止内存泄露
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        loginPresenter.detach();
+    }
+
 
 }
 

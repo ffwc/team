@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.logion_refister.bean.RegisterBean;
 import com.example.android.new_nds_study.logion_refister.presnster.RegisterPresenter;
+import com.example.android.new_nds_study.logion_refister.view.RegisterPresenterListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +22,7 @@ import butterknife.OnClick;
  * Created by android on 2018/4/17.
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements RegisterPresenterListener {
     private static final String TAG = "RegisterActivity";
     @BindView(R.id.regist_iv_back)
     ImageView registIvBack;
@@ -34,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.regist_ed_authcode)
     EditText registEdAuthcode;
     @BindView(R.id.regist_ed_pass_ask_for)
-    EditText registEdPassAskFor;
+    EditText registEdPass;
     @BindView(R.id.regist_ed_algin_password)
     EditText registEdAlginPassword;
     @BindView(R.id.register_btn_register)
@@ -47,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
         registerPresenter = new RegisterPresenter(this);
+
     }
 
     @OnClick({R.id.regist_iv_back, R.id.register_btn_register})
@@ -57,29 +57,63 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.register_btn_register:
-                String phone = registEdName.getText().toString().trim();
-                String pass = registEdPassAskFor.getText().toString().trim();
-                registerPresenter.setRegist(phone, pass);
+                String nickname = registEdName.getText().toString().trim();
+                String password = registEdPass.getText().toString().trim();
+                String mpwd = registEdAlginPassword.getText().toString().trim();
+
+
+                registerPresenter.getData(nickname, password, mpwd);
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
     }
 
 
-    public void showRegister(RegisterBean registerBean, int errcode, String errmsg) {
-        Log.i(TAG, "showRegister: 开始注册");
-        if (errcode == 0) {
-            Toast.makeText(this, errmsg, Toast.LENGTH_SHORT).show();
-            if (errmsg.equals("ok")) {
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+    //返回的数据
+    @Override
+    public void success(String s) {
+        if (("ok").equals(s)) {
+            Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
+            finish();
         } else {
-            Toast.makeText(this, errmsg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void failed(String s) {
+        Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void adminEmpty(String s) {
+        Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void pwdEmpty(String s) {
+        Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+
+    @Override
+    public void confrim(String s) {
+        Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
+
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        registerPresenter.detach();
+    }
+
 }
+
 
 

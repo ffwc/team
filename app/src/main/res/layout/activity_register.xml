@@ -73,6 +73,7 @@
         <EditText
             android:id="@+id/regist_ed_pass_ask_for"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:hint="@string/password_ask_for" />
 
@@ -80,6 +81,7 @@
             android:id="@+id/regist_ed_algin_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="@string/algin_input_password" />
 
         <Button

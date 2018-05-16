@@ -9,7 +9,11 @@ public class LoginBean {
 
     /**
      * errcode : 0
-     * data : {"access_token":"767dd21c359410bf63dfdcb9e228e312cddf0d96","refresh_token":"b025ad622a3d32a5a81aee5d73a5826adb8cbcd1","scope":"basic","token_type":"Bearer","expires_in":3600}
+     * data : {"access_token":"767dd21c359410bf63dfdcb9e228e312cddf0d96",
+     * "refresh_token":"b025ad622a3d32a5a81aee5d73a5826adb8cbcd1",
+     * "scope":"basic",
+     * "token_type":"Bearer",
+     * "expires_in":3600}
      * errmsg : ok
      */
     private int errcode;
@@ -52,7 +56,7 @@ public class LoginBean {
         private String refresh_token;
         private String scope;
         private String token_type;
-        private int expires_in;
+        private String expires_in;
 
         public void setAccess_token(String access_token) {
             this.access_token = access_token;
@@ -70,7 +74,7 @@ public class LoginBean {
             this.token_type = token_type;
         }
 
-        public void setExpires_in(int expires_in) {
+        public void setExpires_in(String expires_in) {
             this.expires_in = expires_in;
         }
 
@@ -90,7 +94,7 @@ public class LoginBean {
             return token_type;
         }
 
-        public int getExpires_in() {
+        public String getExpires_in() {
             return expires_in;
         }
     }

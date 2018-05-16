@@ -1,38 +1,57 @@
 package com.example.android.new_nds_study.logion_refister.presnster;
 
-import com.example.android.new_nds_study.activity.LoginActivity;
+import android.text.TextUtils;
+
 import com.example.android.new_nds_study.logion_refister.bean.LoginBean;
-import com.example.android.new_nds_study.logion_refister.modle.LoginModel;
-import com.example.android.new_nds_study.logion_refister.NetListener;
+import com.example.android.new_nds_study.logion_refister.modle.LoginModule;
+import com.example.android.new_nds_study.logion_refister.view.LoginModuleListener;
+import com.example.android.new_nds_study.logion_refister.view.LoginPresenterListener;
 
 /**
- * Created by android on 2018/4/23.
+ * @Author J & J
+ * @Time 2018/5/14.
  */
 
-
 public class LoginPresenter {
-    private LoginActivity iLoginActivity;
-    private LoginModel iLoginModel;
+    LoginPresenterListener loginPresenterListener;
+    private final LoginModule loginModule;
 
-    public LoginPresenter(LoginActivity iLoginActivity) {
-        this.iLoginActivity = iLoginActivity;
-        iLoginModel = new LoginModel();
+    public LoginPresenter(LoginPresenterListener loginPresenterListener) {
+        this.loginPresenterListener = loginPresenterListener;
+        loginModule = new LoginModule();
+
     }
 
-    public void setLogin(String Loginid, String password) {
-        iLoginModel.getLogin(new NetListener<LoginBean>() {
-            @Override
-            public void onSuccess(LoginBean loginBean) {
-                String errmsg = loginBean.getErrmsg();
-                int errcode = loginBean.getErrcode();
-                iLoginActivity.showLogin(loginBean,errcode, errmsg);
+    public void getData(String loginid, String password){
+        //判断用户名不用为空
+        if(TextUtils.isEmpty(loginid)){
+            if(loginPresenterListener!=null){
+                loginPresenterListener.adminEmpty("用户名不能为空");
+                return;
             }
-
-            @Override
-            public void onFailure(Exception e) {
-
+        }
+        //判断密码不用为空
+        if(TextUtils.isEmpty(password)){
+            if(loginPresenterListener!=null){
+                loginPresenterListener.adminEmpty("密码不能为空");
+                return;
             }
-        }, Loginid, password);
+        }
+        //调用m层的数据
+        loginModule.getData(loginid, password,new LoginModuleListener() {
+            @Override
+            public void success(LoginBean loginBean) {
+                if(loginPresenterListener!=null){
+
+                    loginPresenterListener.success(loginBean.getErrmsg());
+
+                }
+            }
+        });
     }
+    //防止内存泄露
+    public void detach(){
+        loginPresenterListener=null;
+    }
+
 }
-

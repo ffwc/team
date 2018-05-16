@@ -8,7 +8,11 @@ public class RegisterBean {
 
     /**
      * errcode : 0
-     * data : {"access_token":"767dd21c359410bf63dfdcb9e228e312cddf0d96","refresh_token":"b025ad622a3d32a5a81aee5d73a5826adb8cbcd1","scope":"basic","token_type":"Bearer","expires_in":3600}
+     * data : {"access_token":"767dd21c359410bf63dfdcb9e228e312cddf0d96",
+     * "refresh_token":"b025ad622a3d32a5a81aee5d73a5826adb8cbcd1",
+     * "scope":"basic",
+     * "token_type":"Bearer",
+     * "expires_in":3600}
      * errmsg : ok
      */
     private int errcode;
