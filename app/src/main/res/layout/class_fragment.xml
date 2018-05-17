@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="课程"
+        android:textColor="#FF3A414D"
+        android:layout_marginLeft="10dp"
+        android:textSize="30dp"
+        />
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="课程"/>
+        android:text="正在进行"
+        android:textColor="#FFF9BA00"
+        android:textSize="18dp"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="10px"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的课程"
+        android:textColor="#FF333333"
+        android:textSize="14dp"
+        android:layout_marginTop="10px"
+        />
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

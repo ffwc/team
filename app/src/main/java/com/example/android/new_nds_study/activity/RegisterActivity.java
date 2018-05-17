@@ -11,8 +11,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.logion_refister.presnster.RegisterPresenter;
-import com.example.android.new_nds_study.logion_refister.view.RegisterPresenterListener;
+import com.example.android.new_nds_study.MVP.presnster.RegisterPresenter;
+import com.example.android.new_nds_study.MVP.view.RegisterPresenterListener;
+import com.example.android.new_nds_study.util.LogUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,10 +71,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
     }
 
 
-    //返回的数据
+    //返回的数据安这也
     @Override
     public void success(String s) {
-        if (("ok").equals(s)) {
+        LogUtil.i(TAG,s);
+        if (("OK").equals(s)) {
             Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
             finish();
         } else {

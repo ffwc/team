@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.ClassnameActivity;
-import com.example.android.new_nds_study.view.ObservableScrollView;
+import com.example.android.new_nds_study.myview.ObservableScrollView;
 
 
 /**

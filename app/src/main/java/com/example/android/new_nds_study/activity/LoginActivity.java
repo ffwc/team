@@ -10,10 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.logion_refister.bean.LoginBean;
-import com.example.android.new_nds_study.logion_refister.presnster.LoginPresenter;
-import com.example.android.new_nds_study.logion_refister.view.LoginModuleListener;
-import com.example.android.new_nds_study.logion_refister.view.LoginPresenterListener;
+import com.example.android.new_nds_study.MVP.bean.LoginBean;
+import com.example.android.new_nds_study.MVP.presnster.LoginPresenter;
+import com.example.android.new_nds_study.MVP.view.LoginModuleListener;
+import com.example.android.new_nds_study.MVP.view.LoginPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
 
 import butterknife.BindView;
@@ -24,7 +24,7 @@ import butterknife.OnClick;
  * Created by android on 2018/4/17.
  */
 
-public class LoginActivity extends AppCompatActivity implements LoginPresenterListener, LoginModuleListener {
+public class LoginActivity extends AppCompatActivity implements LoginModuleListener, LoginPresenterListener {
 
     @BindView(R.id.login_tv_register)
     TextView loginTvRegister;
@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenterLi
 
     @Override
     public void success(LoginBean loginBean) {
+        LogUtil.i(TAG,"-----------------");
         LoginBean.DataEntity data = loginBean.getData();
         String access_token = data.getAccess_token();
         LogUtil.i(TAG + "access_token", access_token);
@@ -89,12 +90,12 @@ public class LoginActivity extends AppCompatActivity implements LoginPresenterLi
     public void success(String s) {
         Log.i(TAG, s.toString());
         if (("OK").equals(s)) {
-            //Toast.makeText(LoginActivity.this, , Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         } else {
-            Toast.makeText(LoginActivity.this, "账号或密码错误请重新输入", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
 
         }
     }

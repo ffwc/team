@@ -16,6 +16,6 @@ import com.example.android.new_nds_study.R;
 public class NewsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.class_fragment, container, false);
+        return inflater.inflate(R.layout.find_news_fragment, container, false);
     }
 }
