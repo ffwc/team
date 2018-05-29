@@ -39,7 +39,6 @@ public class RetrofitManagerAPI {
 
     }
 
-
     public static void post(String url,Map<String,String> map,Observer observer){
         apiService.post(url,map)
                 .subscribeOn(Schedulers.io())

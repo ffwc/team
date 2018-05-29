@@ -1,11 +1,11 @@
-package com.example.android.new_nds_study.MVP.presnster;
+package com.example.android.new_nds_study.m_v_p.presnster;
 
 import android.text.TextUtils;
 
-import com.example.android.new_nds_study.MVP.bean.RegisterBean;
-import com.example.android.new_nds_study.MVP.modle.RegisterModule;
-import com.example.android.new_nds_study.MVP.view.RegModuleListener;
-import com.example.android.new_nds_study.MVP.view.RegisterPresenterListener;
+import com.example.android.new_nds_study.m_v_p.bean.RegisterBean;
+import com.example.android.new_nds_study.m_v_p.modle.RegisterModule;
+import com.example.android.new_nds_study.m_v_p.view.RegModuleListener;
+import com.example.android.new_nds_study.m_v_p.view.RegisterPresenterListener;
 
 /**
  * @Author J & J

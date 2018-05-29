@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.MVP.presnster.RegisterPresenter;
-import com.example.android.new_nds_study.MVP.view.RegisterPresenterListener;
+import com.example.android.new_nds_study.m_v_p.presnster.RegisterPresenter;
+import com.example.android.new_nds_study.m_v_p.view.RegisterPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
 
 import butterknife.BindView;

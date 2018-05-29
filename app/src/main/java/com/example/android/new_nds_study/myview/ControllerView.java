@@ -114,11 +114,12 @@ public class ControllerView extends RelativeLayout {
                     }
                 }
                 if (max < 5) {
-                } else if (xLength > yLength) {
+                 if (xLength > yLength) {
                     if (lastX > x) {
                         onAreaSelcet.onChangeClick(LEFT);
                     } else {
                         onAreaSelcet.onChangeClick(RIGHT);
+                    }
                     }
                 } else if (xLength <= yLength) {
                     if (lastY > y) {

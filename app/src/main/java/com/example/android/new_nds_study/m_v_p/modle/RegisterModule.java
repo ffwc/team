@@ -1,10 +1,10 @@
-package com.example.android.new_nds_study.MVP.modle;
+package com.example.android.new_nds_study.m_v_p.modle;
 
 import com.example.android.new_nds_study.network.API;
 import com.example.android.new_nds_study.network.BaseObserver;
 import com.example.android.new_nds_study.network.RetrofitManager;
-import com.example.android.new_nds_study.MVP.bean.RegisterBean;
-import com.example.android.new_nds_study.MVP.view.RegModuleListener;
+import com.example.android.new_nds_study.m_v_p.bean.RegisterBean;
+import com.example.android.new_nds_study.m_v_p.view.RegModuleListener;
 
 import java.util.HashMap;
 import java.util.Map;

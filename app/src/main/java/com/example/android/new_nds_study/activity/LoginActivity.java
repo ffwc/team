@@ -10,10 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.MVP.bean.LoginBean;
-import com.example.android.new_nds_study.MVP.presnster.LoginPresenter;
-import com.example.android.new_nds_study.MVP.view.LoginModuleListener;
-import com.example.android.new_nds_study.MVP.view.LoginPresenterListener;
+import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.presnster.LoginPresenter;
+import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
+import com.example.android.new_nds_study.m_v_p.view.LoginPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
 
 import butterknife.BindView;
@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
                 String password = loginPasswordEdittext.getText().toString().trim();
                 loginPresenter.getData(loginid, password);
 
-                break;
+            break;
 
             case R.id.login_forget_password:
 

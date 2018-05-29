@@ -1,10 +1,11 @@
-package com.example.android.new_nds_study.MVP.modle;
+package com.example.android.new_nds_study.m_v_p.modle;
 
-import com.example.android.new_nds_study.MVP.bean.TabLayoutBean;
-import com.example.android.new_nds_study.MVP.view.TabLayoutModuleListener;
+import com.example.android.new_nds_study.m_v_p.bean.TabLayoutBean;
+import com.example.android.new_nds_study.m_v_p.view.TabLayoutModuleListener;
 import com.example.android.new_nds_study.network.API;
 import com.example.android.new_nds_study.network.BaseObserver;
 import com.example.android.new_nds_study.network.RetrofitManagerAPI;
+import com.example.android.new_nds_study.util.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,9 @@ public class TabLayoutModule {
             @Override
             public void success(TabLayoutBean tabLayoutBean) {
                 if (tabLayoutModuleListener != null) {
+
                     tabLayoutModuleListener.success(tabLayoutBean);
+
                 }
             }
 

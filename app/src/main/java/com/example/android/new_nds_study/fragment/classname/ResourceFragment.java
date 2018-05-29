@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.fragment.classname;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -30,7 +31,7 @@ public class ResourceFragment extends Fragment{
     private ArrayList<Fragment> fragments;
     private PlaceFragment placeFragment;
     private YunFileFragment yunFileFragment;
-
+    int initPosition; //默认位置
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.resouce_fragment, container, false);
@@ -57,19 +58,20 @@ public class ResourceFragment extends Fragment{
     }
     private void initview(View view) {
 
-        mTabLayout =(TabLayout) view.findViewById(R.id.serource_tablayout);
-        mViewPager =(ViewPager) view.findViewById(R.id.resource_viewpager);
-
+        mTabLayout = (TabLayout) view.findViewById(R.id.serource_tablayout);
+        mViewPager = (ViewPager) view.findViewById(R.id.resource_viewpager);
+        mTabLayout.setSelectedTabIndicatorColor(Color.WHITE);
+        mTabLayout.setTabTextColors(Color.BLACK, Color.RED);
         mTabLayout.post(new Runnable() {
             @Override
             public void run() {
-                setIndicator(mTabLayout,60,60);
+                setIndicator(mTabLayout, 60, 60);
             }
         });
         mTabLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
 
                     case R.id.placeitem:
 
@@ -79,10 +81,33 @@ public class ResourceFragment extends Fragment{
                     case R.id.yunfileitem:
                         mViewPager.setCurrentItem(1, true);
                         break;
-                        default:
-                            break;
+                    default:
+                        break;
 
                 }
+            }
+        });
+
+
+        //设置tab的点击监听器
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //将默认位置选中为false
+                isSelected(mTabLayout.getTabAt(initPosition), false);
+                //选中当前位置
+                isSelected(tab, true);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                isSelected(tab, false);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                isSelected(tab, true);
             }
         });
     }
@@ -118,6 +143,19 @@ public class ResourceFragment extends Fragment{
                 child.invalidate();
             }
         }
+
+    /**
+     * 设置选中的tab是否带缩放效果
+     * @param tab
+     * @param isSelected
+     */
+    private void isSelected(TabLayout.Tab tab, boolean isSelected) {
+        View view = tab.getCustomView();
+        if (null != view) {
+            view.setScaleX(isSelected ? 1.3f : 1.0f);
+            view.setScaleY(isSelected ? 1.3f : 1.0f);
+        }
+    }
     }
 
 

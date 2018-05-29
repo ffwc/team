@@ -1,10 +1,11 @@
-package com.example.android.new_nds_study.MVP.bean;
+package com.example.android.new_nds_study.m_v_p.bean;
 
 /**
  * Created by android on 2018/4/23.
  */
 
-public class RegisterBean {
+public class LoginBean {
+
 
     /**
      * errcode : 0
@@ -55,7 +56,7 @@ public class RegisterBean {
         private String refresh_token;
         private String scope;
         private String token_type;
-        private int expires_in;
+        private String expires_in;
 
         public void setAccess_token(String access_token) {
             this.access_token = access_token;
@@ -73,7 +74,7 @@ public class RegisterBean {
             this.token_type = token_type;
         }
 
-        public void setExpires_in(int expires_in) {
+        public void setExpires_in(String expires_in) {
             this.expires_in = expires_in;
         }
 
@@ -93,7 +94,7 @@ public class RegisterBean {
             return token_type;
         }
 
-        public int getExpires_in() {
+        public String getExpires_in() {
             return expires_in;
         }
     }

@@ -1,6 +1,6 @@
-package com.example.android.new_nds_study.MVP.view;
+package com.example.android.new_nds_study.m_v_p.view;
 
-import com.example.android.new_nds_study.MVP.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
 
 /**
  * @Author J & J

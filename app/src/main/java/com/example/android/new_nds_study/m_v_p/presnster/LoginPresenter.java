@@ -1,11 +1,11 @@
-package com.example.android.new_nds_study.MVP.presnster;
+package com.example.android.new_nds_study.m_v_p.presnster;
 
 import android.text.TextUtils;
 
-import com.example.android.new_nds_study.MVP.bean.LoginBean;
-import com.example.android.new_nds_study.MVP.modle.LoginModule;
-import com.example.android.new_nds_study.MVP.view.LoginModuleListener;
-import com.example.android.new_nds_study.MVP.view.LoginPresenterListener;
+import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.modle.LoginModule;
+import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
+import com.example.android.new_nds_study.m_v_p.view.LoginPresenterListener;
 
 /**
  * @Author J & J

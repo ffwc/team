@@ -18,7 +18,8 @@ import retrofit2.http.Url;
 public interface ApiService {
     @GET
     Observable<String> get(@Url String url , @QueryMap Map<String,String> map);
-
+//    @GET("/v1/news/app/category/{uid}/newslist/limit/:limit/page/:page")
+//    Observable<MessageListBean> getDataBean(@Query ("category_id") int uid);
 
     @FormUrlEncoded
     @POST

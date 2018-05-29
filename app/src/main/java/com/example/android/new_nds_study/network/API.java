@@ -11,6 +11,7 @@ public class API {
     public static final String LOGIN = "/v1/users/login";
     public static final String REGIST = "/v1/users/add";
     public static final String zixunfenlei = "/v1/news/app/category";
-    public static final String zixunliebiao = "/v1/news/app/category/:category_id/newslist/limit/:limit/page/:page";
+    public static final String zixunliebiao = "/v1/news/app/category/2/newslist/limit/10/page/1";
+
     public static final String zixunxiangqing = "/v1/news/app/newsdetail/:news_id";
 }
