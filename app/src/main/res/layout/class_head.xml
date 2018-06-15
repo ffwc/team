@@ -8,21 +8,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/dp_10"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="1"
             android:text="课程"
             android:textColor="#FF3A414D"
-            android:textSize="30dp" />
+            android:textSize="@dimen/dp_30" />
 
         <ImageView
             android:id="@+id/add_imageview"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/icon_add_normal" />
@@ -35,11 +35,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:xTabIndicatorHeight="0dp"
-        app:xTabPadding="40px"
+        app:xTabPadding="@dimen/dp_11"
         app:xTabSelectedTextColor="@color/textview_color_yellow"
         app:xTabTextColor="@color/textview_color_black"
-        app:xTabSelectedTextSize="18dp"
-        app:xTabTextSize="14dp">
+        app:xTabSelectedTextSize="@dimen/dp_18"
+        app:xTabTextSize="@dimen/dp_14">
 
 
     </com.androidkun.xtablayout.XTabLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/serource_tablayout"
         android:layout_width="match_parent"
         app:tabIndicatorHeight="0dp"
-        android:layout_height="44dp">
+        android:layout_height="@dimen/dp_44">
         <android.support.design.widget.TabItem
             android:id="@+id/placeitem"
             android:layout_width="0dp"

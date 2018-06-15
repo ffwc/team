@@ -15,7 +15,7 @@
             android:id="@+id/iv_set_return"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10px"
+            android:layout_margin="@dimen/dp_3"
             android:src="@mipmap/icon_set_return_normal" />
 
         <TextView
@@ -23,12 +23,12 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="修改个人资料"
-            android:textSize="18dp" />
+            android:textSize="@dimen/dp_18" />
     </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="@dimen/dp_5"
         android:background="@color/line_color" />
 
     <RelativeLayout
@@ -39,9 +39,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="头像"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="@dimen/dp_44"
             app:srcCompat="@mipmap/live_above_yellow_circles" />
 
         <ImageView
@@ -69,9 +69,9 @@
             android:id="@+id/textView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="@string/name"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -88,17 +88,17 @@
 
             android:layout_alignBaseline="@+id/textView_name"
             android:layout_alignBottom="@+id/textView_name"
-            android:layout_marginEnd="22dp"
+            android:layout_marginEnd="@dimen/dp_22"
             android:layout_toStartOf="@+id/imageView3"
             android:textColor="#949FA5"
             android:text="吴洋洋"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
 
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:background="@color/line_color" />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -107,9 +107,9 @@
             android:id="@+id/textView_face"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="人脸识别设置"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/textView3"
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView_face"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="33dp"
+            android:layout_marginEnd="@dimen/dp_33"
             android:textColor="#949FA5"
             android:text="设置成功" />
 
@@ -136,9 +136,9 @@
             android:id="@+id/textView_bind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="第三方绑定"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -150,7 +150,7 @@
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:background="@color/line_color" />
 
     <RelativeLayout
@@ -163,10 +163,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_13"
             android:text="性别"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/textView5"
@@ -174,9 +174,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView4"
             android:layout_below="@+id/textView4"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="@dimen/dp_25"
             android:text="生日"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/textView6"
@@ -184,9 +184,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView5"
             android:layout_below="@+id/textView5"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="@dimen/dp_23"
             android:text="地区"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/textView7"
@@ -194,9 +194,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView6"
             android:layout_below="@+id/textView6"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="@dimen/dp_23"
             android:text="个性标签"
-            android:textSize="16dp" />
+            android:textSize="@dimen/dp_16" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -235,7 +235,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView4"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/dp_16"
             android:layout_toStartOf="@+id/imageView6"
             android:textColor="#949FA5"
             android:text="男" />
@@ -265,7 +265,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView7"
             android:layout_below="@+id/textView7"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="@dimen/dp_13"
             android:textColor="#949FA5"
             android:hint="你什么都没说~" />
     </RelativeLayout>
