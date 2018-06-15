@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<dimen name="tab_height">110.3861dp</dimen>
+	<dimen name="tab_text_size">20.2750sp</dimen>
+	<dimen name="course_unit_rcy_item_textsize">36.0444sp</dimen>
+	<dimen name="unit_creat_text_size">42.8028sp</dimen>
+	<dimen name="creat_unit_height">99.1222dp</dimen>
+	<dimen name="create_hint_edit">42.8028sp</dimen>
+	<dimen name="create_edit_text_height">63.0778dp</dimen>
+	<dimen name="creat_unit_text_back_height">47.3083dp</dimen>
+	<dimen name="creat_unit_text_back_weight">45.0556dp</dimen>
+	<dimen name="creat_unit_magin_top">13.5167dp</dimen>
+	<dimen name="meeting_controller_top">90.1111dp</dimen>
+	<dimen name="meeting_controller_top_height">72.0889dp</dimen>
+	<dimen name="meeting_controller_top_width">90.1111dp</dimen>
+	<dimen name="metting_bar_text">27.0333sp</dimen>
 	<dimen name="common_margin">@dimen/dp_15</dimen>
 	<dimen name="dp_m_60">-135.1667dp</dimen>
 	<dimen name="dp_m_30">-67.5833dp</dimen>

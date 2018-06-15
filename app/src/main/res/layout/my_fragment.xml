@@ -11,10 +11,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13px"
+            android:layout_marginTop="@dimen/dp_4"
             android:gravity="center_horizontal"
             android:text="@string/my"
-            android:textSize="18dp" />
+            android:textSize="@dimen/dp_18" />
 
         <TextView
             android:id="@+id/textview_set"
@@ -22,29 +22,29 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_margin="10sp"
+            android:layout_margin="@dimen/sp_10"
             android:gravity="center"
             android:text="@string/set" />
     </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="@dimen/dp_5"
         android:background="@color/line_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22px"
+        android:layout_marginTop="@dimen/dp_7"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
             android:layout_gravity="center"
-            android:layout_marginLeft="11px"
-            android:layout_marginRight="25px"
-            android:layout_marginTop="11px"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_4"
             android:src="@mipmap/live_above_yellow_circles" />
 
         <LinearLayout
@@ -55,21 +55,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="11px"
+                android:layout_marginLeft="@dimen/dp_4"
                 android:text="昵称"
                 android:textColor="#3C4B56"
-                android:textSize="18dp" />
+                android:textSize="@dimen/dp_18" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="11px"
+                android:layout_margin="@dimen/dp_4"
                 android:hint="账号ID" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="11px"
+                android:layout_margin="@dimen/dp_4"
                 android:hint="你什么都没说~" />
 
         </LinearLayout>
@@ -79,7 +79,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26px"
+        android:layout_marginTop="@dimen/dp_9"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -149,18 +149,18 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:background="@color/line_color" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="@dimen/dp_100">
 
     </android.support.v7.widget.RecyclerView>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:background="@color/line_color" />
 
     <RelativeLayout
@@ -170,9 +170,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="我的机构"
-            android:textSize="19sp" />
+            android:textSize="@dimen/sp_19" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -191,16 +191,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:text="我的好友"
-            android:textSize="19sp" />
+            android:textSize="@dimen/sp_19" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:layout_marginRight="11px"
+            android:layout_marginRight="@dimen/dp_4"
             android:src="@mipmap/mine_icon_next" />
 
     </RelativeLayout>

@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp_10"
         android:orientation="horizontal">
 
         <ImageView
@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="开放课程"
             android:textColor="#FF292A2D"
-            android:textSize="18sp" />
+            android:textSize="@dimen/sp_18" />
     </LinearLayout>
 
     <com.androidkun.xtablayout.XTabLayout
@@ -34,15 +34,15 @@
         app:xTabDividerHeight="0dp"
         app:xTabTextColor="#FF7C7C7C"
         app:xTabSelectedTextColor="#FFF9BA00"
-        app:xTabPadding="5sp"
-        app:xTabTextSize="16sp"
-        app:xTabSelectedTextSize="16sp">
+        app:xTabPadding="@dimen/dp_5"
+        app:xTabTextSize="@dimen/sp_16"
+        app:xTabSelectedTextSize="@dimen/sp_16">
 
     </com.androidkun.xtablayout.XTabLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="@dimen/dp_1"
         android:background="#FFEDEDF0" />
 
     <android.support.v4.view.ViewPager
