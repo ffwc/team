@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.m_v_p.bean.MessageListBean;
-import com.example.android.new_nds_study.util.LogUtil;
+import com.example.android.new_nds_study.m_v_p.bean.ClassListBean;
 
 import java.util.List;
 
@@ -19,37 +18,32 @@ import java.util.List;
  * @Time 2018/5/22.
  */
 
-public class MyRecyAdapter extends RecyclerView.Adapter<MyRecyAdapter.MyViewHolder> {
-    private static final String TAG = "MyRecyAdapter";
+public class ClassListRecyAdapter extends RecyclerView.Adapter<ClassListRecyAdapter.MyViewHolder> {
+    private static final String TAG = "ClassListRecyAdapter";
     private View view;
     private Context context;
-    private List<MessageListBean.DataBean.ListBean> list;
 
-    public MyRecyAdapter(Context context, List<MessageListBean.DataBean.ListBean> list) {
+    private List<ClassListBean.DataBean.ListBean> list;
+
+    public ClassListRecyAdapter(Context context, List<ClassListBean.DataBean.ListBean> list) {
         this.context = context;
         this.list = list;
-       // LogUtil.i(TAG, "listbean的长度" + list.size());
     }
+
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //LogUtil.i(TAG, "开始加载布局");
-
-            view = LayoutInflater.from(context).inflate(R.layout.find_recy_item_oneimage, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.class_list_item, parent, false);
             return new MyViewHolder(view);
-
-
 
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //LogUtil.i("开始赋值", "");
-        //LogUtil.i(TAG, list.get(position).getPictures().get(position).toString());
-        List<?> pictures = list.get(position).getPictures();
-        LogUtil.i(TAG+"pictures的长度",pictures.size()+"");
+
        // Glide.with(context).load(list.get(position).getPictures().get(position).toString()).into(holder.iv_item);
-        holder.tv_item.setText(list.get(position).getTitle());
+        holder.tv_text.setText(list.get(position).getTitle());
 
     }
 
@@ -71,12 +65,16 @@ public class MyRecyAdapter extends RecyclerView.Adapter<MyRecyAdapter.MyViewHold
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView iv_item;
-        TextView tv_item;
+        TextView tv_text;
+        TextView tv_data;
+        TextView tv_dress;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            iv_item = itemView.findViewById(R.id.recy_image);
-            tv_item = itemView.findViewById(R.id.recy_text);
+            iv_item = itemView.findViewById(R.id.classlist_image);
+            tv_text = itemView.findViewById(R.id.classlist_text);
+            tv_data = itemView.findViewById(R.id.classlist_data);
+            tv_dress = itemView.findViewById(R.id.classlist_dress);
         }
     }
 }

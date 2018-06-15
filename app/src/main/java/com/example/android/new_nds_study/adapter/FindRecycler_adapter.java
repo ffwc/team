@@ -6,6 +6,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.MessageListBean;
-import com.example.android.new_nds_study.util.LogUtil;
+import com.example.android.new_nds_study.util.GlideRoundTransform;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ import java.util.List;
  * @Author J & J
  * @Time 2018/5/28.
  */
-public class Recycler_adapter extends RecyclerView.Adapter {
-    private static final String TAG = "Recycler_adapter";
+public class FindRecycler_adapter extends RecyclerView.Adapter {
+    private static final String TAG = "FindRecycler_adapter";
     //定义三种常量  表示三种条目类型
     public static final int TYPE_PULL_IMAGE = 0;
     public static final int TYPE_RIGHT_IMAGE = 1;
@@ -31,7 +32,7 @@ public class Recycler_adapter extends RecyclerView.Adapter {
 
     private List<MessageListBean.DataBean.ListBean> list;
 
-    public Recycler_adapter(Context context, List<MessageListBean.DataBean.ListBean> list) {
+    public FindRecycler_adapter(Context context, List<MessageListBean.DataBean.ListBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -64,14 +65,10 @@ public class Recycler_adapter extends RecyclerView.Adapter {
         for (int j = 0, len = strs.length; j < len; j++) {
             System.out.println(strs[j].toString());
         }
-        // String s = pictures.get(i).toString();
-        LogUtil.i(TAG + "图片的字符串是", toString);
         int size = pictures.size();
         if (size == 0) {
-            LogUtil.i(TAG, size + "");
-
             PullimageHolder pullimageHolder = (PullimageHolder) viewHolder;
-            pullimageHolder.no_item_text.setText(list.get(i).getTitle());
+            pullimageHolder.no_item_text.setText("11111" + list.get(i).getTitle());
             ((PullimageHolder) viewHolder).cardview1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,32 +78,27 @@ public class Recycler_adapter extends RecyclerView.Adapter {
             });
 
         } else if (size == 1) {
-            LogUtil.i(TAG, size + "");
             RightimageHolder rightimageHolder = (RightimageHolder) viewHolder;
-            rightimageHolder.one_item_text.setText(list.get(i).getTitle());
+            rightimageHolder.one_item_text.setText("2222222" + list.get(i).getTitle());
             for (int j = 0, len = strs.length; j < len; j++) {
                 System.out.println(strs[j].toString());
-                Glide.with(context).load(strs[j].toString()).into(rightimageHolder.one_item_image);
+                Glide.with(context).load(strs[j].toString()).centerCrop().transform(new GlideRoundTransform(context, 5)).into(rightimageHolder.one_item_image);
 
             }
             ((RightimageHolder) viewHolder).cardview2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "点击了第" + i + "条", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "点击了第" + i + 1 + "条", Toast.LENGTH_LONG).show();
                 }
             });
 
         } else {
-            String url = "[http://ossstatic.ndmooc.com/mpoc/shake/upload/E-689958AF-33C0-4E0C-875D-413785B378E5.jpg]";
-
-            LogUtil.i(TAG, size + "");
             ThreeimageHolder threeimageHolder = (ThreeimageHolder) viewHolder;
-            threeimageHolder.three_item_text.setText(list.get(i).getTitle());
-            for (int k = 0, len = strs.length; k < len; k++) {
-                System.out.println(strs[k].toString());
-                Glide.with(context).load(url).into(threeimageHolder.three_item_imageone);
-                Glide.with(context).load(url).into(threeimageHolder.three_item_imagetwo);
-                Glide.with(context).load(url).into(threeimageHolder.three_item_imagethree);
+            threeimageHolder.three_item_text.setText("3333" + list.get(i).getTitle());
+            for (int j = 0, len = strs.length; j < len; j++) {
+                System.out.println(strs[j].toString());
+                // Glide.with(context).load(strs[j].toString()).centerCrop().transform(new GlideRoundTransform(context, 5)).into(threeimageHolder.);
+                //threeimageHolder.gridView.setAdapter(new);
 
             }
             ((ThreeimageHolder) viewHolder).cardview3.setOnClickListener(new View.OnClickListener() {
@@ -175,17 +167,21 @@ public class Recycler_adapter extends RecyclerView.Adapter {
     private class ThreeimageHolder extends RecyclerView.ViewHolder {
         private final CardView cardview3;
         private final TextView three_item_text;
-        private final ImageView three_item_imageone;
+        private final GridView gridView;
+        /*rivate final ImageView three_item_imageone;
         private final ImageView three_item_imagetwo;
-        private final ImageView three_item_imagethree;
+        private final ImageView three_item_imagethree;*/
 
         public ThreeimageHolder(View itemView) {
             super(itemView);
             cardview3 = itemView.findViewById(R.id.cardview);
             three_item_text = itemView.findViewById(R.id.recy_text);
-            three_item_imageone = itemView.findViewById(R.id.recy_imageone);
+            gridView = itemView.findViewById(R.id.gridview);
+
+
+            /*three_item_imageone = itemView.findViewById(R.id.recy_imageone);
             three_item_imagetwo = itemView.findViewById(R.id.recy_imagetwo);
-            three_item_imagethree = itemView.findViewById(R.id.recy_imagethree);
+            three_item_imagethree = itemView.findViewById(R.id.recy_imagethree);*/
         }
     }
 

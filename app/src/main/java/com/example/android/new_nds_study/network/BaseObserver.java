@@ -26,15 +26,12 @@ public abstract class BaseObserver<T> implements Observer<String> {
 
     @Override
     public void onNext(String s) {
-
-
-
         try {
             Type genType = getClass().getGenericSuperclass();
             Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
             Class entityClass = (Class) params[0];
             Gson gson = new Gson();
-            T t = (T)gson.fromJson(s,entityClass);
+             T t = (T)gson.fromJson(s,entityClass);
             success(t);
 
         } catch (Exception e) {

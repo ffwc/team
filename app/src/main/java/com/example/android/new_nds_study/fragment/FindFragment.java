@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.TabLayoutBean;
-import com.example.android.new_nds_study.m_v_p.presnster.MessageListPreserent;
 import com.example.android.new_nds_study.m_v_p.presnster.TabLayoutPresenter;
 import com.example.android.new_nds_study.m_v_p.view.TabLayoutPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;

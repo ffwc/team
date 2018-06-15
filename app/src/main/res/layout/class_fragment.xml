@@ -3,41 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="课程"
-        android:textColor="#FF3A414D"
-        android:layout_marginLeft="10dp"
-        android:textSize="30dp"
-        />
-    <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+    <include
+        android:id="@+id/include_head"
+        layout="@layout/class_head">
 
+    </include>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="正在进行"
-        android:textColor="#FFF9BA00"
-        android:textSize="18dp"
-        android:layout_marginLeft="10px"
-        android:layout_marginRight="40px"
-        android:layout_marginTop="10px"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的课程"
-        android:textColor="#FF333333"
-        android:textSize="14dp"
-        android:layout_marginTop="10px"
-        />
-    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="44dp">
+        <android.support.design.widget.TabItem
+            android:id="@+id/classing_tabitem"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="正在进行"/>
+        <android.support.design.widget.TabItem
+            android:id="@+id/myclass_tabitem"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="我的课程"/>
+
+    </android.support.design.widget.TabLayout>
     <android.support.v4.view.ViewPager
+        android:id="@+id/class_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

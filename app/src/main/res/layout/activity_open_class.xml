@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_openclass_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_set_return_normal" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开放课程"
+            android:textColor="#FF292A2D"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/openclass_xtab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:xTabDividerHeight="0dp"
+        app:xTabTextColor="#FF7C7C7C"
+        app:xTabSelectedTextColor="#FFF9BA00"
+        app:xTabPadding="5sp"
+        app:xTabTextSize="16sp"
+        app:xTabSelectedTextSize="16sp">
+
+    </com.androidkun.xtablayout.XTabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#FFEDEDF0" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/openclass_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

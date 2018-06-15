@@ -1,27 +1,21 @@
 package com.example.android.new_nds_study.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.adapter.MyRecyAdapter;
-import com.example.android.new_nds_study.adapter.Recycler_adapter;
+import com.example.android.new_nds_study.adapter.FindRecycler_adapter;
 import com.example.android.new_nds_study.m_v_p.bean.MessageListBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MessageListPreserent;
 import com.example.android.new_nds_study.m_v_p.view.MessageListModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.MessageListPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
-import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.List;
@@ -42,7 +36,7 @@ public class NewFragment extends Fragment implements MessageListPresenterListene
     private View view;
     private int name_id;
     int page = 1;
-    private Recycler_adapter recycler_adapter;
+    private FindRecycler_adapter findRecycler_adapter;
 
     @Nullable
     @Override
@@ -95,8 +89,8 @@ public class NewFragment extends Fragment implements MessageListPresenterListene
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         findrecyclerview.setLayoutManager(manager);
 
-        recycler_adapter = new Recycler_adapter(getActivity(), list);
-        findrecyclerview.setAdapter(recycler_adapter);
+        findRecycler_adapter = new FindRecycler_adapter(getActivity(), list);
+        findrecyclerview.setAdapter(findRecycler_adapter);
         //设置允许上拉下拉
         findrecyclerview.setPullRefreshEnabled(true);
         findrecyclerview.setLoadingMoreEnabled(true);
@@ -109,10 +103,10 @@ public class NewFragment extends Fragment implements MessageListPresenterListene
                     @Override
                     public void run() {
                         list.clear();
-                        Toast.makeText(getActivity(), "刷新page页码是：" + page + "", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getActivity(), "刷新page页码是：" + page + "", Toast.LENGTH_LONG).show();
                         LogUtil.i(TAG, "刷新page页码是：" + page);
                         messageListPreserent.getData(name_id, page);
-                        recycler_adapter.notifyDataSetChanged();
+                        findRecycler_adapter.notifyDataSetChanged();
                         findrecyclerview.refreshComplete();
 
                     }
@@ -121,14 +115,14 @@ public class NewFragment extends Fragment implements MessageListPresenterListene
 
             @Override
             public void onLoadMore() {
-                page++;
+
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getActivity(), "加载page页码是：" + page + "", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(), "加载page页码是：" + page + "", Toast.LENGTH_LONG).show();
                         LogUtil.i(TAG, "加载page页码是：" + page);
                         messageListPreserent.getData(name_id, page);
-                        recycler_adapter.notifyDataSetChanged();
+                        findRecycler_adapter.notifyDataSetChanged();
                         findrecyclerview.loadMoreComplete();
                     }
                 }, 3000);
