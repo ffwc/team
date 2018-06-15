@@ -24,33 +24,33 @@
                 android:id="@+id/iv_quit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/dp_10"
                 android:src="@mipmap/icon_quit_normal" />
 
             <TextView
                 android:id="@+id/classname_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/dp_10"
                 android:gravity="center"
                 android:text="课程名称"
-                android:textSize="25dp" />
+                android:textSize="@dimen/dp_25" />
 
             <TextView
                 android:id="@+id/tv_countdown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/dp_10"
                 android:text="45:00"
                 android:textColor="@color/colorAccent"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp_5"
             android:background="#FfFfFF"
             android:orientation="horizontal">
 

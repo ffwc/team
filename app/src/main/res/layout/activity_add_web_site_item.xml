@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/web_site_icon"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="@dimen/dp_26"
+                android:layout_height="@dimen/dp_26"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:src="@mipmap/ic_launcher"/>
@@ -31,8 +31,8 @@
                 android:id="@+id/web_site_url"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="44dp"
-                android:textSize="16dp"
+                android:layout_marginLeft="@dimen/dp_44"
+                android:textSize="@dimen/dp_16"
                 android:layout_centerVertical="true"
                 android:textColor="#3A414D"
                 android:singleLine="true"
@@ -42,9 +42,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="@dimen/dp_1"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
                 android:background="#F7F7F7"
                 android:layout_alignParentBottom="true"/>
 
