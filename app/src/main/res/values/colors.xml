@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_gray">#B5B5B5</color>
     <color name="color_yellow">#FFD700</color>
+    <color name="color_white">#EDEDF0</color>
     <color name="register_account_text_click_color">#F9BA00</color>
     <color name="color_blue">#63B8FF</color>
     <color name="line_color">#F0F0F0</color>

@@ -2,34 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <include
         android:id="@+id/include_head"
         layout="@layout/class_head">
-
     </include>
-
-    <android.support.design.widget.TabLayout
+<!--    <android.support.design.widget.TabLayout
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:visibility="gone"
+        app:tabIndicatorColor="@null"
+        app:tabTextColor="@color/circle_black"
+        app:tabSelectedTextColor="@color/textview_color_yellow"
         android:layout_height="44dp">
         <android.support.design.widget.TabItem
-            android:id="@+id/classing_tabitem"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="正在进行"/>
-        <android.support.design.widget.TabItem
-            android:id="@+id/myclass_tabitem"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="我的课程"/>
-
-    </android.support.design.widget.TabLayout>
+        android:id="@+id/classing_tabitem"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:tabTextAppearance="@style/TabLayoutTextSizeStyle"    
+        android:text="正在进行"/>
+        <android.support.design.widget.TabItem 
+        android:id="@+id/myclass_tabitem" 
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="我的课程"/>
+    </android.support.design.widget.TabLayout>-->
     <android.support.v4.view.ViewPager
         android:id="@+id/class_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </android.support.v4.view.ViewPager>
 </LinearLayout>

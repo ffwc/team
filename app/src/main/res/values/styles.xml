@@ -14,5 +14,7 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
-
+    <style name="TabLayoutTextSizeStyle">
+        <item name="android:textSize">@dimen/dp_18</item>
+    </style>
 </resources>
