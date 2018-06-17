@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="1"
@@ -26,22 +26,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/icon_add_normal" />
-
     </LinearLayout>
-
-
     <com.androidkun.xtablayout.XTabLayout
         android:id="@+id/head_tablayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:xTabIndicatorHeight="0dp"
-        app:xTabPadding="@dimen/dp_11"
         app:xTabSelectedTextColor="@color/textview_color_yellow"
         app:xTabTextColor="@color/textview_color_black"
         app:xTabSelectedTextSize="@dimen/dp_18"
         app:xTabTextSize="@dimen/dp_14">
-
-
     </com.androidkun.xtablayout.XTabLayout>
-
 </LinearLayout>
