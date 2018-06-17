@@ -1,7 +1,9 @@
 package com.example.android.new_nds_study.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.android.new_nds_study.R;
 
 public class EachClassActivity extends AppCompatActivity {
 
