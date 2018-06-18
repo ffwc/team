@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/my_fragment_me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
@@ -33,19 +35,23 @@
         android:background="@color/line_color" />
 
     <LinearLayout
+        android:id="@+id/my_fragment_loginOruser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_7"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_fragment_icon"
             android:layout_width="@dimen/dp_70"
             android:layout_height="@dimen/dp_70"
             android:layout_gravity="center"
+            app:roundAsCircle="true"
+
             android:layout_marginLeft="@dimen/dp_4"
             android:layout_marginRight="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_4"
-            android:src="@mipmap/live_above_yellow_circles" />
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -53,6 +59,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/my_fragment_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_4"
@@ -61,12 +68,14 @@
                 android:textSize="@dimen/dp_18" />
 
             <TextView
+                android:id="@+id/my_fragment_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_4"
                 android:hint="账号ID" />
 
             <TextView
+                android:id="@+id/my_fragment_signature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_4"
@@ -153,6 +162,7 @@
         android:background="@color/line_color" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_fragment_record"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_100">
 
@@ -164,6 +174,7 @@
         android:background="@color/line_color" />
 
     <RelativeLayout
+        android:id="@+id/my_fragment_meconstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -185,6 +196,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/my_fragment_mefriend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
