@@ -36,13 +36,13 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
     private LinearLayoutManager manager;
     private List<ClassListBean.DataBean.ListBean> list;
     private TextView moretext;
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.classingfragment, container, false);
         LogUtil.i(TAG,"+++++++开始请求数据");
         classListPresenter = new ClassListPresenter(this);
-        classListPresenter.getData();
+        /*classListPresenter.getData();*/
 
         return view;
     }

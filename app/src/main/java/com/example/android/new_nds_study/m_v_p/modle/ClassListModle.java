@@ -19,9 +19,8 @@ public class ClassListModle {
     public void getData(final ClassModleListener classModleListener) {
         final Map<String, String> map = new HashMap<>();
         String zixunliebiao = "/v1/courses/limit/20/page/1";
+
         RetrofitManagerAPI.get(API.classlist, map, new BaseObserver<ClassListBean>() {
-
-
             @Override
             public void success(ClassListBean classListBean) {
                 if (classModleListener != null) {

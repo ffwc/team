@@ -39,7 +39,6 @@
                 android:ellipsize="end"
                 android:text="https://www.baidu.com"/>
             
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
@@ -47,9 +46,7 @@
                 android:layout_marginRight="@dimen/dp_10"
                 android:background="#F7F7F7"
                 android:layout_alignParentBottom="true"/>
-
         </RelativeLayout>
-
         <include layout="@layout/item_delete_hide_layout"/>
 
     </LinearLayout>

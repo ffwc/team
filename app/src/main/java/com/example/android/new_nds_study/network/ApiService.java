@@ -25,6 +25,6 @@ public interface ApiService {
     @POST
     Observable<String> post(@Url String url, @FieldMap Map<String,String> map);
 
-
-
+    @GET("/v1/courses/mine/limit/20/page/1")
+    Observable<MyCoursesBean> getMyCoures(@Query("token") String token);
 }

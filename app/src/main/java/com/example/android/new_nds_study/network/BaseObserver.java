@@ -1,5 +1,7 @@
 package com.example.android.new_nds_study.network;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import java.lang.reflect.ParameterizedType;
@@ -31,6 +33,7 @@ public abstract class BaseObserver<T> implements Observer<String> {
             Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
             Class entityClass = (Class) params[0];
             Gson gson = new Gson();
+            Log.e("http数据", "onNext: "+s);
              T t = (T)gson.fromJson(s,entityClass);
             success(t);
 
@@ -38,10 +41,6 @@ public abstract class BaseObserver<T> implements Observer<String> {
             failure(1001);
             e.printStackTrace();
         }
-
-
-
-
     }
 
     @Override

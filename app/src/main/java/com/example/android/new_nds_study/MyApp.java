@@ -25,8 +25,8 @@ public class MyApp extends Application {
         }
         LeakCanary.install(this);*/
         // Normal app init code...
-
-
+        //初始化图片框架
+        Fresco.initialize(this);
     }
 
 }

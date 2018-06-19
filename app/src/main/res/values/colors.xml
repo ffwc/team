@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="color_jet">#3A414D</color>
+    <color name="color_light_gray">#9A9A9A</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_gray">#B5B5B5</color>
     <color name="color_yellow">#FFD700</color>
@@ -14,4 +16,5 @@
     <color name="circle_black">#000000</color>
     <color name="textview_color_yellow">#F9BA00 </color>
     <color name="textview_color_black">#333333 </color>
+    <color name="tlak_gray">#949FA5</color>
 </resources>

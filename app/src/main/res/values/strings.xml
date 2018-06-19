@@ -27,5 +27,7 @@
     <string name="my">我的</string>
     <string name="this_classname">本堂课的名称</string>
     <string name="title_eachclass">HTML+CSS基础课程</string>
-
+    <string name="tlakitem_delete" >删除</string>
+    <string name="tlakstr_zan">赞</string>
+    <string name="tlakedit_string">我也有话说</string>
 </resources>
