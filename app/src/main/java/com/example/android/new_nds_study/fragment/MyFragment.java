@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -11,22 +12,24 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.activity.OrderActivity;
 import com.example.android.new_nds_study.activity.SetActivity;
+import com.example.android.new_nds_study.m_v_p.bean.OpenUser;
+import com.example.android.new_nds_study.m_v_p.presnster.MyFragmentPresenter;
+import com.example.android.new_nds_study.m_v_p.view.MyFragmentPresenterListener;
 import com.facebook.drawee.view.SimpleDraweeView;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by android on 2018/4/17.
  */
 
-public class MyFragment extends Fragment implements View.OnClickListener {
+public class MyFragment extends Fragment implements View.OnClickListener,MyFragmentPresenterListener {
 
     private View view;
-    private TextView textviewset;
-    private LinearLayout layoutorder;
+
     /**
      * my
      */
@@ -55,14 +58,21 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private RecyclerView mMyFragmentRecord;
     private RelativeLayout mMyFragmentMeconstruction;
     private RelativeLayout mMyFragmentMefriend;
+    private String token;
+    private MyFragmentPresenter myFragmentPresenter;
+    private String uid;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        token = MyApp.sp.getString("token", "");
+        uid = MyApp.sp.getString("uid", "");
+        myFragmentPresenter = new MyFragmentPresenter(this);
         view = inflater.inflate(R.layout.my_fragment, container, false);
-        ButterKnife.bind(this, view);
 
-        inttlistener(view);
         initView(view);
+      /*  inttlistener(view);*/
+
         return view;
     }
 
@@ -70,22 +80,22 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 
 
 
-    private void inttlistener(View view) {
-        textviewset.setOnClickListener(new View.OnClickListener() {
+    /*private void inttlistener(View view) {
+        mTextviewSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SetActivity.class);
                 startActivity(intent);
             }
         });
-        layoutorder.setOnClickListener(new View.OnClickListener() {
+        mLayoutOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), OrderActivity.class);
                 startActivity(intent);
             }
         });
-    }
+    }*/
 
     private void initView(View view) {
         mMyFragmentMe = (TextView) view.findViewById(R.id.my_fragment_me);
@@ -93,13 +103,13 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         mTextviewSet = (TextView) view.findViewById(R.id.textview_set);
         mTextviewSet.setOnClickListener(this);
         mMyFragmentIcon = (SimpleDraweeView) view.findViewById(R.id.my_fragment_icon);
-        mMyFragmentIcon.setOnClickListener(this);
+
         mMyFragmentUsername = (TextView) view.findViewById(R.id.my_fragment_username);
-        mMyFragmentUsername.setOnClickListener(this);
+
         mMyFragmentUser = (TextView) view.findViewById(R.id.my_fragment_user);
-        mMyFragmentUser.setOnClickListener(this);
+
         mMyFragmentSignature = (TextView) view.findViewById(R.id.my_fragment_signature);
-        mMyFragmentSignature.setOnClickListener(this);
+
         mMyFragmentLoginOruser = (LinearLayout) view.findViewById(R.id.my_fragment_loginOruser);
         mMyFragmentLoginOruser.setOnClickListener(this);
         mLayoutMessage = (LinearLayout) view.findViewById(R.id.layout_message);
@@ -124,6 +134,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             case R.id.my_fragment_me:
                 break;
             case R.id.textview_set:
+
                 break;
             case R.id.my_fragment_icon:
                 break;
@@ -134,12 +145,23 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             case R.id.my_fragment_signature:
                 break;
             case R.id.my_fragment_loginOruser:
+                String mUsername = mMyFragmentUsername.getText().toString();
+                if (mUsername.equals("登录账户")){
+                    Intent loginActivity = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(loginActivity);
+                }else{
+                    Intent setActivity = new Intent(getActivity(), SetActivity.class);
+                    startActivity(setActivity);
+                }
+
                 break;
             case R.id.layout_message:
                 break;
             case R.id.layout_plant:
                 break;
             case R.id.layout_order:
+                Intent orderActivity = new Intent(getActivity(), OrderActivity.class);
+                startActivity(orderActivity);
                 break;
             case R.id.my_fragment_record:
                 break;
@@ -148,5 +170,41 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             case R.id.my_fragment_mefriend:
                 break;
         }
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        myFragmentPresenter.getData(uid);
+
+
+
+    }
+
+    @Override
+    public void onSuccess(OpenUser openUser) {
+
+        if (openUser!=null) {
+            OpenUser.DataBean.ListBean listBean = openUser.getData().getList().get(0);
+            mMyFragmentIcon.setImageURI(Uri.parse(listBean.getAvatar()));
+            mMyFragmentUsername.setText(listBean.getNickname());
+            mMyFragmentUser.setText(listBean.getUsername());
+            String signature = listBean.getSignature();
+            if (signature.equals("") || signature == null) {
+                mMyFragmentSignature.setText("你什么也没说~");
+            } else {
+                mMyFragmentSignature.setText(signature);
+            }
+
+
+
+        }
+    }
+
+    @Override
+    public void onDefeated() {
+
     }
 }

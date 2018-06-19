@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.m_v_p.view;
 
 import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 
 /**
  * @Author J & J
@@ -9,4 +10,5 @@ import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
 
 public interface LoginModuleListener {
     void success(LoginBean loginBean);
+    void uSuccess(UserinfoBean userinfoBean);
 }

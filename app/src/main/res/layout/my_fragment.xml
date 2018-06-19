@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,6 +38,7 @@
     <LinearLayout
         android:id="@+id/my_fragment_loginOruser"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_7"
         android:orientation="horizontal">
@@ -44,10 +46,13 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/my_fragment_icon"
             android:layout_width="@dimen/dp_70"
+            fresco:placeholderImage="@mipmap/defaultuser"
             android:layout_height="@dimen/dp_70"
             android:layout_gravity="center"
-            app:roundAsCircle="true"
 
+            fresco:roundAsCircle="true"
+            fresco:placeholderImageScaleType="fitXY"
+            fresco:actualImageScaleType="fitXY"
             android:layout_marginLeft="@dimen/dp_4"
             android:layout_marginRight="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_4"
@@ -63,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_4"
-                android:text="昵称"
+                android:text="登录账户"
                 android:textColor="#3C4B56"
                 android:textSize="@dimen/dp_18" />
 
@@ -72,14 +77,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_4"
-                android:hint="账号ID" />
+                android:hint="" />
 
             <TextView
                 android:id="@+id/my_fragment_signature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_4"
-                android:hint="你什么都没说~" />
+                android:hint="" />
 
         </LinearLayout>
 

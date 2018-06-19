@@ -74,6 +74,7 @@ public class EementClassFragment extends Fragment implements View.OnClickListene
             case R.id.item_each_class_study_title:
 
 
+
                 break;
             case R.id.item_each_class_study_type:
                 break;

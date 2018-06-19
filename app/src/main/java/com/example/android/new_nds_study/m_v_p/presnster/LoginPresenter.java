@@ -3,6 +3,7 @@ package com.example.android.new_nds_study.m_v_p.presnster;
 import android.text.TextUtils;
 
 import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.modle.LoginModule;
 import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.LoginPresenterListener;
@@ -43,11 +44,37 @@ public class LoginPresenter {
             public void success(LoginBean loginBean) {
                 if(loginPresenterListener!=null){
 
-                    loginPresenterListener.success(loginBean.getErrmsg());
+                    loginPresenterListener.onSuccess(loginBean);
 
                 }
             }
+
+            @Override
+            public void uSuccess(UserinfoBean userinfoBean) {
+
+            }
+
+
         });
+    }
+    public void getInfo(String token){
+        loginModule.getInfo(token, new LoginModuleListener() {
+            @Override
+            public void success(LoginBean loginBean) {
+
+            }
+
+            @Override
+            public void uSuccess(UserinfoBean userinfoBean) {
+                if (loginPresenterListener!=null)
+                    loginPresenterListener.onUsuccess(userinfoBean);
+            }
+
+
+        });
+
+
+
     }
     //防止内存泄露
     public void detach(){

@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.presnster.LoginPresenter;
 import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.LoginPresenterListener;
@@ -83,9 +85,18 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
         LogUtil.i(TAG,"-----------------");
         LoginBean.DataEntity data = loginBean.getData();
         String access_token = data.getAccess_token();
+
         LogUtil.i(TAG + "access_token", access_token);
         System.out.print(access_token);
     }
+
+    @Override
+    public void uSuccess(UserinfoBean userinfoBean) {
+
+    }
+
+
+
     @Override
     public void success(String s) {
         Log.i(TAG, s.toString());
@@ -97,6 +108,33 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
         } else {
             Toast.makeText(LoginActivity.this, s, Toast.LENGTH_SHORT).show();
 
+        }
+    }
+
+    @Override
+    public void onUsuccess(UserinfoBean userinfoBean) {
+        if (userinfoBean!=null) {
+            String uid = userinfoBean.getUid();
+            MyApp.edit.putString("uid", uid).commit();
+            Log.e(TAG, "onUsuccess: "+uid );
+            finish();
+
+        }
+
+    }
+
+
+
+    @Override
+    public void onSuccess(LoginBean loginBean) {
+        LoginBean.DataEntity data = loginBean.getData();
+        String errmsg = loginBean.getErrmsg();
+        if (("OK").equals(errmsg)){
+            String access_token = data.getAccess_token();
+            MyApp.edit.putString("token",access_token).commit();
+            Log.e(TAG, "onSuccess: "+ access_token);
+
+            loginPresenter.getInfo(access_token);
         }
     }
 
