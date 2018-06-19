@@ -14,4 +14,5 @@
     <color name="circle_black">#000000</color>
     <color name="textview_color_yellow">#F9BA00 </color>
     <color name="textview_color_black">#333333 </color>
+    <color name="tlak_gray">#949FA5</color>
 </resources>
