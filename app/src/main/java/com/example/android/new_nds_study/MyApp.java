@@ -17,6 +17,7 @@ public class MyApp extends Application {
         super.onCreate();
         sp = getSharedPreferences("user", MODE_PRIVATE);
         edit = sp.edit();
+        Fresco.initialize(this);
     /*    if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.

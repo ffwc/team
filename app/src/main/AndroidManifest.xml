@@ -29,7 +29,11 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.SetActivity" />
         <activity android:name=".activity.OrderActivity" />
-        <activity android:name=".activity.OpenClassActivity"/>
+        <activity android:name=".activity.OpenClassActivity" />
+        <activity android:name=".activity.EachClassActivity" />
+        <activity android:name=".activity.TestActivity">
+
+        </activity>
     </application>
 
 </manifest>
