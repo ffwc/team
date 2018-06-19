@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/myclassfragment_iv"
+        android:layout_width="@dimen/dp_138"
+        android:layout_height="@dimen/dp_78"
+        app:placeholderImage="@drawable/ic_launcher_background"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_20"
+        app:roundedCornerRadius="@dimen/dp_15"
+        
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_20"
+        >
+        <TextView
+        android:id="@+id/myclassfragment_course" 
+        android:layout_width="@dimen/dp_207"
+        android:layout_height="@dimen/dp_22"
+        android:text="HTML+CSS基础课程"
+        android:textSize="@dimen/dp_16"
+        android:textColor="@color/color_jet"
+         />
+        <TextView
+        android:layout_marginTop="@dimen/dp_6"
+        android:id="@+id/myclassfragment_college"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="@dimen/dp_20"
+        android:text="百度技术学院"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/color_light_gray"
+        />
+    </LinearLayout>
+</LinearLayout>

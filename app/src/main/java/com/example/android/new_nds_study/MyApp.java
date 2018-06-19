@@ -3,6 +3,8 @@ package com.example.android.new_nds_study;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * Created by android on 2018/4/19.
  */
@@ -22,8 +24,8 @@ public class MyApp extends Application {
         }
         LeakCanary.install(this);*/
         // Normal app init code...
-
-
+        //初始化图片框架
+        Fresco.initialize(this);
     }
 
 }
