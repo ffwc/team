@@ -16,8 +16,6 @@ import com.example.android.new_nds_study.activity.OrderActivity;
 import com.example.android.new_nds_study.activity.SetActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by android on 2018/4/17.
  */
@@ -59,10 +57,9 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.my_fragment, container, false);
-        ButterKnife.bind(this, view);
 
-        inttlistener(view);
         initView(view);
+        inttlistener(view);
         return view;
     }
 
@@ -71,14 +68,14 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 
 
     private void inttlistener(View view) {
-        textviewset.setOnClickListener(new View.OnClickListener() {
+        mTextviewSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SetActivity.class);
                 startActivity(intent);
             }
         });
-        layoutorder.setOnClickListener(new View.OnClickListener() {
+        mLayoutOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), OrderActivity.class);

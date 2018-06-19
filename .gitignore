@@ -8,3 +8,35 @@
 /build
 /captures
 .externalNativeBuild
+
+/gradle/wrapper/gradle-wrapper.properties
+##----------Android----------
+# build
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+build/
+
+# gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+local.properties
+
+##----------idea----------
+.idea/
+*.ipr
+*.iws
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+##----------Other----------
+# osx
+*~
+gradle.properties
+.idea/caches/
