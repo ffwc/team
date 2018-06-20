@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.EachClassActivity;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MyViewHolder mHolder=(MyViewHolder)holder;
-        String cover = list.get(position).getCover();
+        final String cover = list.get(position).getCover();
         Uri uri = Uri.parse(cover);
         mHolder.myclassfragment_iv.setImageURI(uri);
         mHolder.myclassfragment_course.setText(list.get(position).getTitle());
@@ -41,6 +43,12 @@ public class MyClassAdapter extends RecyclerView.Adapter {
 //        mHolder.myclassfragment_iv.setImageURI(uri);
 //        mHolder.myclassfragment_college.setText(list.get(position).getList().get(position).getStart_time());
 //        mHolder.myclassfragment_course.setText(list.get(position).getList().get(position).getTitle());
+        mHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, EachClassActivity.class));
+            }
+        });
     }
 
     @Override
