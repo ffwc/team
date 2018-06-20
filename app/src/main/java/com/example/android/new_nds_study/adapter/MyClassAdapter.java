@@ -30,7 +30,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final MyViewHolder mHolder=(MyViewHolder)holder;
+        MyViewHolder mHolder=(MyViewHolder)holder;
         String cover = list.get(position).getCover();
         Uri uri = Uri.parse(cover);
         mHolder.myclassfragment_iv.setImageURI(uri);
