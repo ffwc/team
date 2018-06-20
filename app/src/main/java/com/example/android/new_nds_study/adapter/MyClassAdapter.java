@@ -30,7 +30,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MyViewHolder mHolder=(MyViewHolder)holder;
+        final MyViewHolder mHolder=(MyViewHolder)holder;
         String cover = list.get(position).getCover();
         Uri uri = Uri.parse(cover);
         mHolder.myclassfragment_iv.setImageURI(uri);
@@ -41,6 +41,14 @@ public class MyClassAdapter extends RecyclerView.Adapter {
 //        mHolder.myclassfragment_iv.setImageURI(uri);
 //        mHolder.myclassfragment_college.setText(list.get(position).getList().get(position).getStart_time());
 //        mHolder.myclassfragment_course.setText(list.get(position).getList().get(position).getTitle());
+        mHolder.itemView.setTag(position);
+        //设置RecyclerView 点击条目事件
+        mHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.onItemClick(v,(int)v.getTag());
+            }
+        });
     }
 
     @Override
@@ -60,5 +68,14 @@ public class MyClassAdapter extends RecyclerView.Adapter {
             myclassfragment_college = view.findViewById(R.id.myclassfragment_college);
             myclassfragment_course= view.findViewById(R.id.myclassfragment_course);
         }
+    }
+
+    OnItemClickListener mOnItemClickListener;
+    public  void setOnItemClickListener(OnItemClickListener mOnItemClickListener){
+        this.mOnItemClickListener=mOnItemClickListener;
+    }
+    //自定义接口
+    public static interface OnItemClickListener {
+        void onItemClick(View view, int position);
     }
 }

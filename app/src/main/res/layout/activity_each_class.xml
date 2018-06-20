@@ -41,17 +41,7 @@
             android:layout_marginRight="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_11"
             android:src="@mipmap/information" />
-
-
     </RelativeLayout>
-
-
-    <FrameLayout
-        android:id="@+id/eachclass_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
-
     <com.hjm.bottomtabbar.BottomTabBar xmlns:hjm="http://schemas.android.com/apk/res-auto"
         android:id="@+id/eachActivity_tab_bar"
         android:layout_width="match_parent"
