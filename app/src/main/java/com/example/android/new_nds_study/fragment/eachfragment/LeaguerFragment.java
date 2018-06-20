@@ -65,10 +65,6 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
         if(unitBean.getData()!=null){
 
             List<UnitBean.DataBean.ListBean> list = unitBean.getData().getList();
-            for (int i = 0; i <list.size() ; i++) {
-                LogUtil.i("list",list.get(i).toString());
-            }
-
             unitList.addAll(list);
             tlak_size.setText("("+list.size()+")");
             leaguerAdapter.notifyDataSetChanged();
