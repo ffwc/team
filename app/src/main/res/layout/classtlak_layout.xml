@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <include
 
+    <include
         layout="@layout/classunit_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_8"
-        android:padding="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_40">
+        android:layout_marginTop="@dimen/dp_40"
+        android:padding="@dimen/dp_8">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -42,16 +42,14 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/tlakedit_img" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/dp_2"
                 android:background="@null"
-
-                android:hint="@string/tlakedit_string"
-                />
+                android:hint="@string/tlakedit_string" />
         </LinearLayout>
     </RelativeLayout>
-</RelativeLayout>
 </RelativeLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,19 +22,19 @@
 
         <ImageView
             android:id="@+id/add_imageview"
-            android:layout_margin="@dimen/dp_10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
             android:src="@mipmap/icon_add_normal" />
     </LinearLayout>
+
     <com.androidkun.xtablayout.XTabLayout
         android:id="@+id/head_tablayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:xTabIndicatorHeight="0dp"
         app:xTabSelectedTextColor="@color/textview_color_yellow"
-        app:xTabTextColor="@color/textview_color_black"
         app:xTabSelectedTextSize="@dimen/dp_18"
-        app:xTabTextSize="@dimen/dp_14">
-    </com.androidkun.xtablayout.XTabLayout>
+        app:xTabTextColor="@color/textview_color_black"
+        app:xTabTextSize="@dimen/dp_14"></com.androidkun.xtablayout.XTabLayout>
 </LinearLayout>

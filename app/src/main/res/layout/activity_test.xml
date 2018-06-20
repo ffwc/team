@@ -6,50 +6,53 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="tt"
-            android:textSize="@dimen/dp_22"
             android:id="@+id/tab1"
-            android:gravity="center"
-            android:background="@color/colorAccent"
-            android:layout_weight="1"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent" android:background="@color/color_gray"></View>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
             android:text="tt"
+            android:textSize="@dimen/dp_22" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_gray"></View>
+
+        <TextView
             android:id="@+id/tab2"
-            android:textSize="@dimen/dp_22"
-            android:gravity="center"
-            android:background="@color/colorAccent"
-            android:layout_weight="1"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent" android:background="@color/color_gray"></View>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tt"
-            android:id="@+id/tab3"
-            android:textSize="@dimen/dp_22"
-            android:gravity="center"
-            android:background="@color/colorAccent"
             android:layout_weight="1"
-            />
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="tt"
+            android:textSize="@dimen/dp_22" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_gray"></View>
+
+        <TextView
+            android:id="@+id/tab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="tt"
+            android:textSize="@dimen/dp_22" />
     </LinearLayout>
-<FrameLayout
-android:id="@+id/get"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-</FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/get"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 </LinearLayout>

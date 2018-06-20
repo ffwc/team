@@ -8,8 +8,7 @@
     tools:context="com.example.android.new_nds_study.activity.MainActivity">
 
 
-    <com.hjm.bottomtabbar.BottomTabBar
-        xmlns:hjm="http://schemas.android.com/apk/res-auto"
+    <com.hjm.bottomtabbar.BottomTabBar xmlns:hjm="http://schemas.android.com/apk/res-auto"
         android:id="@+id/bottom_tab_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,5 +19,5 @@
         hjm:tab_padding_bottom="@dimen/dp_5"
         hjm:tab_padding_top="@dimen/dp_8"
         hjm:tab_selected_color="#000000"
-        hjm:tab_unselected_color="#000000"/>
+        hjm:tab_unselected_color="#000000" />
 </RelativeLayout>

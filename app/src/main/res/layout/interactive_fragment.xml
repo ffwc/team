@@ -9,16 +9,18 @@
         android:id="@+id/serource_tablayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_44">
+
         <android.support.design.widget.TabItem
             android:id="@+id/placeitem"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="本地"/>
+            android:text="本地" />
+
         <android.support.design.widget.TabItem
             android:id="@+id/yunfileitem"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="云盘"/>
+            android:text="云盘" />
 
     </android.support.design.widget.TabLayout>
 

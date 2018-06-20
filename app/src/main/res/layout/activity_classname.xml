@@ -186,16 +186,14 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/classname_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true">
-            </android.support.v4.view.ViewPager>
+                android:layout_alignParentTop="true"></android.support.v4.view.ViewPager>
 
             <ImageView
                 android:id="@+id/classname_imageview"
@@ -206,7 +204,6 @@
                 android:background="@mipmap/startclass_bg" />
 
 
-
             <Button
                 android:id="@+id/btn_beginclass"
                 android:layout_width="wrap_content"
@@ -215,8 +212,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/dp_50"
                 android:background="@drawable/shape"
-                android:textColor="@color/color_write"
-                android:text="@string/beginclass" />
+                android:text="@string/beginclass"
+                android:textColor="@color/color_write" />
 
         </RelativeLayout>
     </LinearLayout>

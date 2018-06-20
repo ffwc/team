@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
 
-        <ImageView
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
-            android:id="@+id/leagueritem_icon"
-            android:src="@mipmap/ic_launcher"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_16"
-            android:text="模拟"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:layout_gravity="center"
-            android:id="@+id/leaguer_nickNmae"
-            />
-        <Button
-            android:layout_width="@dimen/dp_41"
-            android:layout_height="@dimen/dp_20"
-            android:textSize="@dimen/sp_12"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="测试"
-            android:background="@drawable/leagueritem_shape"
-            android:textColor="@color/item_btn_textcolor"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:id="@+id/leaguer_teacher"
-            />
+    <ImageView
+        android:id="@+id/leagueritem_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/leaguer_nickNmae"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:text="模拟"
+        android:textSize="@dimen/sp_16" />
+
+    <Button
+        android:id="@+id/leaguer_teacher"
+        android:layout_width="@dimen/dp_41"
+        android:layout_height="@dimen/dp_20"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:background="@drawable/leagueritem_shape"
+        android:gravity="center"
+        android:text="测试"
+        android:textColor="@color/item_btn_textcolor"
+        android:textSize="@dimen/sp_12" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        >
+        android:layout_gravity="center">
 
 
-   <ImageView
-       android:layout_width="@dimen/dp_26"
-       android:layout_height="@dimen/dp_27"
-       android:src="@drawable/connect"
-       android:layout_alignParentRight="true"
-       android:id="@+id/leaguer_connect"
-       />
+        <ImageView
+            android:id="@+id/leaguer_connect"
+            android:layout_width="@dimen/dp_26"
+            android:layout_height="@dimen/dp_27"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/connect" />
     </RelativeLayout>
 </LinearLayout>

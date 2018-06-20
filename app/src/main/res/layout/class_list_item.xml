@@ -15,29 +15,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher" />
+
         <TextView
             android:id="@+id/classlist_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/classlist_data"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="时间"
-                />
+                android:layout_weight="1"
+                android:text="时间" />
+
             <TextView
                 android:id="@+id/classlist_dress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="地点"
-                />
+                android:text="地点" />
         </LinearLayout>
-
 
 
     </LinearLayout>

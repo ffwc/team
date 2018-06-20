@@ -32,11 +32,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:xTabDividerHeight="0dp"
-        app:xTabTextColor="#FF7C7C7C"
-        app:xTabSelectedTextColor="#FFF9BA00"
         app:xTabPadding="@dimen/dp_5"
-        app:xTabTextSize="@dimen/sp_16"
-        app:xTabSelectedTextSize="@dimen/sp_16">
+        app:xTabSelectedTextColor="#FFF9BA00"
+        app:xTabSelectedTextSize="@dimen/sp_16"
+        app:xTabTextColor="#FF7C7C7C"
+        app:xTabTextSize="@dimen/sp_16">
 
     </com.androidkun.xtablayout.XTabLayout>
 

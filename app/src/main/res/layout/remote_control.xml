@@ -3,176 +3,180 @@
     android:id="@+id/remotefragment_linearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <include layout="@layout/select_screen">
-    </include>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_write"
-        android:orientation="horizontal">
+        <include layout="@layout/select_screen"></include>
 
         <LinearLayout
-            android:id="@+id/bigglass"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_bigglass" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_2"
-                android:gravity="center"
-                android:text="@string/bigglass" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/homepage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_home" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_2"
-                android:gravity="center"
-                android:text="@string/home_page" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/getback"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_return" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_2"
-                android:gravity="center"
-                android:text="@string/get_back" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/laser"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_laser" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_2"
-                android:gravity="center"
-                android:text="@string/laster" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <com.example.android.new_nds_study.myview.Circle
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_marginTop="@dimen/sp_30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/comtrol_up" />
-        <LinearLayout
-            android:layout_marginTop="@dimen/sp_30"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@color/color_write"
             android:orientation="horizontal">
-            <ImageView
-                android:layout_marginTop="@dimen/dp_50"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginLeft="@dimen/dp_30"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/comtrol_left" />
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/bigglass"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dp_160"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="OK"
-                android:textSize="@dimen/dp_50" />
-            <ImageView
-                android:layout_marginTop="@dimen/dp_50"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_bigglass" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:gravity="center"
+                    android:text="@string/bigglass" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/homepage"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginRight="@dimen/dp_30"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/comtrol_right" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <ImageView
 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_home" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:gravity="center"
+                    android:text="@string/home_page" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/getback"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_return" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:gravity="center"
+                    android:text="@string/get_back" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/laser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_laser" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:gravity="center"
+                    android:text="@string/laster" />
+            </LinearLayout>
 
         </LinearLayout>
-        <ImageView
-            android:layout_marginTop="@dimen/dp_30"
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/comtrol_down" />
+            android:layout_height="wrap_content">
 
+            <com.example.android.new_nds_study.myview.Circle
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_30"
+                    android:src="@mipmap/comtrol_up" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sp_30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_30"
+                        android:layout_marginTop="@dimen/dp_50"
+                        android:layout_weight="1"
+                        android:src="@mipmap/comtrol_left" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_160"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="OK"
+                        android:textSize="@dimen/dp_50" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_30"
+                        android:layout_marginTop="@dimen/dp_50"
+                        android:layout_weight="1"
+                        android:src="@mipmap/comtrol_right" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:src="@mipmap/comtrol_down" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
     </LinearLayout>
 
-
-
-
-</RelativeLayout>
-    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/dp_7"
-        android:text="滑动控制上下左右，点击确定"/>
+        android:text="滑动控制上下左右，点击确定" />
 </RelativeLayout>

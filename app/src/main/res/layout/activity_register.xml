@@ -26,11 +26,12 @@
             android:text="@string/register"
             android:textSize="@dimen/sp_20" />
     </RelativeLayout>
+
     <View
-        android:layout_marginTop="@dimen/dp_10"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
-        android:background="#D9D9D9"/>
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#D9D9D9" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,38 +52,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phonenumber" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/regist_ed_authcode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/auth_code" />
+            <EditText
+                android:id="@+id/regist_ed_authcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/auth_code" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:text="@string/get_auth_code"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/dp_20"
                 android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/get_auth_code"
                 android:textColor="@color/color_yellow"
-                android:textSize="@dimen/sp_15"
-                android:layout_height="wrap_content" />
+                android:textSize="@dimen/sp_15" />
         </RelativeLayout>
+
         <EditText
             android:id="@+id/regist_ed_pass_ask_for"
             android:layout_width="match_parent"
-            android:inputType="textPassword"
             android:layout_height="wrap_content"
-            android:hint="@string/password_ask_for" />
+            android:hint="@string/password_ask_for"
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/regist_ed_algin_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/algin_input_password" />
+            android:hint="@string/algin_input_password"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/register_btn_register"
