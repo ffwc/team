@@ -30,12 +30,12 @@ public class ClassTlakFrament extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.classtlak_layout, container, false);
+            view = inflater.inflate(R.layout.classtlak_layout, container, false);
 
-        initview();
+            initview();
 
-        return view;
-    }
+            return view;
+        }
 
     public void initData() {
 

@@ -2,6 +2,7 @@ package com.example.android.new_nds_study.m_v_p.modle;
 
 import android.util.Log;
 
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.network.API;
 import com.example.android.new_nds_study.network.BaseObserver;
 import com.example.android.new_nds_study.network.RetrofitManager;
@@ -29,7 +30,6 @@ public class LoginModule {
         RetrofitManager.post(API.LOGIN, map, new BaseObserver<LoginBean>() {
             @Override
             public void success(LoginBean loginBean) {
-
                 if (loginListener != null) {
                     loginListener.success(loginBean);
                 }
@@ -41,5 +41,20 @@ public class LoginModule {
             }
         });
 
+    }
+    public void getInfo(String token,final LoginModuleListener loginListener) {
+        Map<String, String> map = new HashMap<>();
+        map.put("token",token);
+        RetrofitManager.get(API.LOGIN, map, new BaseObserver<UserinfoBean>() {
+            @Override
+            public void success(UserinfoBean loginBean) {
+                loginListener.uSuccess(loginBean);
+            }
+
+            @Override
+            public void failure(int code) {
+
+            }
+        });
     }
 }
