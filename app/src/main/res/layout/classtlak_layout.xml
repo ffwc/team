@@ -1,71 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<LinearLayout
-    android:layout_marginTop="@dimen/dp_16"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:id="@+id/tlak_title"
+    android:layout_height="wrap_content">
 
-    >
-<View
-    android:layout_marginLeft="13dp"
-    android:layout_width="6dp"
-    android:layout_height="20dp"
-    android:background="#F9BA00"
-    />
-    <TextView
-        android:layout_marginLeft="@dimen/dp_16"
-        android:textSize="14dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="讨论()"
-        android:id="@+id/tlak_size"
-        />
-
-</LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_40"
-        android:id="@+id/tlak_recycle"
-        android:padding="15dp"
-        ></android.support.v7.widget.RecyclerView>
     <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp"
+        android:layout_height="@dimen/dp_160"
+        android:id="@+id/announcement"
         >
 
-<LinearLayout
-    android:background="@drawable/tlakshape_edit"
-    android:orientation="horizontal"
+    </RelativeLayout>
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dp"
-    >
+    android:layout_below="@id/announcement"
+    android:layout_height="wrap_content">
+    <include
+
+        layout="@layout/classunit_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/tlak_recycle"></include>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tlak_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:padding="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_40">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tlakshape_edit"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:id="@+id/tlak_edit"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_tlakedit_img"
                 android:layout_marginLeft="8dp"
+                android:src="@drawable/tlakedit_img" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/dp_2"
+                android:background="@null"
+                android:hint="@string/tlakedit_string"
                 />
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:hint="@string/tlakedit_string"
-     android:background="@null"
-
-    />
-
-</LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
+</RelativeLayout>
 </RelativeLayout>

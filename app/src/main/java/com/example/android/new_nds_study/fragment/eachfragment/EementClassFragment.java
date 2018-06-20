@@ -34,14 +34,13 @@ public class EementClassFragment extends Fragment implements View.OnClickListene
      * 15:30～17:30
      */
     private TextView mItemEachClassStudyStoptime;
+    private TextView eement_title;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_each_class_study, null);
-
-
+        view = LayoutInflater.from(getActivity()).inflate(R.layout.item_each_class_study, null);
         initView(view);
         return view;
     }
@@ -50,10 +49,11 @@ public class EementClassFragment extends Fragment implements View.OnClickListene
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
     }
 
     private void initView(View view) {
+        eement_title = view.findViewById(R.id.leaguer_title);
+        eement_title.setText("单元");
         mItemEachClassStudyTitle = (TextView) view.findViewById(R.id.item_each_class_study_title);
         mItemEachClassStudyTitle.setOnClickListener(this);
         mItemEachClassStudyType = (TextView) view.findViewById(R.id.item_each_class_study_type);

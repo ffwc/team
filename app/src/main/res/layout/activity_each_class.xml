@@ -52,11 +52,23 @@
         android:id="@+id/eachclass_content"
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"></FrameLayout>
+        android:layout_height="0dp">
+    </FrameLayout>
 
     <com.hjm.bottomtabbar.BottomTabBar
-        android:id="@+id/eachclass_tabControl"
+        android:layout_weight="1"
+        xmlns:hjm="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/eachActivity_tab_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_49"></com.hjm.bottomtabbar.BottomTabBar>
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_height="wrap_content"
+        hjm:tab_font_size="@dimen/sp_6"
+        hjm:tab_img_font_padding="@dimen/dp_0"
+        hjm:tab_img_height="@dimen/dp_30"
+        hjm:tab_img_width="@dimen/dp_30"
+        hjm:tab_padding_bottom="@dimen/dp_5"
+        hjm:tab_selected_color="#000000"
+        hjm:tab_unselected_color="@color/color_yellow"/>
     
 </LinearLayout>

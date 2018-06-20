@@ -18,20 +18,15 @@ public class ClassListPresenter {
     public ClassListPresenter(ClassPresenterListener classPresenterListener) {
         this.classPresenterListener = classPresenterListener;
         classListModle = new ClassListModle();
-
     }
 
     public void getData() {
-
         //调用m层的数据
         classListModle.getData(new ClassModleListener() {
-
-
             @Override
             public void success(ClassListBean classListBean) {
                 if (classPresenterListener != null) {
                     classPresenterListener.success(classListBean);
-
                 }
             }
         });

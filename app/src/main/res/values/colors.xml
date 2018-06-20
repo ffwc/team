@@ -17,4 +17,7 @@
     <color name="textview_color_yellow">#F9BA00 </color>
     <color name="textview_color_black">#333333 </color>
     <color name="tlak_gray">#949FA5</color>
+    <color name="item_btn">#CADBFC</color>
+    <color name="item_btn_textcolor">#187BED</color>
+
 </resources>

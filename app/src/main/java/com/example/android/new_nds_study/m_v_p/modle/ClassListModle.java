@@ -7,8 +7,19 @@ import com.example.android.new_nds_study.network.BaseObserver;
 import com.example.android.new_nds_study.network.RetrofitManagerAPI;
 import com.example.android.new_nds_study.util.LogUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * @Author J & J
@@ -29,11 +40,12 @@ public class ClassListModle {
                      LogUtil.i("classlist22222","数据请求成功");
                 }
             }
-
             @Override
             public void failure(int code) {
 
             }
         });
+
     }
+
 }
