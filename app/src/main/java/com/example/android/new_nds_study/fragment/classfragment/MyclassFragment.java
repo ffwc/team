@@ -1,5 +1,6 @@
 package com.example.android.new_nds_study.fragment.classfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.EachClassActivity;
 import com.example.android.new_nds_study.adapter.MyClassAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
@@ -55,10 +57,20 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
+        //设置RecyclerView 点击条目事件
+        myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                //跳转单元
+                Intent intent = new Intent(getActivity(), EachClassActivity.class);
+                startActivity(intent);
+            }
+        });
     }
    //防止内存泄露
     @Override
     public void onDestroy() {
         super.onDestroy();
+        myClassPresenter.detach();
     }
 }

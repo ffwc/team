@@ -43,4 +43,8 @@ public class MyClassPresenter implements MyClassPresenterListener {
     public void onSuccess(MyCoursesBean myCoursesBean) {
         
     }
+    //防止内存泄露
+    public void detach() {
+        myClassPresenterListener = null;
+    }
 }
