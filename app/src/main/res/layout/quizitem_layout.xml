@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/quiz_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:text="1、测验名称"
+        android:textColor="@color/quiz_title"
+        android:textSize="@dimen/sp_18" />
+
+    <TextView
+        android:id="@+id/quiz_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:text="单元名称"
+        android:textColor="@color/quiz_color"
+        android:textSize="@dimen/sp_14" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:text="最进一次："
+            android:textColor="@color/quiz_color"
+            android:textSize="@dimen/sp_14" />
+        <TextView
+            android:id="@+id/quiz_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018/01/30,11:30-11:45"
+            android:textColor="@color/quiz_color"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"/>
+</LinearLayout>

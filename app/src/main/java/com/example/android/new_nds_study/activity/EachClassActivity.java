@@ -11,6 +11,7 @@ import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.fragment.eachfragment.ClassTlakFrament;
 import com.example.android.new_nds_study.fragment.eachfragment.EementClassFragment;
 import com.example.android.new_nds_study.fragment.eachfragment.LeaguerFragment;
+import com.example.android.new_nds_study.fragment.eachfragment.QuizFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 public class EachClassActivity extends AppCompatActivity implements View.OnClickListener {
@@ -46,16 +47,16 @@ public class EachClassActivity extends AppCompatActivity implements View.OnClick
         tabBar.init(getSupportFragmentManager())
                 .addTabItem("单元", R.drawable.ic_tab_icon_dynamic_hover, R.mipmap.tab_icon_dynamic_normal, EementClassFragment.class)
                 .addTabItem("讨论", R.mipmap.tab_icon_find_hover, R.mipmap.tab_icon_find_normal, ClassTlakFrament.class)
-                .addTabItem("成员", R.mipmap.tab_icon_live_hover, R.mipmap.tab_icon_live_normal, ClassTlakFrament.class)
+                .addTabItem("成员", R.mipmap.tab_icon_live_hover, R.mipmap.tab_icon_live_normal, LeaguerFragment.class)
                 .addTabItem("作业", R.mipmap.tab_icon_course_hover, R.mipmap.tab_icon_course_normal, EementClassFragment.class)
-                .addTabItem("测验", R.mipmap.tab_icon_communication_hover, R.mipmap.tab_icon_communication_normal, LeaguerFragment.class);
+                .addTabItem("测验", R.mipmap.tab_icon_communication_hover, R.mipmap.tab_icon_communication_normal, QuizFragment.class);
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.eachclass_return:
                  finish();
-                 break;  
+                 break;
             case R.id.eachclass_correlation:
                  break;
         }
