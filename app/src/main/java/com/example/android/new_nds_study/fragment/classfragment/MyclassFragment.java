@@ -2,6 +2,7 @@ package com.example.android.new_nds_study.fragment.classfragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,10 @@ import com.example.android.new_nds_study.adapter.MyClassAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private RecyclerView mMyclassfragmentRecycler;
     private MyClassAdapter myClassAdapter;
     private MyClassPresenter myClassPresenter;
+    private SmartRefreshLayout myclassfragment_smart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,10 +50,25 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myClassPresenter = new MyClassPresenter(this);
         myClassPresenter.getMyClassPresenter("1","c065f926bfd740be39fc2b34dfe12dc2e7882b09");
         Log.e(TAG,"检测");
+        //上拉刷新
+        myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                myclassfragment_smart.finishRefresh(1000);
+            }
+        });
+        //下拉加载
+        myclassfragment_smart.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                myclassfragment_smart.finishLoadMore(1000);
+            }
+        });
     }
 
     private void initView(View view) {
         mMyclassfragmentRecycler = (RecyclerView) view.findViewById(R.id.myclassfragment_recycler);
+        myclassfragment_smart = view.findViewById(R.id.myclassfragment_smart);
     }
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean) {
