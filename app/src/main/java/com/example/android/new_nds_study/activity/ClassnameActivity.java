@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.MyPagerAdapter;
 import com.example.android.new_nds_study.fragment.classname.InteractiveFragment;
@@ -68,6 +69,7 @@ public class ClassnameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classname);
+        MyApp.setTitFlag(this);
         ButterKnife.bind(this);
         initview();
         initviewviewpager();

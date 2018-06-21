@@ -23,36 +23,36 @@
 
         <TextView
             android:id="@+id/eachclass_title"
-            android:layout_width="@dimen/dp_171"
-            android:layout_height="@dimen/dp_25"
-            android:layout_marginLeft="@dimen/dp_60"
-            android:layout_marginTop="@dimen/dp_13"
-            android:layout_toRightOf="@+id/eachclass_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="@dimen/dp_5"
+            android:ellipsize="end"
+            android:maxEms="5"
+            android:singleLine="true"
             android:text="@string/title_eachclass"
             android:textColor="#FF3A414D"
-            android:textSize="@dimen/dp_18"
+            android:textSize="@dimen/sp_18"
             android:textStyle="bold" />
 
-        <ImageView
+        <TextView
             android:id="@+id/eachclass_correlation"
-            android:layout_width="@dimen/dp_21"
-            android:layout_height="@dimen/dp_21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:textSize="@dimen/sp_16"
+            android:layout_centerVertical="true"
+            android:gravity="center"
             android:layout_marginRight="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_11"
-            android:src="@mipmap/information" />
-
+            android:textStyle="bold"
+            android:text="@string/title_eachclass_right"
+            />
 
     </RelativeLayout>
 
-    <!--<FrameLayout-->
-    <!--android:id="@+id/eachclass_content"-->
-    <!--android:layout_weight="1"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp">-->
-    <!--</FrameLayout>-->
-
-    <com.hjm.bottomtabbar.BottomTabBar xmlns:hjm="http://schemas.android.com/apk/res-auto"
+    <com.hjm.bottomtabbar.BottomTabBar
+        xmlns:hjm="http://schemas.android.com/apk/res-auto"
         android:id="@+id/eachActivity_tab_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
         hjm:tab_img_height="@dimen/dp_30"
         hjm:tab_img_width="@dimen/dp_30"
         hjm:tab_padding_bottom="@dimen/dp_5"
-        hjm:tab_selected_color="#000000"
-        hjm:tab_unselected_color="@color/color_yellow" />
+        hjm:tab_selected_color="@color/circle_black"
+        hjm:tab_unselected_color="@color/color_gray" />
 
 </LinearLayout>

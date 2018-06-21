@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.androidkun.xtablayout.XTabLayout;
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.MyPagerAdapter;
 import com.example.android.new_nds_study.fragment.openclass.AllFragment;
@@ -35,6 +36,7 @@ public class OpenClassActivity extends AppCompatActivity {
 
 
     private void initview() {
+        MyApp.setTitFlag(this);
         iv_return = findViewById(R.id.iv_openclass_return);
         iv_return.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.fragment.ClassFragment;
 import com.example.android.new_nds_study.fragment.DynamicFragment;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MyApp.setTitFlag(this);
         tabBar = (BottomTabBar) findViewById(R.id.bottom_tab_bar);
         //这个init ( getSupportFragmentManager() )方法一定要第一个调用，没有//这个初始化，后边什么也做不了。
         tabBar.init(getSupportFragmentManager())
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 break;
-                default:
-                    break;
+            default:
+                break;
 
         }
 

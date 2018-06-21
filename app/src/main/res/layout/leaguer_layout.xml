@@ -10,12 +10,12 @@
     >
 </include>
 
-    <android.support.v7.widget.RecyclerView
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@id/leaguer_title"
+      android:layout_below="@id/leaguer_incl"
         android:id="@+id/leaguer_recy"
       android:layout_marginLeft="@dimen/dp_8"
       android:layout_marginTop="@dimen/dp_3"
-      ></android.support.v7.widget.RecyclerView>
+      ></com.jcodecraeer.xrecyclerview.XRecyclerView>
 </RelativeLayout>

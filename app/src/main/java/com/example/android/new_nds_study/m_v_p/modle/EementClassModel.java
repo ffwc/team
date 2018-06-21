@@ -19,9 +19,9 @@ import static android.content.ContentValues.TAG;
 
 public class EementClassModel {
 
-    public void getData(String Courses, String page, final EementModelListener eementModelListener) {
+    public void getData(String Courses,String limit, String page, final EementModelListener eementModelListener) {
         Map<String, String> map = new HashMap<>();
-        String str = API.LEAGERPATH+Courses + "/units/limit/2/page/" + page;
+        String str = API.LEAGERPATH+Courses+"/units/limit/"+limit+"/page/"+ page;
         map.put("token", "c065f926bfd740be39fc2b34dfe12dc2e7882b09");
         LogUtil.i(TAG,str);
         RetrofitManagerAPI.get(str, map, new BaseObserver<EementClassBean>() {

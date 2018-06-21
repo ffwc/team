@@ -58,11 +58,13 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
         //设置RecyclerView 点击条目事件
+        final List<MyCoursesBean.DataBean.ListBean> list = myCoursesBean.getData().getList();
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 //跳转单元
-                Intent intent = new Intent(getActivity(), EachClassActivity.class);
+
+                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",list.get(position).getTitle());
                 startActivity(intent);
             }
         });
