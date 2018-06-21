@@ -8,8 +8,7 @@
     <include
         layout="@layout/classunit_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_58"
-        >
+        android:layout_height="@dimen/dp_58">
     </include>
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
            android:layout_width="match_parent"

@@ -1,11 +1,8 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
-import com.example.android.new_nds_study.m_v_p.modle.MyClassModle;
-import com.example.android.new_nds_study.m_v_p.view.MyClassModeListener;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
 import com.example.android.new_nds_study.network.ApiService;
 import com.example.android.new_nds_study.util.RetrofitUtils;
