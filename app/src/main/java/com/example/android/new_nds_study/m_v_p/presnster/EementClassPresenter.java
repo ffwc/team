@@ -18,9 +18,9 @@ public class EementClassPresenter {
         this.eementClassModel = new EementClassModel();
     }
 
-    public void getData(String Courses, String page) {
+    public void getData(String Courses,String limit, String page) {
 
-        eementClassModel.getData(Courses, page, new EementModelListener() {
+        eementClassModel.getData(Courses,  limit,page,new EementModelListener() {
             @Override
             public void success(EementClassBean eementClassBean) {
                 eementPresenterListener.scuess(eementClassBean);

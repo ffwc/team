@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,11 @@ import com.bumptech.glide.Glide;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.UnitBean;
 import com.example.android.new_nds_study.util.GlideRoundTransform;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
+
+import okhttp3.Interceptor;
 
 /**
  * Created by dell on 2018/6/19.
@@ -37,11 +41,16 @@ public class LeaguerAdapter extends RecyclerView.Adapter<LeaguerAdapter.MyLeargu
 
     @Override
     public void onBindViewHolder(MyLearguerHolder holder, int position) {
-        Glide.with(context).load(list.get(position).getAvatar()).into(holder.icon);
+        holder.icon.setImageURI(Uri.parse(list.get(position).getAvatar()));
         holder.nickNmae.setText(list.get(position).getNickname());
         Glide.with(context).load(list.get(position).getAvatar())
                 .transform(new GlideRoundTransform(context, 60))
                 .into(holder.icon);
+        if (Integer.parseInt(list.get(position).getUid()) % 2 == 0) {
+            holder.connect.setImageResource(R.drawable.ic_men);
+        } else {
+            holder.connect.setImageResource(R.drawable.ic_women);
+        }
     }
 
     @Override
@@ -51,7 +60,7 @@ public class LeaguerAdapter extends RecyclerView.Adapter<LeaguerAdapter.MyLeargu
 
     class MyLearguerHolder extends RecyclerView.ViewHolder {
 
-        private final ImageView icon;
+        private final SimpleDraweeView icon;
         private final TextView nickNmae;
         private final TextView teacher;
         private final ImageView connect;

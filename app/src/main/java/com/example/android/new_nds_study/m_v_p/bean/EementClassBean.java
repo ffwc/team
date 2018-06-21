@@ -8,10 +8,11 @@ import java.util.List;
 
 public class EementClassBean {
 
+
     /**
      * errcode : 0
      * errmsg : OK
-     * data : {"total":5,"list":[{"unit_id":"A307","type":"2","title":"第五集：一江之水","position":"5","status":"0","start_time":"2018-06-19 16:17:00","end_time":"2018-06-19 16:55:00","classroom":[{"id":"R-8047DBB6-7393-11E8-9EB7-00163E117299","title":"武汉新维空间站"}],"created_at":"2018-06-12 15:32:41","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-19 16:17:00","starter":[],"classroom_end_time":"2018-06-19 16:55:00","event_id":211},{"unit_id":"A306","type":"1","title":"第四集：他乡之畔","position":"4","status":"0","start_time":"","end_time":"","classroom":"","created_at":"2018-06-12 15:32:31","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"","starter":[],"classroom_end_time":"","event_id":""},{"unit_id":"A305","type":"2","title":"第三集：万物生长","position":"3","status":"1","start_time":"2018-06-19 10:35:00","end_time":"2018-06-19 15:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"}],"created_at":"2018-06-12 15:32:00","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-20 09:48:51","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"","event_id":210},{"unit_id":"A304","type":"2","title":"第二集：众生之愿","position":"2","status":"2","start_time":"2018-06-15 10:52:00","end_time":"2018-06-15 18:55:00","classroom":[{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"}],"created_at":"2018-06-12 15:31:50","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 10:53:01","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 14:06:03","event_id":"207"},{"unit_id":"A303","type":"2","title":"第一集：万里如画","position":"1","status":"2","start_time":"2018-06-13 10:41:00","end_time":"2018-06-13 18:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"},{"id":"R-2B8D61A6-6955-11E8-884D-00163E117299","title":"中关村"}],"created_at":"2018-06-12 15:31:36","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 16:02:29","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 16:12:37","event_id":197}]}
+     * data : {"total":5,"list":[{"unit_id":"A303","type":"2","title":"第一集：万里如画","position":"1","status":"2","start_time":"2018-06-13 10:41:00","end_time":"2018-06-13 18:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"},{"id":"R-2B8D61A6-6955-11E8-884D-00163E117299","title":"中关村"}],"created_at":"2018-06-12 15:31:36","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 16:02:29","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 16:12:37","event_id":197}]}
      */
 
     private int errcode;
@@ -45,7 +46,7 @@ public class EementClassBean {
     public static class DataBean {
         /**
          * total : 5
-         * list : [{"unit_id":"A307","type":"2","title":"第五集：一江之水","position":"5","status":"0","start_time":"2018-06-19 16:17:00","end_time":"2018-06-19 16:55:00","classroom":[{"id":"R-8047DBB6-7393-11E8-9EB7-00163E117299","title":"武汉新维空间站"}],"created_at":"2018-06-12 15:32:41","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-19 16:17:00","starter":[],"classroom_end_time":"2018-06-19 16:55:00","event_id":211},{"unit_id":"A306","type":"1","title":"第四集：他乡之畔","position":"4","status":"0","start_time":"","end_time":"","classroom":"","created_at":"2018-06-12 15:32:31","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"","starter":[],"classroom_end_time":"","event_id":""},{"unit_id":"A305","type":"2","title":"第三集：万物生长","position":"3","status":"1","start_time":"2018-06-19 10:35:00","end_time":"2018-06-19 15:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"}],"created_at":"2018-06-12 15:32:00","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-20 09:48:51","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"","event_id":210},{"unit_id":"A304","type":"2","title":"第二集：众生之愿","position":"2","status":"2","start_time":"2018-06-15 10:52:00","end_time":"2018-06-15 18:55:00","classroom":[{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"}],"created_at":"2018-06-12 15:31:50","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 10:53:01","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 14:06:03","event_id":"207"},{"unit_id":"A303","type":"2","title":"第一集：万里如画","position":"1","status":"2","start_time":"2018-06-13 10:41:00","end_time":"2018-06-13 18:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"},{"id":"R-2B8D61A6-6955-11E8-884D-00163E117299","title":"中关村"}],"created_at":"2018-06-12 15:31:36","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 16:02:29","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 16:12:37","event_id":197}]
+         * list : [{"unit_id":"A303","type":"2","title":"第一集：万里如画","position":"1","status":"2","start_time":"2018-06-13 10:41:00","end_time":"2018-06-13 18:55:00","classroom":[{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"},{"id":"R-2B8D61A6-6955-11E8-884D-00163E117299","title":"中关村"}],"created_at":"2018-06-12 15:31:36","desc":"长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着\u201c黄金水道\u201d的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。 ","cover":"http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg","classroom_start_time":"2018-06-15 16:02:29","starter":{"uid":"37","nickname":"火燎的金刚烟熏的太岁"},"classroom_end_time":"2018-06-15 16:12:37","event_id":197}]
          */
 
         private int total;
@@ -69,21 +70,21 @@ public class EementClassBean {
 
         public static class ListBean {
             /**
-             * unit_id : A307
+             * unit_id : A303
              * type : 2
-             * title : 第五集：一江之水
-             * position : 5
-             * status : 0
-             * start_time : 2018-06-19 16:17:00
-             * end_time : 2018-06-19 16:55:00
-             * classroom : [{"id":"R-8047DBB6-7393-11E8-9EB7-00163E117299","title":"武汉新维空间站"}]
-             * created_at : 2018-06-12 15:32:41
+             * title : 第一集：万里如画
+             * position : 1
+             * status : 2
+             * start_time : 2018-06-13 10:41:00
+             * end_time : 2018-06-13 18:55:00
+             * classroom : [{"id":"R-06BAF376-3B0F-11E8-A153-00163E117299","title":"新维空间一教室"},{"id":"R-C2DA7D32-3B10-11E8-97BF-00163E117299","title":"新维空间二教室"},{"id":"R-2B8D61A6-6955-11E8-884D-00163E117299","title":"中关村"}]
+             * created_at : 2018-06-12 15:31:36
              * desc : 长江沿岸生态环境复杂多样，物种繁多，万里江河描绘着不同地区的生态图景。这一集我们讲述的是人与自然和谐相处的故事。 勤劳与坚韧是万千劳动者与生俱来的特质。他们辛苦劳作，只为创造更好的生活。这一集我们讲述的是长江沿岸劳动者勤勉致富、协调发展的故事。 　多元的社会能够容纳不同的生活方式。长江沿岸的人们不再固守原本的生活，而是执着追寻梦想。这一集我们讲述的是长江两岸的人们创新求变的故事。中华文明吸引着远方的来客。从都市到乡村，本土文化与外来文化产生了奇妙的碰撞。这一集我们讲述的是中外文化在长江流域交织融合的故事。 长江横贯东西，承载着“黄金水道”的作用。人们用智慧创造了人类伟大工程的奇迹，书写着追星逐月的传奇。这一集我们讲述的是长江流域人民共享发展成果的故事。
              * cover : http://ndmooc-nds.oss-cn-qingdao.aliyuncs.com/admin_api/0/WebUpload/152878845566152878845566.jpg
-             * classroom_start_time : 2018-06-19 16:17:00
-             * starter : []
-             * classroom_end_time : 2018-06-19 16:55:00
-             * event_id : 211
+             * classroom_start_time : 2018-06-15 16:02:29
+             * starter : {"uid":"37","nickname":"火燎的金刚烟熏的太岁"}
+             * classroom_end_time : 2018-06-15 16:12:37
+             * event_id : 197
              */
 
             private String unit_id;
@@ -97,10 +98,10 @@ public class EementClassBean {
             private String desc;
             private String cover;
             private String classroom_start_time;
+            private StarterBean starter;
             private String classroom_end_time;
             private int event_id;
             private List<ClassroomBean> classroom;
-            private List<?> starter;
 
             public String getUnit_id() {
                 return unit_id;
@@ -190,6 +191,14 @@ public class EementClassBean {
                 this.classroom_start_time = classroom_start_time;
             }
 
+            public StarterBean getStarter() {
+                return starter;
+            }
+
+            public void setStarter(StarterBean starter) {
+                this.starter = starter;
+            }
+
             public String getClassroom_end_time() {
                 return classroom_end_time;
             }
@@ -214,18 +223,36 @@ public class EementClassBean {
                 this.classroom = classroom;
             }
 
-            public List<?> getStarter() {
-                return starter;
-            }
+            public static class StarterBean {
+                /**
+                 * uid : 37
+                 * nickname : 火燎的金刚烟熏的太岁
+                 */
 
-            public void setStarter(List<?> starter) {
-                this.starter = starter;
+                private String uid;
+                private String nickname;
+
+                public String getUid() {
+                    return uid;
+                }
+
+                public void setUid(String uid) {
+                    this.uid = uid;
+                }
+
+                public String getNickname() {
+                    return nickname;
+                }
+
+                public void setNickname(String nickname) {
+                    this.nickname = nickname;
+                }
             }
 
             public static class ClassroomBean {
                 /**
-                 * id : R-8047DBB6-7393-11E8-9EB7-00163E117299
-                 * title : 武汉新维空间站
+                 * id : R-06BAF376-3B0F-11E8-A153-00163E117299
+                 * title : 新维空间一教室
                  */
 
                 private String id;

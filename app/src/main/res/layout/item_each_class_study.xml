@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:id="@+id/announcement"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_160">
-
-    </RelativeLayout>
+    >
 
     <include
         android:id="@+id/eement_title"
-        layout="@layout/classunit_layout" />
-
+        layout="@layout/classunit_layout"/>
+<android.support.v7.widget.RecyclerView
+    android:layout_marginLeft="@dimen/dp_8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/eementClass_recycle"
+    ></android.support.v7.widget.RecyclerView>
 </LinearLayout>

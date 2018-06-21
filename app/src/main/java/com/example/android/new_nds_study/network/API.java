@@ -19,5 +19,4 @@ public class API {
     public static final String openclass ="/v1/news/app/opencourses";
     public static final String LEAGERPATH="/v1/courses/";
     public static final String QUIZPATH="/v1/units/";
-
 }

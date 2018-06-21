@@ -11,54 +11,44 @@ import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.fragment.eachfragment.ClassTlakFrament;
 import com.example.android.new_nds_study.fragment.eachfragment.EementClassFragment;
 import com.example.android.new_nds_study.fragment.eachfragment.LeaguerFragment;
-import com.example.android.new_nds_study.fragment.eachfragment.QuizFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
-public class EachClassActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView mEachclassReturn;
-    /**
-     * HTML+CSS基础课程
-     */
-    private TextView mEachclassTitle;
-    private ImageView mEachclassCorrelation;
-    private RelativeLayout mEachclassHeadLayout;
+public class EachClassActivity extends AppCompatActivity {
+
     private BottomTabBar tabBar;
+    private TextView title_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_class);
+        MyApp.setTitFlag(this);
         initView();
-        initData();
+        seting();
     }
+
     private void initView() {
-        
         tabBar = (BottomTabBar) findViewById(R.id.eachActivity_tab_bar);
-        mEachclassReturn = (ImageView) findViewById(R.id.eachclass_return);
-        mEachclassTitle = (TextView) findViewById(R.id.eachclass_title);
-        mEachclassCorrelation = (ImageView) findViewById(R.id.eachclass_correlation);
-        mEachclassHeadLayout = (RelativeLayout) findViewById(R.id.eachclass_head_layout);
-        
-        mEachclassReturn.setOnClickListener(this);
-        mEachclassCorrelation.setOnClickListener(this);
+        title_text = findViewById(R.id.eachclass_title);
     }
-    private void initData() {
+
+    private void seting() {
+        Intent intent = getIntent();
+        if(intent.getStringExtra("title")!=null){
+            title_text.setText(intent.getStringExtra("title"));
+
+        }
         //这个init ( getSupportFragmentManager() )方法一定要第一个调用，没有//这个初始化，后边什么也做不了。
         tabBar.init(getSupportFragmentManager())
-                .addTabItem("单元", R.drawable.ic_tab_icon_dynamic_hover, R.mipmap.tab_icon_dynamic_normal, EementClassFragment.class)
-                .addTabItem("讨论", R.mipmap.tab_icon_find_hover, R.mipmap.tab_icon_find_normal, ClassTlakFrament.class)
-                .addTabItem("成员", R.mipmap.tab_icon_live_hover, R.mipmap.tab_icon_live_normal, LeaguerFragment.class)
-                .addTabItem("作业", R.mipmap.tab_icon_course_hover, R.mipmap.tab_icon_course_normal, EementClassFragment.class)
-                .addTabItem("测验", R.mipmap.tab_icon_communication_hover, R.mipmap.tab_icon_communication_normal, QuizFragment.class);
+                .isShowDivider(true)
+                .addTabItem("单元", R.drawable.class_tab_icon_unit_hover, R.drawable.class_tab_icon_unit_normal, EementClassFragment.class)
+                .addTabItem("讨论", R.drawable.class_tab_icon_discussion_hover, R.drawable.class_tab_icon_discussion_normal, ClassTlakFrament.class)
+                .addTabItem("成员", R.drawable.class_tab_icon_member_hover, R.drawable.class_tab_icon_member_normal, LeaguerFragment.class)
+                .addTabItem("作业", R.drawable.class_tab_icon_homework_hover, R.drawable.class_tab_icon_homework_normal, LeaguerFragment.class)
+                .addTabItem("测验", R.drawable.class_tab_icon_test_hover, R.drawable.class_tab_icon_test_normal, QuizFragment.class);
     }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.eachclass_return:
-                 finish();
-                 break;
-            case R.id.eachclass_correlation:
-                 break;
-        }
+
+    public BottomTabBar getTabBar() {
+        return tabBar;
     }
 }

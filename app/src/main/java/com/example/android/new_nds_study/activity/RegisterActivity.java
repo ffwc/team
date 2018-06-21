@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.presnster.RegisterPresenter;
 import com.example.android.new_nds_study.m_v_p.view.RegisterPresenterListener;
@@ -46,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+        MyApp.setTitFlag(this);
         registerPresenter = new RegisterPresenter(this);
 
     }

@@ -1,5 +1,7 @@
 package com.example.android.new_nds_study.network;
 
+import com.example.android.new_nds_study.util.LogUtil;
+
 import java.util.Map;
 
 import io.reactivex.Observer;
@@ -30,17 +32,17 @@ public class RetrofitManagerAPI {
             .create(ApiService.class);
 
 
-    public static void get(String url, Map<String,String> map, Observer observer){
-
-        apiService.get(url,map)
+    public static void get(String url, Map<String, String> map, Observer observer) {
+        LogUtil.i("url", url);
+        apiService.get(url, map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
 
     }
 
-    public static void post(String url,Map<String,String> map,Observer observer){
-        apiService.post(url,map)
+    public static void post(String url, Map<String, String> map, Observer observer) {
+        apiService.post(url, map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

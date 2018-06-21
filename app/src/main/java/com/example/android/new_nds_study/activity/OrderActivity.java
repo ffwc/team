@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.MyPagerAdapter;
 import com.example.android.new_nds_study.fragment.orderfragment.Cancle_Payment_Fragment;
@@ -49,6 +50,7 @@ public class OrderActivity extends AppCompatActivity {
 
     }
     private void initview() {
+        MyApp.setTitFlag(this);
         mTabLayout = (TabLayout) findViewById(R.id.tablayout);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mTabLayout.setOnClickListener(new View.OnClickListener() {

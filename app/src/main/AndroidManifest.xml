@@ -34,7 +34,6 @@
         <activity android:name=".activity.SetActivity" />
         <activity android:name=".activity.OrderActivity" />
         <activity android:name=".activity.OpenClassActivity" />
-        <activity android:name=".activity.TestActivity" />
     </application>
 
 </manifest>
