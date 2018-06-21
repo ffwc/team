@@ -36,7 +36,6 @@ public class EachClassActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.getStringExtra("title")!=null){
             title_text.setText(intent.getStringExtra("title"));
-
         }
         //这个init ( getSupportFragmentManager() )方法一定要第一个调用，没有//这个初始化，后边什么也做不了。
         tabBar.init(getSupportFragmentManager())

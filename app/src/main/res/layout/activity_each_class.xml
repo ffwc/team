@@ -25,12 +25,13 @@
             android:id="@+id/eachclass_title"
             android:layout_width="@dimen/dp_171"
             android:layout_height="@dimen/dp_25"
-            android:layout_marginLeft="@dimen/dp_60"
-            android:layout_marginTop="@dimen/dp_13"
-            android:layout_toRightOf="@+id/eachclass_return"
             android:text="@string/title_eachclass"
             android:textColor="#FF3A414D"
             android:textSize="@dimen/dp_18"
+            android:ellipsize="end"
+            android:maxEms="5"
+            android:singleLine="true"
+            android:layout_centerInParent="true"
             android:textStyle="bold" />
 
         <TextView
