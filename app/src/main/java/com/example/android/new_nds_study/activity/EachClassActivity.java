@@ -1,16 +1,16 @@
 package com.example.android.new_nds_study.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.fragment.eachfragment.ClassTlakFrament;
 import com.example.android.new_nds_study.fragment.eachfragment.EementClassFragment;
 import com.example.android.new_nds_study.fragment.eachfragment.LeaguerFragment;
+import com.example.android.new_nds_study.fragment.eachfragment.QuizFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 public class EachClassActivity extends AppCompatActivity {
