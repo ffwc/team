@@ -1,5 +1,6 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
@@ -22,27 +23,29 @@ public class MyClassPresenter implements MyClassPresenterListener {
         this.myClassPresenterListener=myClassPresenterListener;
         apiService = RetrofitUtils.apiService;
     }
-    public void getMyClassPresenter(String page ,String token){
-        Observable<MyCoursesBean> observable = apiService.getMyCoures(/*page,*/ token);
+    public void getMyClassPresenter(final String page , String token){
+        Observable<MyCoursesBean> observable = apiService.getMyCoures(page, token);
         observable.subscribeOn(Schedulers.io())
                  .observeOn(AndroidSchedulers.mainThread())
                  .subscribe(new Consumer<MyCoursesBean>() {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
-                         if (myCoursesBean==null){
-                         Log.e("fzy", "accept: "+"null");}
-                         else {
-
+                         Log.e("MyClassPresenter", "判断"+myCoursesBean);
+                         if (myCoursesBean.getData().getList()==null){
+                         Log.e("MyClassPresenter", "accept: "+"null");
+                         } else {
                              Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
+                             myClassPresenterListener.onSuccess(myCoursesBean,page);
                          }
-                       myClassPresenterListener.onSuccess(myCoursesBean);  
                      }
                  });
     }
+    
     @Override
-    public void onSuccess(MyCoursesBean myCoursesBean) {
-        
+    public void onSuccess(MyCoursesBean myCoursesBean, String flag) {
+
     }
+    
     //防止内存泄露
     public void detach() {
         myClassPresenterListener = null;
