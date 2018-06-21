@@ -22,9 +22,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Created by android on 2018/4/17.
@@ -84,7 +82,6 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             @Override
             public void onItemClick(View view, int position) {
                 //跳转单元
-
                 Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",list.get(position).getTitle());
                 startActivity(intent);
             }
