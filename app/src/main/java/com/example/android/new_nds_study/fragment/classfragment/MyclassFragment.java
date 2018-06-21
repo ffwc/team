@@ -23,6 +23,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -37,6 +38,9 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private MyClassAdapter myClassAdapter;
     private MyClassPresenter myClassPresenter;
     private SmartRefreshLayout myclassfragment_smart;
+    private MyCoursesBean myCoursesBean =new MyCoursesBean();
+    private int page=1;
+    private int total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,20 +52,38 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
 
     private void initData() {
         myClassPresenter = new MyClassPresenter(this);
+        myClassAdapter = new MyClassAdapter(getActivity());
+        mMyclassfragmentRecycler.setAdapter(myClassAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
+        myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, String position) {
+                //跳转单元
+                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",position);
+                startActivity(intent);
+            }
+        });
         myClassPresenter.getMyClassPresenter("1","c065f926bfd740be39fc2b34dfe12dc2e7882b09");
-        Log.e(TAG,"检测");
-        //上拉刷新
+        //下拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                myclassfragment_smart.finishRefresh(1000);
+                page=1;
+                myClassPresenter.getMyClassPresenter(""+page,"c065f926bfd740be39fc2b34dfe12dc2e7882b09");
             }
         });
-        //下拉加载
+        //上拉加载
         myclassfragment_smart.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                myclassfragment_smart.finishLoadMore(1000);
+                ++page;
+                if (page <= ((total+4)/5)){
+                    myClassPresenter.getMyClassPresenter(""+page,"c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+                }else {
+                    myclassfragment_smart.finishLoadMore();
+                }
             }
         });
     }
@@ -71,24 +93,19 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myclassfragment_smart = view.findViewById(R.id.myclassfragment_smart);
     }
     @Override
-    public void onSuccess(MyCoursesBean myCoursesBean) {
+    public void onSuccess(MyCoursesBean myCoursesBean,String flag) {
         Log.e(TAG,"检测"+myCoursesBean);
-        myClassAdapter = new MyClassAdapter(getActivity(),myCoursesBean.getData().getList());
-        mMyclassfragmentRecycler.setAdapter(myClassAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
         //设置RecyclerView 点击条目事件
-        final List<MyCoursesBean.DataBean.ListBean> list = myCoursesBean.getData().getList();
-        myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                //跳转单元
-
-                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",list.get(position).getTitle());
-                startActivity(intent);
-            }
-        });
+        this.myCoursesBean=myCoursesBean;
+        Log.e(TAG, "onSuccess: "+flag);
+        if (flag.equals("1")){
+            total=myCoursesBean.getData().getTotal();
+            myClassAdapter.setDataClear(myCoursesBean.getData().getList());
+        }else {
+            myClassAdapter.setData(myCoursesBean.getData().getList());
+        }
+        myclassfragment_smart.finishRefresh();
+        myclassfragment_smart.finishLoadMore();
     }
    //防止内存泄露
     @Override

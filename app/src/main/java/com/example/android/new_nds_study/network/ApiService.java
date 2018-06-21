@@ -9,6 +9,7 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
@@ -28,6 +29,6 @@ public interface ApiService {
     @POST
     Observable<String> post(@Url String url, @FieldMap Map<String,String> map);
 
-    @GET("/v1/courses/mine/limit/20/page/1")
-    Observable<MyCoursesBean> getMyCoures(@Query("token") String token);
+    @GET("/v1/courses/mine/limit/5/page/{page}")
+    Observable<MyCoursesBean> getMyCoures(@Path("page")String page, @Query("token") String token);
 }
