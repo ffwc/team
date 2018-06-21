@@ -66,6 +66,6 @@
         hjm:tab_img_width="@dimen/dp_30"
         hjm:tab_padding_bottom="@dimen/dp_5"
         hjm:tab_selected_color="#000000"
-        hjm:tab_unselected_color="@color/color_yellow" />
+        hjm:tab_unselected_color="@color/color_gray" />
 
 </LinearLayout>
