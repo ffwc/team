@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
@@ -17,7 +16,6 @@ import com.example.android.new_nds_study.adapter.EementClassRecyAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
 import com.example.android.new_nds_study.m_v_p.presnster.EementClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.EementPresenterListener;
-import com.example.android.new_nds_study.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
