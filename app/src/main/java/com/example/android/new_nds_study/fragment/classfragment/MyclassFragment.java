@@ -49,6 +49,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private void initData() {
         myClassPresenter = new MyClassPresenter(this);
         myClassPresenter.getMyClassPresenter("1","c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+
         Log.e(TAG,"检测");
         //上拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {

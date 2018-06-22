@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.fragment.eachfragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,10 @@ import com.example.android.new_nds_study.adapter.EementClassRecyAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
 import com.example.android.new_nds_study.m_v_p.presnster.EementClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.EementPresenterListener;
+import com.example.android.new_nds_study.util.LogUtil;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +36,10 @@ public class EementClassFragment extends Fragment implements EementPresenterList
     private EementClassRecyAdapter classRecyAdapter;
     private TextView title;
     private TextView tlak_size;
-    private String courses = "121";
-    private String limit = "5";
-    private String page = "1";
+    private int courses = 121;
+    private int limit = 1;
+    private int page = 1;
+    private RefreshLayout refreshLayout;
 
     @Nullable
     @Override
@@ -49,23 +55,42 @@ public class EementClassFragment extends Fragment implements EementPresenterList
         recycle = view.findViewById(R.id.eementClass_recycle);
         title = view.findViewById(R.id.leaguer_title);
         tlak_size = view.findViewById(R.id.tlak_size);
+        refreshLayout = view.findViewById(R.id.item_each_Refresh);
         title.setText("单元");
     }
 
     private void initData() {
-        eementClassPresenter = new EementClassPresenter(this);
-        eementClassPresenter.getData(courses, limit, page);
         linearLayoutManager = new LinearLayoutManager(MyApp.applicationInstance());
         classRecyAdapter = new EementClassRecyAdapter(getActivity(), list);
         recycle.setLayoutManager(linearLayoutManager);
         recycle.setAdapter(classRecyAdapter);
-    }
+        eementClassPresenter = new EementClassPresenter(this);
+        eementClassPresenter.getData(courses + "", limit + "", page + "");
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page += 2;
+                eementClassPresenter.getData(courses + "", limit + "", page + "");
+            }
+        });
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page = 1;
 
+                eementClassPresenter.getData(courses + "", limit + "", page + "");
+                list.clear();
+            }
+        });
+    }
 
     @Override
     public void scuess(EementClassBean eementClassBean) {
+        LogUtil.i("adapter_size", eementClassBean.getData().getList().size() + "");
         list.addAll(eementClassBean.getData().getList());
         classRecyAdapter.notifyDataSetChanged();
-        tlak_size.setText("(" + eementClassBean.getData().getList().size() + ")");
+        tlak_size.setText("(" + list.size() + ")");
+        refreshLayout.finishLoadMore();
+        refreshLayout.finishRefresh();
     }
 }

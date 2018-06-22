@@ -98,10 +98,10 @@ public class EementClassBean {
             private String desc;
             private String cover;
             private String classroom_start_time;
-            private StarterBean starter;
+            private Object starter;
             private String classroom_end_time;
             private int event_id;
-            private List<ClassroomBean> classroom;
+            private Object classroom;
 
             public String getUnit_id() {
                 return unit_id;
@@ -191,11 +191,11 @@ public class EementClassBean {
                 this.classroom_start_time = classroom_start_time;
             }
 
-            public StarterBean getStarter() {
+            public Object getStarter() {
                 return starter;
             }
 
-            public void setStarter(StarterBean starter) {
+            public void setStarter(Object starter) {
                 this.starter = starter;
             }
 
@@ -215,11 +215,11 @@ public class EementClassBean {
                 this.event_id = event_id;
             }
 
-            public List<ClassroomBean> getClassroom() {
+            public Object getClassroom() {
                 return classroom;
             }
 
-            public void setClassroom(List<ClassroomBean> classroom) {
+            public void setClassroom(Object classroom) {
                 this.classroom = classroom;
             }
 
