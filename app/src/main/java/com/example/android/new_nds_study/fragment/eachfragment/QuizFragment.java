@@ -54,7 +54,7 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
         recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
 
         ClassQuizPresenter classQuizPresenter = new ClassQuizPresenter(this);
-        classQuizPresenter.getData("A304","c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+        classQuizPresenter.getData("A304","25d66c30859f7bc0f241435c85fc5445ce8c4734");
 
     }
 
