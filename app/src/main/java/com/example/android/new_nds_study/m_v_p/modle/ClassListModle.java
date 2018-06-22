@@ -21,25 +21,27 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.example.android.new_nds_study.network.API.LEAGERPATH;
+
 /**
  * @Author J & J
  * @Time 2018/6/5.
  */
 
 public class ClassListModle {
-    public void getData(final ClassModleListener classModleListener) {
+    public void getData(int limit, int page, final ClassModleListener classModleListener) {
         final Map<String, String> map = new HashMap<>();
-        String zixunliebiao = "/v1/courses/limit/20/page/1";
-
-        RetrofitManagerAPI.get(API.classlist, map, new BaseObserver<ClassListBean>() {
+        String newUrl = LEAGERPATH + "limit/" + limit + "/page/" + page + "/";
+        LogUtil.i("url", newUrl);
+        RetrofitManagerAPI.get(newUrl, map, new BaseObserver<ClassListBean>() {
             @Override
             public void success(ClassListBean classListBean) {
                 if (classModleListener != null) {
-
                     classModleListener.success(classListBean);
-                     LogUtil.i("classlist22222","数据请求成功");
+                    LogUtil.i("classlist22222", "数据请求成功");
                 }
             }
+
             @Override
             public void failure(int code) {
 

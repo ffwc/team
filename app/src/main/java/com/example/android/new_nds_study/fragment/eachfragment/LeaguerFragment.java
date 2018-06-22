@@ -20,6 +20,7 @@ import com.example.android.new_nds_study.m_v_p.bean.UnitBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassUnitPresenter;
 import com.example.android.new_nds_study.m_v_p.view.UnitPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
+import com.example.android.new_nds_study.util.MyDecoration;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -62,6 +63,8 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
         recycle.setAdapter(leaguerAdapter);
         recycle.setPullRefreshEnabled(true);
         recycle.setLoadingMoreEnabled(true);
+        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
+
         recycle.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);
         getData();
 
