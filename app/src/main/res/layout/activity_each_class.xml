@@ -11,21 +11,22 @@
     <RelativeLayout
         android:id="@+id/eachclass_head_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44">
+        android:layout_height="@dimen/dp_44"
+        android:gravity="bottom"
+        android:paddingTop="@dimen/dp_6">
 
         <ImageView
             android:id="@+id/eachclass_return"
             android:layout_width="@dimen/dp_32"
             android:layout_height="@dimen/dp_32"
             android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp_6"
             android:src="@mipmap/icon_set_return_normal" />
 
         <TextView
             android:id="@+id/eachclass_title"
-            android:layout_width="@dimen/dp_171"
-            android:layout_height="@dimen/dp_25"
-            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:ellipsize="end"
             android:maxEms="5"
             android:singleLine="true"
@@ -39,12 +40,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_10"
-            android:gravity="center"
             android:text="@string/title_eachclass_right"
             android:textSize="@dimen/sp_16"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
     </RelativeLayout>
 
     <com.hjm.bottomtabbar.BottomTabBar xmlns:hjm="http://schemas.android.com/apk/res-auto"

@@ -68,7 +68,7 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
                 LogUtil.i("list",list.get(i).toString());
             }
             quizList.addAll(list);
-            tlak_size.setText("("+list.size()+")");
+            tlak_size.setText("("+quizBean.getData().getTotal()+")");
             quizAdapter.notifyDataSetChanged();
         }
     }
