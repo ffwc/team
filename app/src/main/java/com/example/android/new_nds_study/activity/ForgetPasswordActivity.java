@@ -33,6 +33,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
         ButterKnife.bind(this);
+
     }
 
     @OnClick({R.id.forget_login, R.id.forget_tv_getauthcode, R.id.forget_next})
@@ -55,5 +56,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     break;
         }
     }
+
+
 }
 

@@ -15,9 +15,6 @@ import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * Created by android on 2018/4/17.
@@ -61,4 +58,6 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     public void onDestroy() {
         super.onDestroy();
     }
+
+
 }

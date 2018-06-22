@@ -133,8 +133,8 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
             String access_token = data.getAccess_token();
             MyApp.edit.putString("token",access_token).commit();
             Log.e(TAG, "onSuccess: "+ access_token);
-
-            loginPresenter.getInfo(access_token);
+            finish();
+            /*loginPresenter.getInfo(access_token);*/
         }
     }
 

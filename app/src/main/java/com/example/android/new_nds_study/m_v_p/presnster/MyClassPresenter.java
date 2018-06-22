@@ -1,10 +1,6 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
-import android.util.Log;
-
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
-import com.example.android.new_nds_study.m_v_p.modle.MyClassModle;
-import com.example.android.new_nds_study.m_v_p.view.MyClassModeListener;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
 import com.example.android.new_nds_study.network.ApiService;
 import com.example.android.new_nds_study.util.RetrofitUtils;
@@ -30,10 +26,9 @@ public class MyClassPresenter implements MyClassPresenterListener {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
                          if (myCoursesBean==null){
-                         Log.e("fzy", "accept: "+"null");}
+                        }
                          else {
 
-                             Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
                          }
                        myClassPresenterListener.onSuccess(myCoursesBean);  
                      }
