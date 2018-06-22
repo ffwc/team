@@ -22,11 +22,6 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-
 /**
  * Created by android on 2018/4/17.
  */
@@ -57,6 +52,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
+        //设置RecyclerView 点击条目事件
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, String position) {
@@ -95,7 +91,6 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean,String flag) {
         Log.e(TAG,"检测"+myCoursesBean);
-        //设置RecyclerView 点击条目事件
         this.myCoursesBean=myCoursesBean;
         Log.e(TAG, "onSuccess: "+flag);
         if (flag.equals("1")){
