@@ -18,6 +18,7 @@ import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
 import com.example.android.new_nds_study.m_v_p.presnster.EementClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.EementPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
+import com.example.android.new_nds_study.util.MyDecoration;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -64,6 +65,8 @@ public class EementClassFragment extends Fragment implements EementPresenterList
         classRecyAdapter = new EementClassRecyAdapter(getActivity(), list);
         recycle.setLayoutManager(linearLayoutManager);
         recycle.setAdapter(classRecyAdapter);
+        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
+
         eementClassPresenter = new EementClassPresenter(this);
         eementClassPresenter.getData(courses + "", limit + "", page + "");
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {

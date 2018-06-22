@@ -17,6 +17,7 @@ import com.example.android.new_nds_study.adapter.MyClassAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
+import com.example.android.new_nds_study.util.MyDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -79,6 +80,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
+        mMyclassfragmentRecycler.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
         //设置RecyclerView 点击条目事件
         final List<MyCoursesBean.DataBean.ListBean> list = myCoursesBean.getData().getList();
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {

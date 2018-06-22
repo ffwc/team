@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.EachClassActivity;
+import com.example.android.new_nds_study.util.MyDecoration;
 
 /**
  * Created by dell on 2018/6/17.
@@ -70,6 +71,8 @@ public class ClassTlakFrament extends Fragment {
         eachClassActivity = (EachClassActivity) getActivity();
         learguer = view.findViewById(R.id.leaguer_title);
         recycle = view.findViewById(R.id.tlak_recycle);
+        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
+
         tlak_size = view.findViewById(R.id.tlak_size);
         edit_img = view.findViewById(R.id.tlak_edit);
         edit_img.setBackground(getResources().getDrawable(R.drawable.tlakedit_img));
