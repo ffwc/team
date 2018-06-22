@@ -16,7 +16,7 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/class_list_item_img"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_100"
+            android:layout_height="@dimen/dp_140"
             app:placeholderImage="@color/color_gray"
             app:roundedCornerRadius="@dimen/dp_10" />
 
