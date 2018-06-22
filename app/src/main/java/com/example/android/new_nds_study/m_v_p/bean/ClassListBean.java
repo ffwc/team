@@ -133,9 +133,9 @@ public class ClassListBean {
             private String requirement;
             private int live;
             private int student_num;
-            private UnitBean unit;
-            private ConfigBean config;
-            private List<TeachersBean> teachers;
+            private Object unit;
+            private Object config;
+            private Object teachers;
 
             public String getCourse_id() {
                 return course_id;
@@ -281,27 +281,27 @@ public class ClassListBean {
                 this.student_num = student_num;
             }
 
-            public UnitBean getUnit() {
+            public Object getUnit() {
                 return unit;
             }
 
-            public void setUnit(UnitBean unit) {
+            public void setUnit(Object unit) {
                 this.unit = unit;
             }
 
-            public ConfigBean getConfig() {
+            public Object getConfig() {
                 return config;
             }
 
-            public void setConfig(ConfigBean config) {
+            public void setConfig(Object config) {
                 this.config = config;
             }
 
-            public List<TeachersBean> getTeachers() {
+            public Object getTeachers() {
                 return teachers;
             }
 
-            public void setTeachers(List<TeachersBean> teachers) {
+            public void setTeachers(Object teachers) {
                 this.teachers = teachers;
             }
 

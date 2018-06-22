@@ -26,6 +26,7 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
         this.context = context;
         this.list = list;
     }
+
     @Override
     public MyEemnetClassHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.eementadapter_item, parent, false);
@@ -52,8 +53,8 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
                 holder.item_each_class_study_type.setTextColor(Color.BLUE);
                 break;
         }
-        String[] split = list.get(position).getClassroom_start_time().split(" ");
-        String[] split1 = list.get(position).getClassroom_end_time().split(" ");
+        String[] split = list.get(position).getStart_time().split(" ");
+        String[] split1 = list.get(position).getEnd_time().split(" ");
         holder.item_each_class_study_starttime.setText(split[0]);
         holder.item_each_class_study_stoptime.setText(split[1] + "~" + split1[1]);
         holder.item_each_class_study_g.setText("|");
@@ -61,8 +62,7 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
 
     @Override
     public int getItemCount() {
-        LogUtil.i("adapter_size", list.size() + "");
-        return list.size() == 0 ? 0 : list.size();
+        return list.size() ;
     }
 
     class MyEemnetClassHolder extends RecyclerView.ViewHolder {
