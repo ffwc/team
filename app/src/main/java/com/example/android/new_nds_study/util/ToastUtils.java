@@ -1,44 +1,100 @@
 package com.example.android.new_nds_study.util;
 
 import android.content.Context;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 /**
- * Created by android on 2018/4/24.
+ * Toast统一管理类
+ * 
  */
+public class ToastUtils
+{
 
-public class ToastUtils {
-    private static Toast TOAST;
-    private static final String TAG = "ToastUtil";
+	private ViewGroup.LayoutParams layoutParams;
+
+	private ToastUtils()
+	{
+		/* cannot be instantiated */
+		throw new UnsupportedOperationException("cannot be instantiated");
+	}
+
+	public static boolean isShow = true;
+
+	/**
+	 * 短时间显示Toast
+	 * 
+	 * @param context
+	 * @param message
+	 */
+	public static void showShort(Context context, CharSequence message)
+	{
+		if (isShow)
+			Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+	}
+
+	/**
+	 * 短时间显示Toast
+	 * 
+	 * @param context
+	 * @param message
+	 */
+	public static void showShort(Context context, int message)
+	{
+		if (isShow)
+			Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+	}
+
+	/**
+	 * 长时间显示Toast
+	 * 
+	 * @param context
+	 * @param message
+	 */
+	public static void showLong(Context context, CharSequence message)
+	{
+		if (isShow)
+			Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+	}
+
+	/**
+	 * 长时间显示Toast
+	 * 
+	 * @param context
+	 * @param message
+	 */
+	public static void showLong(Context context, int message)
+	{
+		if (isShow)
+			Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+	}
+
+	/**
+	 * 自定义显示Toast时间
+	 * 
+	 * @param context
+	 * @param message
+	 * @param duration
+	 */
+	public static void show(Context context, CharSequence message, int duration)
+	{
+		if (isShow)
+			Toast.makeText(context, message, duration).show();
+	}
+
+	/**
+	 * 自定义显示Toast时间
+	 * 
+	 * @param context
+	 * @param message
+	 * @param duration
+	 */
+	public static void show(Context context, int message, int duration)
+	{
+		if (isShow)
+			Toast.makeText(context, message, duration).show();
+	}
 
 
-    //短时间吐司
-    public static void show(Context context, int resourceID) {
-        show(context, resourceID, Toast.LENGTH_SHORT);
-    }
-
-    //短时间吐司
-    public static void show(Context context, String text) {
-        show(context, text, Toast.LENGTH_SHORT);
-    }
-
-    //自定义时长吐司
-    public static void show(Context context, Integer resourceID, int duration) {
-        String text = context.getResources().getString(resourceID);// 用于显示的文字
-        show(context, text, duration);
-    }
-
-    //自定义时长吐司
-    public static void show(final Context context, final String text, final int duration) {
-
-        if (TOAST == null) {
-            TOAST = Toast.makeText(context, text, duration);
-        } else {
-            TOAST.setText(text);
-            TOAST.setDuration(duration);
-        }
-
-        TOAST.show();
-    }
 
 }

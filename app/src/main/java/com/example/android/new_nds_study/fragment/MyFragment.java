@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,52 +16,47 @@ import android.widget.TextView;
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.LoginActivity;
-import com.example.android.new_nds_study.activity.OrderActivity;
 import com.example.android.new_nds_study.activity.SetActivity;
-import com.example.android.new_nds_study.m_v_p.bean.OpenUser;
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyFragmentPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyFragmentPresenterListener;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.core.ImagePipeline;
 
 /**
  * Created by android on 2018/4/17.
  */
 
-public class MyFragment extends Fragment implements View.OnClickListener,MyFragmentPresenterListener {
+public class MyFragment extends Fragment implements View.OnClickListener, MyFragmentPresenterListener {
 
     private View view;
 
-    /**
-     * my
-     */
-    private TextView mMyFragmentMe;
-    /**
-     * set
-     */
-    private TextView mTextviewSet;
+
+    private String token;
+    private MyFragmentPresenter myFragmentPresenter;
+    private String uid;
     private SimpleDraweeView mMyFragmentIcon;
     /**
-     * 昵称
+     * 登录账户
      */
     private TextView mMyFragmentUsername;
-    /**
-     * 账号ID
-     */
-    private TextView mMyFragmentUser;
-    /**
-     * 你什么都没说~
-     */
+    /**  */
     private TextView mMyFragmentSignature;
-    private LinearLayout mMyFragmentLoginOruser;
+    private ImageView mSetImageview;
+    private RelativeLayout mMyFragmentLoginOruser;
     private LinearLayout mLayoutMessage;
     private LinearLayout mLayoutPlant;
     private LinearLayout mLayoutOrder;
     private RecyclerView mMyFragmentRecord;
-    private RelativeLayout mMyFragmentMeconstruction;
-    private RelativeLayout mMyFragmentMefriend;
-    private String token;
-    private MyFragmentPresenter myFragmentPresenter;
-    private String uid;
+    private LinearLayout mMyFragmentMeconstruction;
+    private LinearLayout mMyFragmentMefriend;
+    private LinearLayout mMyFragmentClearCache;
+    private LinearLayout mMyFragmentAsregards;
+    /**
+     * 退出当前帐号
+     */
+    private TextView mMyFragmentFinsch;
 
 
     @Override
@@ -70,9 +66,10 @@ public class MyFragment extends Fragment implements View.OnClickListener,MyFragm
         myFragmentPresenter = new MyFragmentPresenter(this);
         view = inflater.inflate(R.layout.my_fragment, container, false);
 
-        initView(view);
-      /*  inttlistener(view);*/
 
+        /*  inttlistener(view);*/
+
+        initView(view);
         return view;
     }
 
@@ -97,107 +94,35 @@ public class MyFragment extends Fragment implements View.OnClickListener,MyFragm
         });
     }*/
 
-    private void initView(View view) {
-        mMyFragmentMe = (TextView) view.findViewById(R.id.my_fragment_me);
-        mMyFragmentMe.setOnClickListener(this);
-        mTextviewSet = (TextView) view.findViewById(R.id.textview_set);
-        mTextviewSet.setOnClickListener(this);
-        mMyFragmentIcon = (SimpleDraweeView) view.findViewById(R.id.my_fragment_icon);
-
-        mMyFragmentUsername = (TextView) view.findViewById(R.id.my_fragment_username);
-
-        mMyFragmentUser = (TextView) view.findViewById(R.id.my_fragment_user);
-
-        mMyFragmentSignature = (TextView) view.findViewById(R.id.my_fragment_signature);
-
-        mMyFragmentLoginOruser = (LinearLayout) view.findViewById(R.id.my_fragment_loginOruser);
-        mMyFragmentLoginOruser.setOnClickListener(this);
-        mLayoutMessage = (LinearLayout) view.findViewById(R.id.layout_message);
-        mLayoutMessage.setOnClickListener(this);
-        mLayoutPlant = (LinearLayout) view.findViewById(R.id.layout_plant);
-        mLayoutPlant.setOnClickListener(this);
-        mLayoutOrder = (LinearLayout) view.findViewById(R.id.layout_order);
-        mLayoutOrder.setOnClickListener(this);
-        mMyFragmentRecord = (RecyclerView) view.findViewById(R.id.my_fragment_record);
-        mMyFragmentRecord.setOnClickListener(this);
-        mMyFragmentMeconstruction = (RelativeLayout) view.findViewById(R.id.my_fragment_meconstruction);
-        mMyFragmentMeconstruction.setOnClickListener(this);
-        mMyFragmentMefriend = (RelativeLayout) view.findViewById(R.id.my_fragment_mefriend);
-        mMyFragmentMefriend.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.my_fragment_me:
-                break;
-            case R.id.textview_set:
-
-                break;
-            case R.id.my_fragment_icon:
-                break;
-            case R.id.my_fragment_username:
-                break;
-            case R.id.my_fragment_user:
-                break;
-            case R.id.my_fragment_signature:
-                break;
-            case R.id.my_fragment_loginOruser:
-                String mUsername = mMyFragmentUsername.getText().toString();
-                if (mUsername.equals("登录账户")){
-                    Intent loginActivity = new Intent(getActivity(), LoginActivity.class);
-                    startActivity(loginActivity);
-                }else{
-                    Intent setActivity = new Intent(getActivity(), SetActivity.class);
-                    startActivity(setActivity);
-                }
-
-                break;
-            case R.id.layout_message:
-                break;
-            case R.id.layout_plant:
-                break;
-            case R.id.layout_order:
-                Intent orderActivity = new Intent(getActivity(), OrderActivity.class);
-                startActivity(orderActivity);
-                break;
-            case R.id.my_fragment_record:
-                break;
-            case R.id.my_fragment_meconstruction:
-                break;
-            case R.id.my_fragment_mefriend:
-                break;
-        }
-    }
-
-
 
     @Override
     public void onResume() {
         super.onResume();
-        myFragmentPresenter.getData(uid);
-
+        myFragmentPresenter.getData(token);
 
 
     }
 
     @Override
-    public void onSuccess(OpenUser openUser) {
+    public void onSuccess(UserinfoBean userinfoBean) {
 
-        if (openUser!=null) {
-            OpenUser.DataBean.ListBean listBean = openUser.getData().getList().get(0);
-            mMyFragmentIcon.setImageURI(Uri.parse(listBean.getAvatar()));
-            mMyFragmentUsername.setText(listBean.getNickname());
-            mMyFragmentUser.setText(listBean.getUsername());
-            String signature = listBean.getSignature();
-            if (signature.equals("") || signature == null) {
+        if (userinfoBean != null) {
+            ImagePipeline imagePipeline = Fresco.getImagePipeline();
+
+            imagePipeline.evictFromMemoryCache(Uri.parse(userinfoBean.getAvatar()));
+            imagePipeline.evictFromDiskCache(Uri.parse(userinfoBean.getAvatar()));
+
+// combines above two lines
+            imagePipeline.evictFromCache(Uri.parse(userinfoBean.getAvatar()));
+            mMyFragmentIcon.setImageURI(Uri.parse(userinfoBean.getAvatar()));
+            mMyFragmentUsername.setText(userinfoBean.getNickname());
+            /*mMyFragmentUser.setText(userinfoBean.getUsername());*/
+            String signature = userinfoBean.getSignature();
+            if (signature == null) {
                 mMyFragmentSignature.setText("你什么也没说~");
             } else {
                 mMyFragmentSignature.setText(signature);
             }
-
 
 
         }
@@ -206,5 +131,80 @@ public class MyFragment extends Fragment implements View.OnClickListener,MyFragm
     @Override
     public void onDefeated() {
 
+    }
+
+    private void initView(View view) {
+        mMyFragmentIcon = (SimpleDraweeView) view.findViewById(R.id.my_fragment_icon);
+
+        mMyFragmentUsername = (TextView) view.findViewById(R.id.my_fragment_username);
+
+        mMyFragmentSignature = (TextView) view.findViewById(R.id.my_fragment_signature);
+
+        mSetImageview = (ImageView) view.findViewById(R.id.set_imageview);
+
+        mMyFragmentLoginOruser = (RelativeLayout) view.findViewById(R.id.my_fragment_loginOruser);
+        mMyFragmentLoginOruser.setOnClickListener(this);
+        mLayoutMessage = (LinearLayout) view.findViewById(R.id.layout_message);
+        mLayoutMessage.setOnClickListener(this);
+        mLayoutPlant = (LinearLayout) view.findViewById(R.id.layout_plant);
+        mLayoutPlant.setOnClickListener(this);
+        mLayoutOrder = (LinearLayout) view.findViewById(R.id.layout_order);
+        mLayoutOrder.setOnClickListener(this);
+        mMyFragmentRecord = (RecyclerView) view.findViewById(R.id.my_fragment_record);
+
+        mMyFragmentMeconstruction = (LinearLayout) view.findViewById(R.id.my_fragment_meconstruction);
+        mMyFragmentMeconstruction.setOnClickListener(this);
+        mMyFragmentMefriend = (LinearLayout) view.findViewById(R.id.my_fragment_mefriend);
+        mMyFragmentMefriend.setOnClickListener(this);
+        mMyFragmentClearCache = (LinearLayout) view.findViewById(R.id.my_fragment_clearCache);
+        mMyFragmentClearCache.setOnClickListener(this);
+        mMyFragmentAsregards = (LinearLayout) view.findViewById(R.id.my_fragment_asregards);
+        mMyFragmentAsregards.setOnClickListener(this);
+        mMyFragmentFinsch = (TextView) view.findViewById(R.id.my_fragment_finsch);
+        mMyFragmentFinsch.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.my_fragment_icon:
+                break;
+            case R.id.my_fragment_username:
+                break;
+            case R.id.my_fragment_signature:
+                break;
+            case R.id.set_imageview:
+                break;
+            case R.id.my_fragment_loginOruser:
+                String mUsername=mMyFragmentUsername.getText().toString();
+                if(mUsername.equals("登录账户")){
+                    Intent loginActivity=new Intent(getActivity(),LoginActivity.class);
+                    startActivity(loginActivity);
+                }else{
+                    Intent setActivity=new Intent(getActivity(),SetActivity.class);
+                    startActivity(setActivity);
+                }
+                break;
+            case R.id.layout_message:
+                break;
+            case R.id.layout_plant:
+                break;
+            case R.id.layout_order:
+                break;
+            case R.id.my_fragment_record:
+                break;
+            case R.id.my_fragment_meconstruction:
+                break;
+            case R.id.my_fragment_mefriend:
+                break;
+            case R.id.my_fragment_clearCache:
+                break;
+            case R.id.my_fragment_asregards:
+                break;
+            case R.id.my_fragment_finsch:
+                break;
+        }
     }
 }

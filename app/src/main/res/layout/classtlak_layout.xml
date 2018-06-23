@@ -1,70 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <include
-        layout="@layout/classunit_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/classtlak_title"
-        ></include>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/tlak_recycle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_8"
-        android:padding="@dimen/dp_8"
-        android:layout_below="@id/tlak_recycle"
-        android:layout_marginTop="@dimen/dp_40">
-
-    </android.support.v7.widget.RecyclerView>
-<View
-    android:layout_above="@id/classunit_view"
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@color/progress_bar_bg_color"
-    />
 <RelativeLayout
-    android:layout_marginTop="@dimen/dp_5"
-    android:id="@+id/classunit_view"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_marginTop="@dimen/dp_16"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp_5"
-    android:layout_above="@id/the_bottom"
-    >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/tlakshape_edit"
-            android:orientation="horizontal"
-            android:id="@+id/classtlak_edit"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/dp_3"
+    android:orientation="horizontal"
+    android:id="@+id/tlak_title"
 
-            >
+    >
+<View
+    android:layout_marginLeft="13dp"
+    android:layout_width="6dp"
+    android:layout_height="20dp"
+    android:background="#F9BA00"
+    />
+    <TextView
+        android:layout_marginLeft="@dimen/dp_16"
+        android:textSize="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="讨论()"
+        android:id="@+id/tlak_size"
+        />
+
+</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:id="@+id/tlak_recycle"
+        android:padding="15dp"
+        ></android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+
+<LinearLayout
+    android:background="@drawable/tlakshape_edit"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    >
             <ImageView
                 android:id="@+id/tlak_edit"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+
                 android:layout_marginLeft="8dp"
-                android:src="@drawable/tlakedit_img" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/dp_2"
-                android:background="@null"
-                android:hint="@string/tlakedit_string"
                 />
-        </LinearLayout>
-</RelativeLayout>
-    <View
-        android:id="@+id/the_bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:background="@color/color_write"
-        android:layout_height="@dimen/dp_12"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:hint="@string/tlakedit_string"
+     android:background="@null"
+
+    />
+
+</LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
