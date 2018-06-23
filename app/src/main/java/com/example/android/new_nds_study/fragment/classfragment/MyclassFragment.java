@@ -103,7 +103,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myclassfragment_smart.finishRefresh();
         myclassfragment_smart.finishLoadMore();
     }
-    //防止内存泄露
+   //防止内存泄露
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -14,7 +14,6 @@
         android:layout_marginTop="@dimen/dp_10"
         app:placeholderImage="@drawable/ic_launcher_background"
         app:roundedCornerRadius="@dimen/dp_15"
-
         />
 
     <LinearLayout
