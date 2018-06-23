@@ -2,12 +2,12 @@ package com.example.android.new_nds_study.m_v_p.modle;
 
 import android.util.Log;
 
+import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
 import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
+import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
 import com.example.android.new_nds_study.network.API;
 import com.example.android.new_nds_study.network.BaseObserver;
 import com.example.android.new_nds_study.network.RetrofitManager;
-import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
-import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +30,7 @@ public class LoginModule {
         RetrofitManager.post(API.LOGIN, map, new BaseObserver<LoginBean>() {
             @Override
             public void success(LoginBean loginBean) {
+
                 if (loginListener != null) {
                     loginListener.success(loginBean);
                 }
@@ -42,13 +43,17 @@ public class LoginModule {
         });
 
     }
-    public void getInfo(String token,final LoginModuleListener loginListener) {
-        Map<String, String> map = new HashMap<>();
-        map.put("token",token);
-        RetrofitManager.get(API.LOGIN, map, new BaseObserver<UserinfoBean>() {
+    public void getInfo(String token, final LoginModuleListener loginModuleListener){
+
+        String url = "/v1/oauth2/userinfo?token="+token;
+
+        HashMap<String, String> map = new HashMap<>();
+
+        RetrofitManager.get(url, map, new BaseObserver<UserinfoBean>() {
             @Override
-            public void success(UserinfoBean loginBean) {
-                loginListener.uSuccess(loginBean);
+            public void success(UserinfoBean userinfoBean) {
+                loginModuleListener.uSuccess(userinfoBean);
+
             }
 
             @Override
@@ -56,5 +61,7 @@ public class LoginModule {
 
             }
         });
+
+
     }
 }

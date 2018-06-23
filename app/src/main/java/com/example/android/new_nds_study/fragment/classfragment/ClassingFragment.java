@@ -63,7 +63,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         }
         list.addAll(classListBean.getData().getList());
         if (classListBean.getData().getList() == null) {
-            ToastUtils.show(getContext(), "暂无数据");
+            ToastUtils.show(getContext(), "暂无数据",0);
         }
         classListRecyAdapter.notifyDataSetChanged();
         refreshLayout.finishLoadMore();
