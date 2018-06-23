@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,9 @@ import com.example.android.new_nds_study.m_v_p.presnster.ClassUnitPresenter;
 import com.example.android.new_nds_study.m_v_p.view.UnitPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
 import com.example.android.new_nds_study.util.MyDecoration;
-import com.jcodecraeer.xrecyclerview.ProgressStyle;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -34,15 +37,18 @@ import java.util.List;
 public class LeaguerFragment extends Fragment implements UnitPresenterListener {
 
     private View view;
-    private XRecyclerView recycle;
+    private RecyclerView recycle;
     List<UnitBean.DataBean.ListBean> unitList = new ArrayList<>();
     private LeaguerAdapter leaguerAdapter;
     private TextView tlak_size;
     private TextView titleText;
-    private int page = 1;
     private List<UnitBean.DataBean.ListBean> list;
     private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
     private int Courses = 121;
+    private SmartRefreshLayout leaguer_smart;
+    private ClassUnitPresenter classUnitPresenter;
+    private int page=1;
+    private int total;
 
     @Nullable
     @Override
@@ -60,58 +66,51 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
         titleText.setText("成员");
         recycle.setLayoutManager(manager);
         recycle.setAdapter(leaguerAdapter);
-        recycle.setPullRefreshEnabled(true);
-        recycle.setLoadingMoreEnabled(true);
         recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
-
-        recycle.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);
         getData();
 
-        recycle.setLoadingListener(new XRecyclerView.LoadingListener() {
+        leaguer_smart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
-            public void onRefresh() {
-                new MyHandler(getActivity()).postDelayed(new Runnable() {
-                    public void run() {
-                        unitList.clear();
-                        getData();
-                        recycle.refreshComplete();
-                    }
-                }, 2000);
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                ++page;
+                if (page <= ((total+9)/10)){
+                    getData();
+                }else {
+                    leaguer_smart.finishLoadMore();
+                }
             }
-
             @Override
-            public void onLoadMore() {
-                new MyHandler(getActivity()).postDelayed(new Runnable() {
-                    public void run() {
-                        page += 1;
-                        getData();
-                    }
-
-                }, 2000);
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page=1;
+                unitList.clear();
+                getData();
             }
         });
     }
 
     private void getData() {
-        ClassUnitPresenter classUnitPresenter = new ClassUnitPresenter(this);
         LogUtil.i("page", page + "");
         classUnitPresenter.getData(Courses, page, token);
     }
 
 
     public void initView() {
+        leaguer_smart = view.findViewById(R.id.leaguer_smart);
         recycle = this.view.findViewById(R.id.leaguer_recy);
-
         tlak_size = view.findViewById(R.id.tlak_size);
+        classUnitPresenter = new ClassUnitPresenter(this);
     }
 
     @Override
-    public void successe(UnitBean unitBean) {
+    public void successe(UnitBean unitBean,int flag) {
         if (unitBean.getData() != null) {
+            total=unitBean.getData().getTotal();
             list = unitBean.getData().getList();
             unitList.addAll(list);
-            tlak_size.setText("(" + list.size() + ")");
+            tlak_size.setText("(" + total + ")");
             leaguerAdapter.notifyDataSetChanged();
+            leaguer_smart.finishRefresh();
+            leaguer_smart.finishLoadMore();
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
 import android.util.Log;
+
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
 import com.example.android.new_nds_study.network.ApiService;
@@ -27,15 +28,18 @@ public class MyClassPresenter implements MyClassPresenterListener {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
                          Log.e("MyClassPresenter", "判断"+myCoursesBean);
-                         if (myCoursesBean.getData()==null){
+                         if (myCoursesBean==null){
                          Log.e("MyClassPresenter", "accept: "+"null");
                          } else {
-                         Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
-                             myClassPresenterListener.onSuccess(myCoursesBean,page);
+                             if (myCoursesBean.getErrmsg().equals("OK")){
+                                 Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
+                                 myClassPresenterListener.onSuccess(myCoursesBean,page);
+                             }
                          }
                      }
                  });
     }
+    
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean, String flag) {
 

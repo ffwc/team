@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,13 +86,14 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private void initView(View view) {
         mMyclassfragmentRecycler = (RecyclerView) view.findViewById(R.id.myclassfragment_recycler);
         myclassfragment_smart = view.findViewById(R.id.myclassfragment_smart);
+        myclassfragment_smart.setEnableAutoLoadMore(false);
     }
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean,String flag) {
-        Log.e(TAG,"检测"+myCoursesBean);
+//        Log.e(TAG,"检测"+myCoursesBean);
         //设置RecyclerView 点击条目事件
         this.myCoursesBean=myCoursesBean;
-        Log.e(TAG, "onSuccess: "+flag);
+//        Log.e(TAG, "onSuccess: "+flag);
         if (flag.equals("1")){
             total=myCoursesBean.getData().getTotal();
             myClassAdapter.setDataClear(myCoursesBean.getData().getList());
