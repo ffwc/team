@@ -1,6 +1,6 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
-import com.example.android.new_nds_study.m_v_p.bean.OpenUser;
+import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.modle.MyFragmentModle;
 import com.example.android.new_nds_study.m_v_p.view.MyFragmentModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.MyFragmentPresenterListener;
@@ -16,14 +16,14 @@ public class MyFragmentPresenter {
 
     }
 
-    public void getData(String uid ){
+    public void getData(String token ){
 
-        myFragmentModle.getData(uid, new MyFragmentModuleListener() {
+        myFragmentModle.getData(token, new MyFragmentModuleListener() {
             @Override
-            public void success(OpenUser openUser) {
+            public void success(UserinfoBean userinfoBean) {
                 if (myFragmentPresenterListener!=null){
 
-                    myFragmentPresenterListener.onSuccess(openUser);
+                    myFragmentPresenterListener.onSuccess(userinfoBean);
                 }
 
             }

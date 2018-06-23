@@ -49,6 +49,7 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/tlakedit_img" />
             <EditText

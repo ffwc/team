@@ -39,12 +39,12 @@ public class MyClassPresenter implements MyClassPresenterListener {
                      }
                  });
     }
-    
+
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean, String flag) {
 
     }
-    
+
     //防止内存泄露
     public void detach() {
         myClassPresenterListener = null;
