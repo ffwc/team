@@ -89,7 +89,7 @@ public class EementClassFragment extends Fragment implements EementPresenterList
 
     @Override
     public void scuess(EementClassBean eementClassBean) {
-        LogUtil.i("adapter_size", eementClassBean.getData().getList().size() + "");
+//        LogUtil.i("adapter_size", eementClassBean.getData().getList().size() + "");
         list.addAll(eementClassBean.getData().getList());
         classRecyAdapter.notifyDataSetChanged();
         tlak_size.setText("(" + list.size() + ")");

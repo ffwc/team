@@ -24,12 +24,12 @@ build/
 .gradle/
 gradle-app.setting
 !gradle-wrapper.jar
-build/
+
 
 local.properties
 
 ##----------idea----------
-*.iml
+
 .idea/
 *.ipr
 *.iws
@@ -40,5 +40,5 @@ local.properties
 ##----------Other----------
 # osx
 *~
-.DS_Store
+
 gradle.properties

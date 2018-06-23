@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.ClassListRecyAdapter;
@@ -57,14 +58,14 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
 
     @Override
     public void success(ClassListBean classListBean) {
-        LogUtil.i(TAG, "数据请求成功");
+//        LogUtil.i(TAG, "数据请求成功");
         if (classListBean == null) {
             return;
         }
         list.addAll(classListBean.getData().getList());
         if (classListBean.getData().getList() == null) {
-            ToastUtils.show(getContext(), "暂无数据");
-        }
+            ToastUtils.show(getContext(), "暂无数据", Toast.LENGTH_SHORT);
+    }
         classListRecyAdapter.notifyDataSetChanged();
         refreshLayout.finishLoadMore();
         refreshLayout.finishRefresh();

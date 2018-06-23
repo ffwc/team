@@ -94,7 +94,7 @@
             android:layout_marginEnd="@dimen/dp_22"
             android:layout_toStartOf="@+id/imageView3"
             android:textColor="#949FA5"
-            android:text="吴洋洋"
+            android:text=""
             android:textSize="@dimen/dp_16" />
 
 
@@ -122,7 +122,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/dp_33"
             android:textColor="#949FA5"
-            android:text="设置成功" />
+            android:text="未认证" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -241,7 +241,7 @@
             android:layout_marginEnd="@dimen/dp_16"
             android:layout_toStartOf="@+id/imageView6"
             android:textColor="#949FA5"
-            android:text="男" />
+            android:text="" />
 
         <TextView
             android:id="@+id/textView9"

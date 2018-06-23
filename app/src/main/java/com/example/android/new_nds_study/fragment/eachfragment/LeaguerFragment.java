@@ -89,7 +89,7 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
     }
 
     private void getData() {
-        LogUtil.i("page", page + "");
+//        LogUtil.i("page", page + "");
         classUnitPresenter.getData(Courses, page, token);
     }
 
