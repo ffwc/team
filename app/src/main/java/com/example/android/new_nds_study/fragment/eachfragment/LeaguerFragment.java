@@ -7,7 +7,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
     private TextView titleText;
     private int page = 1;
     private List<UnitBean.DataBean.ListBean> list;
-    private String token = "c065f926bfd740be39fc2b34dfe12dc2e7882b09";
+    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
     private int Courses = 121;
 
     @Nullable

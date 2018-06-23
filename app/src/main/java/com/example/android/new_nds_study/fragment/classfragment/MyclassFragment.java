@@ -22,17 +22,13 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 
 /**
  * Created by android on 2018/4/17.
  */
 
 public class MyclassFragment extends Fragment implements MyClassPresenterListener {
-    private final static String TAG="MyclassFragment ";
+    private final static String TAG="MyclassFragment";
     private View view;
     private RecyclerView mMyclassfragmentRecycler;
     private MyClassAdapter myClassAdapter;
@@ -65,13 +61,13 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
                 startActivity(intent);
             }
         });
-        myClassPresenter.getMyClassPresenter("1","c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+        myClassPresenter.getMyClassPresenter("1","25d66c30859f7bc0f241435c85fc5445ce8c4734");
         //下拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page=1;
-                myClassPresenter.getMyClassPresenter(""+page,"c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+                myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
             }
         });
         //上拉加载
@@ -80,7 +76,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 ++page;
                 if (page <= ((total+4)/5)){
-                    myClassPresenter.getMyClassPresenter(""+page,"c065f926bfd740be39fc2b34dfe12dc2e7882b09");
+                    myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
                 }else {
                     myclassfragment_smart.finishLoadMore();
                 }
@@ -107,7 +103,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myclassfragment_smart.finishRefresh();
         myclassfragment_smart.finishLoadMore();
     }
-   //防止内存泄露
+    //防止内存泄露
     @Override
     public void onDestroy() {
         super.onDestroy();

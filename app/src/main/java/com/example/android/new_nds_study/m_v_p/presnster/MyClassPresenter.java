@@ -27,7 +27,7 @@ public class MyClassPresenter implements MyClassPresenterListener {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
                          Log.e("MyClassPresenter", "判断"+myCoursesBean);
-                         if (myCoursesBean.getData().getList()==null){
+                         if (myCoursesBean.getData()==null){
                          Log.e("MyClassPresenter", "accept: "+"null");
                          } else {
                          Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());

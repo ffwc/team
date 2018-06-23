@@ -1,62 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="@dimen/dp_10"
-    app:cardCornerRadius="@dimen/dp_10">
-
+    >
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:id="@+id/class_list_item_img"
+        android:layout_width="@dimen/dp_340"
+        android:layout_height="@dimen/dp_140"
+        app:placeholderImage="@color/color_gray"
+        app:roundedCornerRadius="@dimen/dp_15" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/class_list_item_img"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_100"
-            app:placeholderImage="@color/color_gray"
-            app:roundedCornerRadius="@dimen/dp_10" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="@dimen/dp_16"
-                android:id="@+id/classlist_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/classlist_dress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/dp_5"
-                android:background="@drawable/leagueritem_shape"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:textSize="@dimen/dp_16"
-                android:padding="@dimen/dp_3"
-                android:singleLine="true"
-                android:text="地点" />
-        </RelativeLayout>
-
-
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:textSize="@dimen/dp_16"
+            android:id="@+id/classlist_text"
+            android:layout_width="@dimen/dp_200"
+            android:textColor="#FF333333"
+            android:layout_height="22dp" />
+        <TextView
+            android:id="@+id/classlist_dress"
+            android:layout_width="@dimen/dp_38"
+            android:layout_height="@dimen/dp_18"
+            android:background="@drawable/leagueritem_shape"
+            android:textSize="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_98"
+            android:text="现场" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/classlist_course"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_width="@dimen/dp_138"
+        android:layout_height="@dimen/dp_20"
+        android:text="HTML＋CSS基础课程"
+        android:textColor="#FF9A9A9A"
+        android:textSize="@dimen/sp_14"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        >
         <TextView
             android:id="@+id/classlist_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="时间"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_16"
+            android:text="00:34:45"
+            android:orientation="horizontal"
             android:textSize="@dimen/dp_16"
             android:textColor="@color/color_gray" />
-
-
+        <TextView
+            android:id="@+id/classlist_classroom"
+            android:layout_width="@dimen/dp_55"
+            android:layout_height="@dimen/dp_16"
+            android:text="北清路教室"
+            android:layout_marginLeft="@dimen/dp_130"
+            android:textColor="#FF7C7C7C"
+            android:orientation="horizontal"
+            android:textSize="@dimen/sp_11"
+            />
     </LinearLayout>
-
-
-</android.support.v7.widget.CardView>
+</LinearLayout>
