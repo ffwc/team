@@ -15,7 +15,6 @@ import com.example.android.new_nds_study.adapter.ClassListRecyAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.ClassListBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassListPresenter;
 import com.example.android.new_nds_study.m_v_p.view.ClassPresenterListener;
-import com.example.android.new_nds_study.util.LogUtil;
 import com.example.android.new_nds_study.util.MyDecoration;
 import com.example.android.new_nds_study.util.ToastUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -65,7 +64,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         list.addAll(classListBean.getData().getList());
         if (classListBean.getData().getList() == null) {
             ToastUtils.show(getContext(), "暂无数据", Toast.LENGTH_SHORT);
-    }
+        }
         classListRecyAdapter.notifyDataSetChanged();
         refreshLayout.finishLoadMore();
         refreshLayout.finishRefresh();
