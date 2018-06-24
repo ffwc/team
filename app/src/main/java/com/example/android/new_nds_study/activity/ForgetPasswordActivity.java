@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 
 import butterknife.BindView;
@@ -33,7 +34,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
         ButterKnife.bind(this);
-
+        MyApp.setTitFlag(this);
     }
 
     @OnClick({R.id.forget_login, R.id.forget_tv_getauthcode, R.id.forget_next})
