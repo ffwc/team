@@ -19,6 +19,14 @@ public class AllintdentAdapter extends RecyclerView.Adapter<AllintdentAdapter.My
     private Context context;
     private List<MineBean.DataBean.ListBean> list = new ArrayList<>();
 
+    public AllintdentAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setList(List<MineBean.DataBean.ListBean> list){
+
+        this.list=list;
+    }
     @Override
     public MyViewAdapter onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.allindent_item, null);
@@ -31,7 +39,21 @@ public class AllintdentAdapter extends RecyclerView.Adapter<AllintdentAdapter.My
 
 
         holder.allindent_item_icon.setImageURI(Uri.parse(list.get(position).getProduct_cover()));
-        /*holder.allindent_item_number.setText(list.get(position).getNickname());*/
+        int status = list.get(position).getStatus();
+
+        switch (status){
+            case 0:
+                holder.allindent_item_number.setText("进行中");
+                break;
+            case 1:
+                holder.allindent_item_number.setText("完成");
+                break;
+
+            case 2:
+                holder.allindent_item_number.setText("取消");
+                break;
+
+        }
         holder.allindent_item_stata.setText(list.get(position).getNickname());
         holder.allindent_item_title.setText(list.get(position).getProduct_title());
         holder.allindent_item_yprice.setText(list.get(position).getAmount());

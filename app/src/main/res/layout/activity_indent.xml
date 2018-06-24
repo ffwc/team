@@ -35,9 +35,13 @@
         app:xTabDisplayNum="4"
         app:xTabDividerGravity="center"
         android:layout_width="match_parent"
-        app:xTabTextSize="@dimen/sp_18"
+        app:xTabTextSize="@dimen/sp_14"
         app:xTabIndicatorWidth="7dp"
-        android:layout_height="@dimen/dp_44">
+        android:layout_height="@dimen/dp_44"
+        app:xTabSelectedTextColor="@color/textview_color_yellow"
+        app:xTabTextColor="@color/textview_color_black"
+        app:xTabSelectedTextSize="@dimen/sp_18"
+        >
     
 
 

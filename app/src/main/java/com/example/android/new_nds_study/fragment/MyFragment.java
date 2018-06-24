@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.IndentActivity;
 import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.activity.SetActivity;
 import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
@@ -193,6 +194,9 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
             case R.id.layout_plant:
                 break;
             case R.id.layout_order:
+
+                Intent loginActivity=new Intent(getActivity(),IndentActivity.class);
+                startActivity(loginActivity);
                 break;
             case R.id.my_fragment_record:
                 break;

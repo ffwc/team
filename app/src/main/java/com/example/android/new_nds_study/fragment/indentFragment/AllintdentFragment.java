@@ -3,7 +3,7 @@ package com.example.android.new_nds_study.fragment.indentFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import com.example.android.new_nds_study.R;
 public class AllintdentFragment extends Fragment {
 
 
-    private ViewPager allindent_rv;
+    private RecyclerView allindent_rv;
 
     @Nullable
     @Override

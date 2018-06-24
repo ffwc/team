@@ -3,7 +3,7 @@ package com.example.android.new_nds_study.fragment.indentFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import com.example.android.new_nds_study.R;
 
 public class ArrearageFragment extends Fragment {
 
-    private ViewPager arrerage_rv;
+    private RecyclerView arrerage_rv;
 
     @Nullable
     @Override
