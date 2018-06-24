@@ -1,6 +1,5 @@
 package com.example.android.new_nds_study.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -56,13 +55,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.regist_iv_back:
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
+                finish();
                 break;
             case R.id.register_btn_register:
                 String nickname = registEdName.getText().toString().trim();
                 String password = registEdPass.getText().toString().trim();
                 String mpwd = registEdAlginPassword.getText().toString().trim();
+
+
+
+
 
 
                 registerPresenter.getData(nickname, password, mpwd);
