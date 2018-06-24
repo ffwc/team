@@ -98,7 +98,8 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
     @Override
     public void onResume() {
         super.onResume();
-        myFragmentPresenter.getData(token);
+
+        tokenRequest();
 
 
     }
@@ -179,7 +180,7 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
                 break;
             case R.id.my_fragment_loginOruser:
                 String mUsername=mMyFragmentUsername.getText().toString();
-                if(mUsername.equals("登录账户")){
+                if(token.equals("")){
                     Intent loginActivity=new Intent(getActivity(),LoginActivity.class);
                     startActivity(loginActivity);
                 }else{
@@ -204,7 +205,25 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
             case R.id.my_fragment_asregards:
                 break;
             case R.id.my_fragment_finsch:
+                MyApp.edit.clear().commit();
+                token = MyApp.sp.getString("token", "");
+                tokenRequest();
                 break;
+        }
+    }
+
+    public void tokenRequest(){
+
+        if (token.equals("")){
+
+            if (!mMyFragmentUsername.getText().toString().equals("登陆账户")){
+                mMyFragmentUsername.setText("登录账户");
+                mMyFragmentIcon.setImageURI("");
+                mMyFragmentSignature.setText("你什么也没说~");
+            }
+
+        }else{
+            myFragmentPresenter.getData(token);
         }
     }
 }

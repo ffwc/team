@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="@dimen/dp_171">
+
+
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:id="@+id/allindent_item_number"
+        android:layout_width="@dimen/dp_134"
+        android:layout_height="@dimen/dp_17"
+        android:text="订单编号：12334567"
+        android:textColor="#FF3C4B56"
+        android:textSize="@dimen/sp_14"
+        />
+    <TextView
+
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginRight="@dimen/dp_10"
+        android:id="@+id/allindent_item_stata"
+        android:layout_width="@dimen/dp_42"
+        android:layout_height="@dimen/dp_17"
+        android:text="待付款"
+        android:textColor="#FFFF3F3F"
+        android:textSize="@dimen/sp_14"
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/allindent_item_icon"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_48"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_68" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_140"
+        android:layout_marginTop="@dimen/dp_48"
+        android:id="@+id/allindent_item_title"
+        android:layout_width="@dimen/dp_168"
+        android:layout_height="@dimen/dp_19"
+        android:text="HTML＋CSS基础课程2"
+        android:textColor="#FF3C4B56"
+        android:textSize="@dimen/sp_16"/>
+    <TextView
+        android:id="@+id/allindent_item_yprice"
+        android:layout_width="@dimen/dp_46"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginTop="@dimen/dp_99"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_alignParentRight="true"
+        android:text="¥99.00"
+        android:textColor="#FF98A3A8"
+        android:textSize="@dimen/sp_14"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_138"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_alignParentRight="true"
+        android:id="@+id/allindent_item_price"
+        android:layout_width="@dimen/dp_101"
+        android:layout_height="@dimen/dp_19"
+        android:text="实付：¥99.00"
+        android:textColor="#FF3C4B56"
+        android:textSize="@dimen/sp_16"
+        />
+</RelativeLayout>

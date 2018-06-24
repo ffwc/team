@@ -1,11 +1,13 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
-import android.text.TextUtils;
+import android.util.Log;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.m_v_p.bean.RegisterBean;
 import com.example.android.new_nds_study.m_v_p.modle.RegisterModule;
 import com.example.android.new_nds_study.m_v_p.view.RegModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.RegisterPresenterListener;
+import com.example.android.new_nds_study.util.Verification;
 
 /**
  * @Author J & J
@@ -22,46 +24,23 @@ public class RegisterPresenter {
         registerModule = new RegisterModule();
     }
 
-    public void getData(String nickname, String password, String mpwd) {
-        //判断用户名不用为空
-        if (TextUtils.isEmpty(nickname)) {
-            if (registerPresenterListener != null) {
-                registerPresenterListener.adminEmpty("用户名不能为空");
-                return;
-            }
-        }
-        //判断密码不用为空
-        if (TextUtils.isEmpty(password)) {
-            if (registerPresenterListener != null) {
-                registerPresenterListener.pwdEmpty("密码不能为空");
-                return;
-            }
-            //判断二次输入密码
-            if (TextUtils.isEmpty(mpwd)) {
-                if (registerPresenterListener != null) {
-                    registerPresenterListener.confrim("请再次输入密码");
-                    return;
-                }
-                if (!mpwd.equals(password)) {
+    public void getData(String nickname, String phone, String note, String password, String toPassword) {
+        if (Verification.isNickName(nickname) && Verification.isPhone(phone) && Verification.isNote(note) && Verification.isPassWord(password) && Verification.isPassWordEquality(password, toPassword)) {
+
+//调用m层的数据
+            registerModule.getData(nickname, phone, password,note, new RegModuleListener() {
+                @Override
+                public void success(RegisterBean registerBean) {
                     if (registerPresenterListener != null) {
-                        registerPresenterListener.confrim("两次密码不一样");
-                        return;
+
+                        registerPresenterListener.success(registerBean.getErrmsg());
+
                     }
                 }
-            }
-
+            });
         }
-        //调用m层的数据
-        registerModule.getData(nickname, password, new RegModuleListener() {
-            @Override
-            public void success(RegisterBean registerBean) {
-                if (registerPresenterListener != null) {
 
-                    registerPresenterListener.success(registerBean.getErrmsg());
 
-                }
-            }
-        });
     }
 
     //防止内存泄露
@@ -70,5 +49,31 @@ public class RegisterPresenter {
     }
 
 
+    public void getNote(String phone) {
+
+        if (Verification.isPhone(phone)) {
+            MyApp myApp = MyApp.applicationInstance();
+           /* TelephonyManager TelephonyMgr = (TelephonyManager) myApp.getSystemService(myApp.TELEPHONY_SERVICE);
+            if (ActivityCompat.checkSelfPermission(myApp, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            String szImei = TelephonyMgr.getDeviceId();*/
+            Log.e("yjb", "getNote: "+Verification.getMacAddr() );
+            registerModule.getNote(phone, "register", Verification.getMacAddr(), new RegModuleListener() {
+                @Override
+                public void success(RegisterBean registerBean) {
+                    registerPresenterListener.register(registerBean.getErrmsg());
+                }
+            });
+        }
+
+    }
 }
 

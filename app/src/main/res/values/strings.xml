@@ -11,7 +11,7 @@
     <string name="auth_code">验证码</string>
     <string name="algin_input_password">再次输入密码</string>
     <string name="get_auth_code">获取验证码</string>
-    <string name="password_ask_for">密码必须大于十位数</string>
+    <string name="password_ask_for">密码必须大于八位数</string>
     <string name="find_password">找回密码</string>
     <string name="next">下一步</string>
     <string name="set">设置</string>
@@ -27,7 +27,7 @@
     <string name="my">我的</string>
     <string name="this_classname">本堂课的名称</string>
     <string name="title_eachclass">HTML+CSS基础课程</string>
-    <string name="tlakitem_delete" >删除</string>
+    <string name="tlakitem_delete">删除</string>
     <string name="tlakstr_zan">赞</string>
     <string name="tlakedit_string">我也有话说</string>
     <string name="title_eachclass_right">关于课程</string>
