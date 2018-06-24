@@ -26,7 +26,7 @@ public class NetWorkUtil {
     public static boolean isNetWorkEnable(Context context){
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        if (networkInfo != null || networkInfo.isConnected()) {
+        if (networkInfo != null && networkInfo.isConnected()) {
             if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
                 return true;
             }
