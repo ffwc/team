@@ -13,12 +13,19 @@ import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.JobAdapter;
+import com.example.android.new_nds_study.m_v_p.bean.StudentBean;
+import com.example.android.new_nds_study.m_v_p.presnster.JOBPresenter;
+import com.example.android.new_nds_study.m_v_p.view.JOBPresenterLisnner;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-public class JobFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class JobFragment extends Fragment implements JOBPresenterLisnner {
     private TextView titleText;
     private TextView tlak_size;
     private View view;
@@ -33,6 +40,10 @@ public class JobFragment extends Fragment {
     private RecyclerView mJobRecycler;
     private SmartRefreshLayout mJobSmart;
     private JobAdapter jobAdapter;
+    private JOBPresenter jobPresenter;
+    private int Courses = 121;
+    private List<StudentBean> list = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -48,29 +59,73 @@ public class JobFragment extends Fragment {
         titleText.setText("作业");
         tlak_size = view.findViewById(R.id.tlak_size);
         tlak_size.setText("(21)");
-
         mLeaguerTitle = (TextView) view.findViewById(R.id.leaguer_title);
         mTlakSize = (TextView) view.findViewById(R.id.tlak_size);
         mJobRecycler = (RecyclerView) view.findViewById(R.id.job_recycler);
         mJobSmart = (SmartRefreshLayout) view.findViewById(R.id.job_smart);
     }
-
     private void initData() {
+        jobPresenter = new JOBPresenter(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        jobAdapter = new JobAdapter(getActivity(), list);
+        mJobRecycler.setLayoutManager(linearLayoutManager);
+
+        mJobRecycler.setAdapter(jobAdapter);
+        /**
+         * 网络连接放在子线程里面，避免ANR
+         */
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                getData();
+            }
+        }.start();
+
+        mJobSmart.finishRefresh(1000);
+        mJobSmart.finishLoadMore(1000);
         mJobSmart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mJobSmart.finishRefresh(1000);
+                list.clear();
+                getData();
             }
         });
         mJobSmart.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                mJobSmart.finishLoadMore(1000);
+                getData();
             }
         });
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        jobAdapter = new JobAdapter(getActivity());
+
+    }
+
+
+    public void getData() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                jobPresenter.getData("121");
+            }
+        }.start();
+        mJobSmart.finishRefresh();
+        mJobSmart.finishLoadMore();
+    }
+
+
+    @Override
+    public void Sucess(final StudentBean[] jobBean) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                list.addAll(Arrays.asList(jobBean));
+                jobAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 }
+

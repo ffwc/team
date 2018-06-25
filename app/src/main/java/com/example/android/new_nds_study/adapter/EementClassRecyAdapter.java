@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by dell on 2018/6/20.
  */
 
-public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecyAdapter.MyEemnetClassHolder> {
+public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecyAdapter.MyEemnetClassHolder> implements View.OnClickListener {
     private Context context;
     private List<EementClassBean.DataBean.ListBean> list;
 
@@ -58,11 +59,17 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
         holder.item_each_class_study_starttime.setText(split[0]);
         holder.item_each_class_study_stoptime.setText(split[1] + "~" + split1[1]);
         holder.item_each_class_study_g.setText("|");
+    holder.itemView.setOnClickListener(this);
     }
 
     @Override
     public int getItemCount() {
         return list.size() ;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     class MyEemnetClassHolder extends RecyclerView.ViewHolder {

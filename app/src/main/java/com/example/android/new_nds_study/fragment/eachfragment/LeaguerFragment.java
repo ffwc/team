@@ -20,8 +20,6 @@ import com.example.android.new_nds_study.adapter.LeaguerAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.UnitBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassUnitPresenter;
 import com.example.android.new_nds_study.m_v_p.view.UnitPresenterListener;
-import com.example.android.new_nds_study.util.LogUtil;
-import com.example.android.new_nds_study.util.MyDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -66,8 +64,7 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
         titleText.setText("成员");
         recycle.setLayoutManager(manager);
         recycle.setAdapter(leaguerAdapter);
-        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
-        getData();
+                getData();
 
         leaguer_smart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override

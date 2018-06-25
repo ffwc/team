@@ -15,7 +15,6 @@ import com.example.android.new_nds_study.adapter.ClassListRecyAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.ClassListBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassListPresenter;
 import com.example.android.new_nds_study.m_v_p.view.ClassPresenterListener;
-import com.example.android.new_nds_study.util.MyDecoration;
 import com.example.android.new_nds_study.util.ToastUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -78,7 +77,6 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
-       recyclerView.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
 
         classListRecyAdapter = new ClassListRecyAdapter(getActivity(), list);
         recyclerView.setAdapter(classListRecyAdapter);
