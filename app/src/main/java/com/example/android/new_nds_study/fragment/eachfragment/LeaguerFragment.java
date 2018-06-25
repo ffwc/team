@@ -1,7 +1,6 @@
 package com.example.android.new_nds_study.fragment.eachfragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,16 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
-import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.adapter.LeaguerAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.UnitBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassUnitPresenter;
 import com.example.android.new_nds_study.m_v_p.view.UnitPresenterListener;
-import com.example.android.new_nds_study.util.LogUtil;
 import com.example.android.new_nds_study.util.MyDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;

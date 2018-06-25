@@ -59,9 +59,8 @@
 
             <EditText
                 android:id="@+id/regist_ed_authcode"
-                android:layout_width="@dimen/dp_200"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:hint="@string/auth_code" />
 
             <TextView
@@ -70,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/dp_20"
-
                 android:layout_marginTop="@dimen/dp_10"
                 android:text="@string/get_auth_code"
                 android:textColor="@color/color_yellow"
