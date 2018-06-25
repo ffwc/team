@@ -1,24 +1,17 @@
 package com.example.android.new_nds_study.fragment.eachfragment;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.EachClassActivity;
-import com.example.android.new_nds_study.util.MyDecoration;
 
 /**
  * Created by dell on 2018/6/17.
@@ -71,7 +64,6 @@ public class ClassTlakFrament extends Fragment {
         eachClassActivity = (EachClassActivity) getActivity();
         learguer = view.findViewById(R.id.leaguer_title);
         recycle = view.findViewById(R.id.tlak_recycle);
-        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
 
         tlak_size = view.findViewById(R.id.tlak_size);
         edit_img = view.findViewById(R.id.tlak_edit);

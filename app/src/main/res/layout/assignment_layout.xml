@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/assignment_title1"
+        layout="@layout/assignment_title" />
+
+    <RelativeLayout
+        android:id="@+id/assignment_data_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/assignment_title1"
+        android:layout_marginTop="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/assignment_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/assignment_state_xml"
+            android:paddingLeft="@dimen/dp_7"
+            android:paddingRight="@dimen/dp_5"
+            android:text="待完成"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/assignment_data_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/assignment_state"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="《用户》"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/assignment_data_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/assignment_data_title"
+            android:layout_marginLeft="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="《Content》：容万物，纳百川"
+            android:textSize="@dimen/dp_12" />
+
+        <TextView
+            android:id="@+id/assignment_data_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/assignment_data_type"
+            android:layout_marginLeft="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="《Date》：2018/6/66"
+            android:textSize="@dimen/dp_12" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/assignment_data_date"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@color/color_gray" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/assignment_data_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/assignment_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="描述"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/assignment_describe_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/assignment_describe"
+            android:text="暂无数据" />
+    </RelativeLayout>
+</RelativeLayout>

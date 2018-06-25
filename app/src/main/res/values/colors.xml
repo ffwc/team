@@ -14,12 +14,14 @@
     <color name="progress_bar_bg_color">#D8D8D8</color>
     <color name="color_write">#ffffff</color>
     <color name="circle_black">#000000</color>
-    <color name="textview_color_yellow">#F9BA00 </color>
-    <color name="textview_color_black">#333333 </color>
+    <color name="textview_color_yellow">#F9BA00</color>
+    <color name="textview_color_black">#333333</color>
     <color name="tlak_gray">#949FA5</color>
     <color name="item_btn">#CADBFC</color>
     <color name="item_btn_textcolor">#187BED</color>
     <color name="quiz_title">#3C4B56</color>
     <color name="quiz_color">#979797</color>
     <color name="line">#F7F7F7</color>
+    <color name="assignment_color">#FF9767</color>
+    <color name="assignment_select">#6ED4BE</color>
 </resources>

@@ -49,6 +49,10 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <activity android:name=".activity.AssignmentActivity">
+
+        </activity>
+
         <activity android:name=".activity.IndentActivity"></activity>
     </application>
 

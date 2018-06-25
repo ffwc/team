@@ -19,8 +19,6 @@ import com.example.android.new_nds_study.adapter.QuizAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.QuizBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassQuizPresenter;
 import com.example.android.new_nds_study.m_v_p.view.QuizPresenterListener;
-import com.example.android.new_nds_study.util.LogUtil;
-import com.example.android.new_nds_study.util.MyDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +54,6 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
         titleText.setText("测验");
         recycle.setLayoutManager(manager);
         recycle.setAdapter(quizAdapter);
-        recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
 
         ClassQuizPresenter classQuizPresenter = new ClassQuizPresenter(this);
 
