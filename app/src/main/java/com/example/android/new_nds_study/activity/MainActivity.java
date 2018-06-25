@@ -10,7 +10,6 @@ import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.fragment.ClassFragment;
 import com.example.android.new_nds_study.fragment.DynamicFragment;
 import com.example.android.new_nds_study.fragment.FindFragment;
-import com.example.android.new_nds_study.fragment.LiveFragment;
 import com.example.android.new_nds_study.fragment.MyFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         tabBar.init(getSupportFragmentManager())
                 .addTabItem("动态", R.mipmap.tab_icon_dynamic_hover, R.mipmap.tab_icon_dynamic_normal, DynamicFragment.class)
                 .addTabItem("发现", R.mipmap.tab_icon_find_hover, R.mipmap.tab_icon_find_normal, FindFragment.class)
-                .addTabItem("现场", R.mipmap.tab_icon_live_hover, R.mipmap.tab_icon_live_normal, LiveFragment.class)
+                /*.addTabItem("现场", R.mipmap.tab_icon_live_hover, R.mipmap.tab_icon_live_normal, LiveFragment.class)*/
                 .addTabItem("课程", R.mipmap.tab_icon_course_hover, R.mipmap.tab_icon_course_normal, ClassFragment.class)
                 .addTabItem("我的", R.mipmap.tab_icon_communication_hover, R.mipmap.tab_icon_communication_normal, MyFragment.class);
     }

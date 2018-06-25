@@ -52,6 +52,9 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 Log.i("forgetpassword", "点击了获取验证码 ");
                 break;
             case R.id.forget_next:
+
+
+
                 break;
                 default:
                     break;

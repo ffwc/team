@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.ClassListRecyAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.ClassListBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassListPresenter;
 import com.example.android.new_nds_study.m_v_p.view.ClassPresenterListener;
+import com.example.android.new_nds_study.util.NetWorkUtil;
 import com.example.android.new_nds_study.util.ToastUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -46,7 +48,10 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         view = inflater.inflate(R.layout.classingfragment, container, false);
         classListPresenter = new ClassListPresenter(this);
         initview();
-        getData();
+        if (NetWorkUtil.isNetWorkEnable(MyApp.applicationInstance())){
+            getData();
+        }
+
         return view;
     }
 
@@ -60,6 +65,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         if (classListBean == null) {
             return;
         }
+        list.clear();
         list.addAll(classListBean.getData().getList());
         if (classListBean.getData().getList() == null) {
             ToastUtils.show(getContext(), "暂无数据", Toast.LENGTH_SHORT);

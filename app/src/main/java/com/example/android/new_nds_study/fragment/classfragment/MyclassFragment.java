@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.EachClassActivity;
 import com.example.android.new_nds_study.adapter.MyClassAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
+import com.example.android.new_nds_study.util.NetWorkUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -41,7 +43,10 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.myclassfragment, container, false);
         initView(view);
-        initData();
+        if (NetWorkUtil.isNetWorkEnable(MyApp.applicationInstance())){
+            initData();
+        }
+
         return view;
     }
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.IndentActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+    <ImageView
+        android:id="@+id/indent_back"
+        android:src="@drawable/icon_return_normal"
+        android:layout_width="@dimen/dp_32"
+        android:scaleType="fitXY"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_height="@dimen/dp_32" />
+    <TextView
+        android:id="@+id/indent_myindent"
+        android:layout_width="@dimen/dp_72"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_13"
+        android:textSize="@dimen/sp_18"
+        android:text="我的订单"
+        android:layout_marginLeft="@dimen/dp_151"
+        />
+
+    </RelativeLayout>
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/indent_tab"
+        app:xTabDisplayNum="4"
+        app:xTabDividerGravity="center"
+        android:layout_width="match_parent"
+        app:xTabTextSize="@dimen/sp_14"
+        app:xTabIndicatorWidth="7dp"
+        android:layout_height="@dimen/dp_44"
+        app:xTabSelectedTextColor="@color/textview_color_yellow"
+        app:xTabTextColor="@color/textview_color_black"
+        app:xTabSelectedTextSize="@dimen/sp_18"
+        >
+    
+
+
+
+    </com.androidkun.xtablayout.XTabLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/indent_viewpager"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

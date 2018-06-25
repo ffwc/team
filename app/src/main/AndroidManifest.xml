@@ -9,7 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -17,8 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:replace="android:theme">
+        tools:replace="android:theme"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +35,9 @@
         <activity android:name=".activity.OrderActivity" />
         <activity android:name=".activity.OpenClassActivity" />
         <activity android:name=".activity.EachClassActivity" />
-        <activity android:name=".activity.TestActivity"></activity>
+        <activity android:name=".activity.TestActivity">
+
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -49,6 +52,8 @@
         <activity android:name=".activity.AssignmentActivity">
 
         </activity>
+
+        <activity android:name=".activity.IndentActivity"></activity>
     </application>
 
 </manifest>

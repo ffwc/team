@@ -11,5 +11,5 @@ public interface RegisterPresenterListener {
     void adminEmpty(String s);
     void pwdEmpty(String s);
     void confrim(String s);
-
+    void register(String s);
 }

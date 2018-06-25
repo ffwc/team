@@ -702,7 +702,6 @@ public class SetActivity extends AppCompatActivity implements View.OnClickListen
         mIntent.putExtra(MediaStore.Images.Media.ORIENTATION, 0);
         activity.startActivityForResult(mIntent, REQUEST_CAMERA_IMAGE);
 
-
     }
 
 }
