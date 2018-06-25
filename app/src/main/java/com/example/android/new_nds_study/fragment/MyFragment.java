@@ -1,9 +1,11 @@
 package com.example.android.new_nds_study.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
@@ -209,15 +212,15 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
             case R.id.my_fragment_asregards:
                 break;
             case R.id.my_fragment_finsch:
-                MyApp.edit.clear().commit();
-                token = MyApp.sp.getString("token", "");
-                tokenRequest();
+
+                exit();
+
                 break;
         }
     }
 
     public void tokenRequest(){
-
+        token = MyApp.sp.getString("token", "");
         if (token.equals("")){
 
             if (!mMyFragmentUsername.getText().toString().equals("登陆账户")){
@@ -229,5 +232,31 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
         }else{
             myFragmentPresenter.getData(token);
         }
+    }
+
+    public void exit(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("退出登录");
+        builder.setMessage("是否退出登录");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                MyApp.edit.clear().commit();
+                token = MyApp.sp.getString("token", "");
+                tokenRequest();
+                Toast.makeText(MyApp.applicationInstance(),"已退出",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
