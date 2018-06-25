@@ -40,7 +40,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MyViewHolder mHolder=(MyViewHolder)holder;
         String cover = list.get(position).getCover();
         Uri uri = Uri.parse(cover);
@@ -57,7 +57,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
         mHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnItemClickListener.onItemClick(v,(String) v.getTag());
+                mOnItemClickListener.onItemClick(v,list.get(position).getTitle(),list.get(position).getCourse_id(),list.get(position).getUnit().getUnit_id());
             }
         });
     }
@@ -86,6 +86,6 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     }
     //自定义接口
     public static interface OnItemClickListener {
-        void onItemClick(View view, String position);
+        void onItemClick(View view, String title,String course_id,String unit_id);
     }
 }

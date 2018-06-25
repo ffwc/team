@@ -71,9 +71,11 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, String position) {
+            public void onItemClick(View view, String title,String course_id,String unit_id) {
                 //跳转单元
-                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",position);
+                MyApp.edit.putString("course_id", course_id).commit();
+                MyApp.edit.putString("unit_id", unit_id).commit();
+                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",title);
                 startActivity(intent);
             }
         });
