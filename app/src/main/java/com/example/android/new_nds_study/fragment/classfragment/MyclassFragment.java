@@ -76,15 +76,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
                 startActivity(intent);
             }
         });
-        access_token = MyApp.sp.getString("token", null);
-        if (access_token == null) {
-            //token失效跳转登录界面
-            Toast.makeText(getActivity(),"请先登录账号",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
-            startActivity(intent);
-        }else {
-            myClassPresenter.getMyClassPresenter("1",  access_token );
-        }
+        initGetData();
         //下拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -185,11 +177,21 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     //订阅者
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onMessageEvent(MessageEvent event) {
-        if (event.getLogin()==1){
-//            Log.e(TAG, "onMessageEvent: 登陆了");
-            access_token = MyApp.sp.getString("token", null);
-            myClassPresenter.getMyClassPresenter("1",  access_token );
+        if (event.getLogin()==1 || event.getLogin()==2){
+            initGetData();
             EventBus.getDefault().removeStickyEvent(event);
+        }
+    }
+
+    private void initGetData(){
+        access_token = MyApp.sp.getString("token", null);
+        if (access_token == null) {
+            //token失效跳转登录界面
+            Toast.makeText(getActivity(),"请先登录账号",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        }else {
+            myClassPresenter.getMyClassPresenter("1",  access_token );
         }
     }
 
@@ -205,12 +207,14 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         //设置RecyclerView 点击条目事件
         this.myCoursesBean=myCoursesBean;
 //        Log.e(TAG, "onSuccess: "+flag);
-        if (!(myCoursesBean.getData().getTotal()==0)){
-            if (flag.equals("1")){
-                total=myCoursesBean.getData().getTotal();
-                myClassAdapter.setDataClear(myCoursesBean.getData().getList());
-            }else {
-                myClassAdapter.setData(myCoursesBean.getData().getList());
+        if ( myCoursesBean.getData()!= null) {
+            if (!(myCoursesBean.getData().getTotal()==0)){
+                if (flag.equals("1")){
+                    total=myCoursesBean.getData().getTotal();
+                    myClassAdapter.setDataClear(myCoursesBean.getData().getList());
+                }else {
+                    myClassAdapter.setData(myCoursesBean.getData().getList());
+                }
             }
         }
         myclassfragment_smart.finishRefresh();

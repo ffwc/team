@@ -21,12 +21,15 @@ import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.IndentActivity;
 import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.activity.SetActivity;
+import com.example.android.new_nds_study.m_v_p.bean.MessageEvent;
 import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyFragmentPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyFragmentPresenterListener;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.core.ImagePipeline;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by android on 2018/4/17.
@@ -247,7 +250,9 @@ public class MyFragment extends Fragment implements View.OnClickListener, MyFrag
                 token = MyApp.sp.getString("token", "");
                 tokenRequest();
                 Toast.makeText(MyApp.applicationInstance(),"已退出",Toast.LENGTH_SHORT).show();
-
+                MessageEvent messageEvent = new MessageEvent();
+                messageEvent.setLogin(2);
+                EventBus.getDefault().postSticky(messageEvent);
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

@@ -28,13 +28,13 @@ public class MyClassPresenter implements MyClassPresenterListener {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
                          Log.e("MyClassPresenter", "判断"+myCoursesBean);
-                         if (myCoursesBean.getData()==null){
+                         if (myCoursesBean==null){
                              Log.e("MyClassPresenter", "accept: "+"null");
                          } else {
-                             if (myCoursesBean.getErrmsg().equals("OK")){
+//                             if (myCoursesBean.getErrmsg().equals("OK")){
 //                                 Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
                                  myClassPresenterListener.onSuccess(myCoursesBean,page);
-                             }
+//                             }
                          }
                      }
                  });
