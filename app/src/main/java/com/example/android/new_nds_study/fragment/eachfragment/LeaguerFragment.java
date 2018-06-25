@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.fragment.eachfragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,9 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.adapter.LeaguerAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.UnitBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassUnitPresenter;
@@ -43,8 +46,10 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
     private TextView tlak_size;
     private TextView titleText;
     private List<UnitBean.DataBean.ListBean> list;
-    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
-    private int Courses = 121;
+//    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
+    private String token;
+//    private int courses = 121;
+    private String course_id;
     private SmartRefreshLayout leaguer_smart;
     private ClassUnitPresenter classUnitPresenter;
     private int page=1;
@@ -90,7 +95,10 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
 
     private void getData() {
 //        LogUtil.i("page", page + "");
-        classUnitPresenter.getData(Courses, page, token);
+        token = MyApp.sp.getString("token", null);
+        course_id = MyApp.sp.getString("course_id", null);
+        
+        classUnitPresenter.getData(Integer.valueOf(course_id), page, token);
     }
 
 

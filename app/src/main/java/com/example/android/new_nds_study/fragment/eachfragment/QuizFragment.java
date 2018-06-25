@@ -1,5 +1,6 @@
 package com.example.android.new_nds_study.fragment.eachfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.adapter.QuizAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.QuizBean;
 import com.example.android.new_nds_study.m_v_p.presnster.ClassQuizPresenter;
@@ -34,6 +37,8 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
     private QuizAdapter quizAdapter;
     private TextView tlak_size;
     private TextView titleText;
+    private String token;
+    private String unit_id;
 
     @Nullable
     @Override
@@ -54,7 +59,10 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
         recycle.addItemDecoration(new MyDecoration(getActivity(), MyDecoration.VERTICAL_LIST));
 
         ClassQuizPresenter classQuizPresenter = new ClassQuizPresenter(this);
-        classQuizPresenter.getData("A304","25d66c30859f7bc0f241435c85fc5445ce8c4734");
+
+        token = MyApp.sp.getString("token", null);
+        unit_id = MyApp.sp.getString("unit_id", null);
+        classQuizPresenter.getData("A304",token);
 
     }
 

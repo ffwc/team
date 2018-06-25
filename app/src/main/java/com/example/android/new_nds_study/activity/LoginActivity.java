@@ -12,11 +12,14 @@ import android.widget.Toast;
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.LoginBean;
+import com.example.android.new_nds_study.m_v_p.bean.MessageEvent;
 import com.example.android.new_nds_study.m_v_p.bean.UserinfoBean;
 import com.example.android.new_nds_study.m_v_p.presnster.LoginPresenter;
 import com.example.android.new_nds_study.m_v_p.view.LoginModuleListener;
 import com.example.android.new_nds_study.m_v_p.view.LoginPresenterListener;
 import com.example.android.new_nds_study.util.LogUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -119,7 +122,6 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
             MyApp.edit.putString("uid", uid).commit();
             Log.e(TAG, "onUsuccess: "+uid );
             finish();
-
         }
 
     }
@@ -134,6 +136,9 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
             String access_token = data.getAccess_token();
             MyApp.edit.putString("token",access_token).commit();
             Log.e(TAG, "onSuccess: "+ access_token);
+            MessageEvent messageEvent = new MessageEvent();
+            messageEvent.setLogin(1);
+            EventBus.getDefault().postSticky(messageEvent);
             finish();
             /*loginPresenter.getInfo(access_token);*/
         }

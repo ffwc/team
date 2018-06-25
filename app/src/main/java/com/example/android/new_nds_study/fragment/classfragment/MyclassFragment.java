@@ -1,19 +1,29 @@
 package com.example.android.new_nds_study.fragment.classfragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.EachClassActivity;
+import com.example.android.new_nds_study.activity.LoginActivity;
+import com.example.android.new_nds_study.activity.MainActivity;
 import com.example.android.new_nds_study.adapter.MyClassAdapter;
+import com.example.android.new_nds_study.m_v_p.bean.MessageEvent;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.presnster.MyClassPresenter;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
@@ -22,6 +32,10 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 
 /**
@@ -38,6 +52,8 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private MyCoursesBean myCoursesBean =new MyCoursesBean();
     private int page=1;
     private int total;
+    private int a;
+    private String access_token;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,19 +75,29 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         mMyclassfragmentRecycler.setLayoutManager(linearLayoutManager);
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, String position) {
+            public void onItemClick(View view, String title,String course_id,String unit_id) {
                 //跳转单元
-                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",position);
+                MyApp.edit.putString("course_id", course_id).commit();
+                MyApp.edit.putString("unit_id", unit_id).commit();
+                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",title);
                 startActivity(intent);
             }
         });
-        myClassPresenter.getMyClassPresenter("1","25d66c30859f7bc0f241435c85fc5445ce8c4734");
+        access_token = MyApp.sp.getString("token", null);
+        if (access_token == null) {
+            //token失效跳转登录界面
+            Toast.makeText(getActivity(),"请先登录账号",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        }else {
+            myClassPresenter.getMyClassPresenter("1",  access_token );
+        }
         //下拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page=1;
-                myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                myClassPresenter.getMyClassPresenter(""+page, access_token );
             }
         });
         //上拉加载
@@ -80,18 +106,105 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 ++page;
                 if (page <= ((total+4)/5)){
-                    myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                    myClassPresenter.getMyClassPresenter(""+page, access_token );
                 }else {
                     myclassfragment_smart.finishLoadMore();
                 }
             }
         });
+        //监听RecyclerView 滑动事件
+     mMyclassfragmentRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+         @Override
+         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+             super.onScrolled(recyclerView, dx, dy);
+//             Log.e(TAG, "onScrolled: "+dy);
+             if(dy>0){
+                //上拉
+                 if (a!=1){
+                     MessageEvent messageEvent = new MessageEvent();
+                     messageEvent.setFlag(1);
+                     EventBus.getDefault().postSticky(messageEvent);
+                     a=1;
+                 }
+             }else {
+                //下拉
+                 if (a!=2){
+                     MessageEvent messageEvent = new MessageEvent();
+                     messageEvent.setFlag(2);
+                     EventBus.getDefault().postSticky(messageEvent);
+                     a=2;
+                 }
+             }
+         }
+     });
+
+//        mMyclassfragmentRecycler.addOnScrollListener(new HidingScrollListener() {
+//            @Override
+//            public void onHide() {
+////                if (a!=1){
+//                     MessageEvent messageEvent = new MessageEvent();
+//                     messageEvent.setFlag(1);
+//                     EventBus.getDefault().postSticky(messageEvent);
+////                     a=1;
+////                 }
+//            }
+//            @Override
+//            public void onShow() {
+////                if (a!=2){
+//                     MessageEvent messageEvent = new MessageEvent();
+//                     messageEvent.setFlag(2);
+//                     EventBus.getDefault().postSticky(messageEvent);
+////                     a=2;
+////                 }
+//            }
+//        });
+    }
+    public abstract class HidingScrollListener extends RecyclerView.OnScrollListener {
+        private static final int HIDE_THRESHOLD = 20; //移动多少距离后显示隐藏
+        private int scrolledDistance = 0; //移动的中距离
+        private boolean controlsVisible = true; //显示或隐藏
+
+
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (scrolledDistance > HIDE_THRESHOLD && controlsVisible) {//移动总距离大于规定距离 并且是显示状态就隐藏
+                onHide();
+                controlsVisible = false;
+                scrolledDistance = 0;//归零
+            }
+            else if (scrolledDistance < -HIDE_THRESHOLD && !controlsVisible) {
+                onShow();
+                controlsVisible = true;
+                scrolledDistance = 0;
+            }
+            if ((controlsVisible && dy > 0) || (!controlsVisible && dy < 0)) { //显示状态向上滑动 或 隐藏状态向下滑动 总距离增加
+                scrolledDistance += dy;
+            }
+
+        }
+
+
+        public abstract void onHide();
+
+        public abstract void onShow();
+    }
+    //订阅者
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onMessageEvent(MessageEvent event) {
+        if (event.getLogin()==1){
+//            Log.e(TAG, "onMessageEvent: 登陆了");
+            access_token = MyApp.sp.getString("token", null);
+            myClassPresenter.getMyClassPresenter("1",  access_token );
+            EventBus.getDefault().removeStickyEvent(event);
+        }
     }
 
     private void initView(View view) {
         mMyclassfragmentRecycler = (RecyclerView) view.findViewById(R.id.myclassfragment_recycler);
         myclassfragment_smart = view.findViewById(R.id.myclassfragment_smart);
         myclassfragment_smart.setEnableAutoLoadMore(false);
+        EventBus.getDefault().register(this);
     }
     @Override
     public void onSuccess(MyCoursesBean myCoursesBean,String flag) {
@@ -113,5 +226,6 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     public void onDestroy() {
         super.onDestroy();
         myClassPresenter.detach();
+        EventBus.getDefault().unregister(this);
     }
 }
