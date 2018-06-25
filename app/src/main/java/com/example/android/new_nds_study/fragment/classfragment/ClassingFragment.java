@@ -66,6 +66,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         if (classListBean == null) {
             return;
         }
+        list.clear();
         list.addAll(classListBean.getData().getList());
         if (classListBean.getData().getList() == null) {
             ToastUtils.show(getContext(), "暂无数据", Toast.LENGTH_SHORT);
@@ -92,7 +93,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page = 1;
-                list.clear();
+
                 getData();
             }
         });
