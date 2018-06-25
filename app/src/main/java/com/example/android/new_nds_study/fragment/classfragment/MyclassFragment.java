@@ -43,10 +43,10 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     private MyClassPresenter myClassPresenter;
     private SmartRefreshLayout myclassfragment_smart;
     private MyCoursesBean myCoursesBean =new MyCoursesBean();
+    private String access_token;
     private int page=1;
     private int total;
     private int a;
-    private String access_token;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

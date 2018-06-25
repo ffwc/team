@@ -111,9 +111,9 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
             unitList.addAll(list);
             tlak_size.setText("(" + total + ")");
             leaguerAdapter.notifyDataSetChanged();
-            leaguer_smart.finishRefresh();
-            leaguer_smart.finishLoadMore();
         }
+        leaguer_smart.finishRefresh();
+        leaguer_smart.finishLoadMore();
     }
 
     static class MyHandler extends Handler {

@@ -30,15 +30,18 @@ public class EementClassFragment extends Fragment implements EementPresenterList
     private TextView eementClassTitle;
     private RecyclerView recycle;
     private EementClassPresenter eementClassPresenter;
-    private List<EementClassBean.DataBean.ListBean> list = new ArrayList<>();
+    private List<EementClassBean.DataBean.ListBean> beanList = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
     private EementClassRecyAdapter classRecyAdapter;
     private TextView title;
     private TextView tlak_size;
-    private int courses = 121;
-    private int limit = 1;
+//    private int courses = 121;
+    private int courses;
+    private int limit = 5;
     private int page = 1;
+    private int total;
     private RefreshLayout refreshLayout;
+    private List<EementClassBean.DataBean.ListBean> list;
 
     @Nullable
     @Override
@@ -60,26 +63,30 @@ public class EementClassFragment extends Fragment implements EementPresenterList
 
     private void initData() {
         linearLayoutManager = new LinearLayoutManager(MyApp.applicationInstance());
-        classRecyAdapter = new EementClassRecyAdapter(getActivity(), list);
+        classRecyAdapter = new EementClassRecyAdapter(getActivity(), beanList);
         recycle.setLayoutManager(linearLayoutManager);
         recycle.setAdapter(classRecyAdapter);
 
         eementClassPresenter = new EementClassPresenter(this);
+        courses =Integer.valueOf(MyApp.sp.getString("course_id", null));
         eementClassPresenter.getData(courses + "", limit + "", page + "");
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                page += 2;
-                eementClassPresenter.getData(courses + "", limit + "", page + "");
+                ++page;
+                if (page <= ((total+4)/5)){
+                    eementClassPresenter.getData(courses + "", limit + "", page + "");
+                }else {
+                    refreshLayout.finishLoadMore();
+                }
             }
         });
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page = 1;
-
+                beanList.clear();
                 eementClassPresenter.getData(courses + "", limit + "", page + "");
-                list.clear();
             }
         });
     }
@@ -87,9 +94,13 @@ public class EementClassFragment extends Fragment implements EementPresenterList
     @Override
     public void scuess(EementClassBean eementClassBean) {
 //        LogUtil.i("adapter_size", eementClassBean.getData().getList().size() + "");
-        list.addAll(eementClassBean.getData().getList());
-        classRecyAdapter.notifyDataSetChanged();
-        tlak_size.setText("(" + list.size() + ")");
+        if (eementClassBean.getData() != null) {
+            total=eementClassBean.getData().getTotal();
+            list = eementClassBean.getData().getList();
+            beanList.addAll(list);
+            tlak_size.setText("(" + total + ")");
+            classRecyAdapter.notifyDataSetChanged();
+        }
         refreshLayout.finishLoadMore();
         refreshLayout.finishRefresh();
     }
