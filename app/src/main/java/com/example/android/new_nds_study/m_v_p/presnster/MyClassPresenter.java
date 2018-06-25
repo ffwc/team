@@ -27,7 +27,7 @@ public class MyClassPresenter implements MyClassPresenterListener {
                  .subscribe(new Consumer<MyCoursesBean>() {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
-                         Log.e("MyClassPresenter", "判断"+myCoursesBean);
+//                         Log.e("MyClassPresenter", "判断"+myCoursesBean);
                          if (myCoursesBean==null){
                              Log.e("MyClassPresenter", "accept: "+"null");
                          } else {

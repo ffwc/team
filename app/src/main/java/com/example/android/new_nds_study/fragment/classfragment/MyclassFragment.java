@@ -208,13 +208,15 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         this.myCoursesBean=myCoursesBean;
 //        Log.e(TAG, "onSuccess: "+flag);
         if ( myCoursesBean.getData()!= null) {
-            if (!(myCoursesBean.getData().getTotal()==0)){
+            if (myCoursesBean.getData().getTotal()!=0){
                 if (flag.equals("1")){
                     total=myCoursesBean.getData().getTotal();
                     myClassAdapter.setDataClear(myCoursesBean.getData().getList());
                 }else {
                     myClassAdapter.setData(myCoursesBean.getData().getList());
                 }
+            }else {
+                myClassAdapter.setDataClear(null);
             }
         }
         myclassfragment_smart.finishRefresh();

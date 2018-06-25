@@ -3,7 +3,6 @@ package com.example.android.new_nds_study.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +25,9 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     //清除数据
     public void setDataClear(List<MyCoursesBean.DataBean.ListBean> list){
         this.list.clear();
-        this.list.addAll(list);
+        if (list!=null){
+            this.list.addAll(list);
+        }
         notifyDataSetChanged();
     }
     //获取数据
@@ -64,7 +66,10 @@ public class MyClassAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        Log.e("MyClassAdapter", "getItemCount: "+list.size() );
+//        Log.e("MyClassAdapter", "getItemCount: "+list.size() );
+        if (list==null){
+            return 0;
+        }
         return list.size();
     }
     
