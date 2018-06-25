@@ -40,13 +40,26 @@ public class ClassListRecyAdapter extends RecyclerView.Adapter<ClassListRecyAdap
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tv_text.setText(list.get(position).getTitle());
-        holder.tv_data.setText(list.get(position).getStart_time());
-        if (list.get(position).getDescription()!= null) {
-            holder.tv_dress.setText(list.get(position).getDescription());
+        String start_time = list.get(position).getStart_time();
+
+        String description = list.get(position).getDescription();
+        if (!description.isEmpty()){
+            holder.classlist_course.setText(description);
+
         }else{
-            holder.tv_data.setText("现场");
+            holder.classlist_course.setText("暂未开放");
         }
 
+        if (start_time!=null){
+
+            holder.tv_data.setText(start_time);
+        }
+        int live = list.get(position).getLive();
+        if (live==0) {
+            holder.tv_dress.setText("未开始");
+        }else{
+            holder.tv_data.setText("正在进行");
+        }
         holder.simpleDraweeView.setImageURI(Uri.parse(list.get(position).getCover()));
     }
 
@@ -68,6 +81,7 @@ public class ClassListRecyAdapter extends RecyclerView.Adapter<ClassListRecyAdap
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
 
+        private final TextView classlist_course;
         TextView tv_text;
         TextView tv_data;
         TextView tv_dress;
@@ -79,6 +93,7 @@ public class ClassListRecyAdapter extends RecyclerView.Adapter<ClassListRecyAdap
             tv_data = itemView.findViewById(R.id.classlist_data);
             tv_dress = itemView.findViewById(R.id.classlist_dress);
             simpleDraweeView = itemView.findViewById(R.id.class_list_item_img);
+            classlist_course = itemView.findViewById(R.id.classlist_course);
         }
     }
 }

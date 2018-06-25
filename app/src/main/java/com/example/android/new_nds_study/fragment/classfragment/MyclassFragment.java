@@ -1,27 +1,20 @@
 package com.example.android.new_nds_study.fragment.classfragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.Toast;
 
 import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.activity.EachClassActivity;
 import com.example.android.new_nds_study.activity.LoginActivity;
-import com.example.android.new_nds_study.activity.MainActivity;
 import com.example.android.new_nds_study.adapter.MyClassAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.MessageEvent;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
@@ -212,11 +205,13 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         //设置RecyclerView 点击条目事件
         this.myCoursesBean=myCoursesBean;
 //        Log.e(TAG, "onSuccess: "+flag);
-        if (flag.equals("1")){
-            total=myCoursesBean.getData().getTotal();
-            myClassAdapter.setDataClear(myCoursesBean.getData().getList());
-        }else {
-            myClassAdapter.setData(myCoursesBean.getData().getList());
+        if (!(myCoursesBean.getData().getTotal()==0)){
+            if (flag.equals("1")){
+                total=myCoursesBean.getData().getTotal();
+                myClassAdapter.setDataClear(myCoursesBean.getData().getList());
+            }else {
+                myClassAdapter.setData(myCoursesBean.getData().getList());
+            }
         }
         myclassfragment_smart.finishRefresh();
         myclassfragment_smart.finishLoadMore();

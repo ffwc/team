@@ -1,11 +1,7 @@
 package com.example.android.new_nds_study.m_v_p.presnster;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.android.new_nds_study.activity.LoginActivity;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.example.android.new_nds_study.m_v_p.view.MyClassPresenterListener;
 import com.example.android.new_nds_study.network.ApiService;
@@ -31,19 +27,13 @@ public class MyClassPresenter implements MyClassPresenterListener {
                  .subscribe(new Consumer<MyCoursesBean>() {
                      @Override
                      public void accept(MyCoursesBean myCoursesBean) throws Exception {
-//                         Log.e("MyClassPresenter", "判断"+myCoursesBean);
-                         if (myCoursesBean==null){
-//                         Log.e("MyClassPresenter", "accept: "+"null");
+                         Log.e("MyClassPresenter", "判断"+myCoursesBean);
+                         if (myCoursesBean.getData()==null){
+                             Log.e("MyClassPresenter", "accept: "+"null");
                          } else {
                              if (myCoursesBean.getErrmsg().equals("OK")){
 //                                 Log.e("MyClassPresenter", "accept: "+true+myCoursesBean.getData().getList().get(0).getUnit().toString());
-                                  myClassPresenterListener.onSuccess(myCoursesBean,page);
-                                  
-                             }else {
-//                                 //token失效跳转登录界面
-//                                 Toast.makeText((Context)myClassPresenterListener,"请先登录账号",Toast.LENGTH_SHORT).show();
-//                                 Intent intent = new Intent((Context)myClassPresenterListener, LoginActivity.class);
-//                                ((Context) myClassPresenterListener).startActivity(intent);
+                                 myClassPresenterListener.onSuccess(myCoursesBean,page);
                              }
                          }
                      }
