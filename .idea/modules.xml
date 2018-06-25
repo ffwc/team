@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/team.iml" filepath="$PROJECT_DIR$/team.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sbb250.iml" filepath="$PROJECT_DIR$/.idea/sbb250.iml" />
       <module fileurl="file://G:/github/team/.idea/team.iml" filepath="G:/github/team/.idea/team.iml" />
+      <module fileurl="file://$PROJECT_DIR$/team.iml" filepath="$PROJECT_DIR$/team.iml" />
       <module fileurl="file://C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team.iml" filepath="C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team.iml" />
       <module fileurl="file://C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team1.iml" filepath="C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team1.iml" />
       <module fileurl="file://$PROJECT_DIR$/wag.iml" filepath="$PROJECT_DIR$/wag.iml" />
