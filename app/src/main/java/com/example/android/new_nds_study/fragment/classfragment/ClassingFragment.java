@@ -56,6 +56,8 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
         return view;
     }
 
+
+
     private void getData() {
         if(MyApp.applicationInstance().isNetworkConnected(getActivity())) {
             classListPresenter.getData(limit, page);

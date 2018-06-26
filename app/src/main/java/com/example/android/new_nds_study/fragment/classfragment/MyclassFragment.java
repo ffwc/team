@@ -29,25 +29,37 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  */
 
 public class MyclassFragment extends Fragment implements MyClassPresenterListener {
-    private final static String TAG="MyclassFragment";
+    private final static String TAG = "MyclassFragment";
     private View view;
     private RecyclerView mMyclassfragmentRecycler;
     private MyClassAdapter myClassAdapter;
     private MyClassPresenter myClassPresenter;
     private SmartRefreshLayout myclassfragment_smart;
-    private MyCoursesBean myCoursesBean =new MyCoursesBean();
-    private int page=1;
+    private MyCoursesBean myCoursesBean = new MyCoursesBean();
+    private int page = 1;
     private int total;
+    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.myclassfragment, container, false);
         initView(view);
-        if (NetWorkUtil.isNetWorkEnable(MyApp.applicationInstance())){
+        if (NetWorkUtil.isNetWorkEnable(MyApp.applicationInstance())) {
             initData();
         }
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (MyApp.sp.getString("token", "") != null) {
+            token = MyApp.sp.getString("token", "");
+        }
+        if (MyApp.sp.getString("token", "") == null) {
+            token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
+        }
     }
 
     private void initData() {
@@ -60,23 +72,19 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myClassAdapter.setOnItemClickListener(new MyClassAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, String title, String course_id, String unit_id) {
-
-            }
-
-            @Override
-            public void onItemClick(View view, String position) {
                 //跳转单元
-                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title",position);
+                Intent intent = new Intent(getActivity(), EachClassActivity.class).putExtra("title", title).putExtra("courses", course_id).putExtra("unit", unit_id);
                 startActivity(intent);
             }
+
         });
-        myClassPresenter.getMyClassPresenter("1","25d66c30859f7bc0f241435c85fc5445ce8c4734");
+        myClassPresenter.getMyClassPresenter("1", "");
         //下拉刷新
         myclassfragment_smart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                page=1;
-                myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                page = 1;
+                myClassPresenter.getMyClassPresenter("" + page, token);
             }
         });
         //上拉加载
@@ -84,9 +92,9 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 ++page;
-                if (page <= ((total+4)/5)){
-                    myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
-                }else {
+                if (page <= ((total + 4) / 5)) {
+                    myClassPresenter.getMyClassPresenter("" + page, token);
+                } else {
                     myclassfragment_smart.finishLoadMore();
                 }
             }
@@ -98,21 +106,23 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
         myclassfragment_smart = view.findViewById(R.id.myclassfragment_smart);
         myclassfragment_smart.setEnableAutoLoadMore(false);
     }
+
     @Override
-    public void onSuccess(MyCoursesBean myCoursesBean,String flag) {
+    public void onSuccess(MyCoursesBean myCoursesBean, String flag) {
 //        Log.e(TAG,"检测"+myCoursesBean);
         //设置RecyclerView 点击条目事件
-        this.myCoursesBean=myCoursesBean;
+        this.myCoursesBean = myCoursesBean;
 //        Log.e(TAG, "onSuccess: "+flag);
-        if (flag.equals("1")){
-            total=myCoursesBean.getData().getTotal();
+        if (flag.equals("1")) {
+            total = myCoursesBean.getData().getTotal();
             myClassAdapter.setDataClear(myCoursesBean.getData().getList());
-        }else {
+        } else {
             myClassAdapter.setData(myCoursesBean.getData().getList());
         }
         myclassfragment_smart.finishRefresh();
         myclassfragment_smart.finishLoadMore();
     }
+
     //防止内存泄露
     @Override
     public void onDestroy() {

@@ -23,7 +23,8 @@ public class EachClassActivity extends AppCompatActivity {
     private TextView title_text;
     private ImageView mEachclassReturn;
     private TextView eachclass_correlation;
-
+    private String courses;
+    private String unit_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,12 @@ public class EachClassActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.getStringExtra("title") != null) {
             title_text.setText(intent.getStringExtra("title"));
+        }
+        if (intent.getStringExtra("courses") != null) {
+            courses = intent.getStringExtra("courses");
+        }
+        if (intent.getStringExtra("unit") != null) {
+            unit_id=intent.getStringExtra("unit");
         }
         //关闭页面
         mEachclassReturn.setOnClickListener(new View.OnClickListener() {
