@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.adapter.JobAdapter;
 import com.example.android.new_nds_study.m_v_p.bean.StudentBean;
@@ -18,7 +19,6 @@ import com.example.android.new_nds_study.m_v_p.presnster.JOBPresenter;
 import com.example.android.new_nds_study.m_v_p.view.JOBPresenterLisnner;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
@@ -26,9 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class JobFragment extends Fragment implements JOBPresenterLisnner {
-    private TextView titleText;
-    private TextView tlak_size;
-    private View view;
     /**
      * 讨论
      */
@@ -41,7 +38,9 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
     private SmartRefreshLayout mJobSmart;
     private JobAdapter jobAdapter;
     private JOBPresenter jobPresenter;
-    private int Courses = 121;
+//    private int Courses = 121;
+    private String courses;
+    private String token;
     private List<StudentBean> list = new ArrayList<>();
 
 
@@ -55,14 +54,14 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
     }
 
     private void initView(View view) {
-        titleText = view.findViewById(R.id.leaguer_title);
-        titleText.setText("作业");
-        tlak_size = view.findViewById(R.id.tlak_size);
-        tlak_size.setText("(21)");
-        mLeaguerTitle = (TextView) view.findViewById(R.id.leaguer_title);
-        mTlakSize = (TextView) view.findViewById(R.id.tlak_size);
+        mTlakSize = view.findViewById(R.id.tlak_size);
+        mLeaguerTitle = view.findViewById(R.id.leaguer_title);
+        mLeaguerTitle.setText("作业");
         mJobRecycler = (RecyclerView) view.findViewById(R.id.job_recycler);
         mJobSmart = (SmartRefreshLayout) view.findViewById(R.id.job_smart);
+        mJobSmart.setEnableLoadMore(false);
+        token = MyApp.sp.getString("token", null);
+        courses = MyApp.sp.getString("course_id", null);
     }
     private void initData() {
         jobPresenter = new JOBPresenter(this);
@@ -70,31 +69,14 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         jobAdapter = new JobAdapter(getActivity(), list);
         mJobRecycler.setLayoutManager(linearLayoutManager);
-        tlak_size.setText(list.size()+"");
+        mTlakSize.setText("("+list.size()+")");
         mJobRecycler.setAdapter(jobAdapter);
-        /**
-         * 网络连接放在子线程里面，避免ANR
-         */
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                getData();
-            }
-        }.start();
+        getData();
 
-        mJobSmart.finishRefresh(1000);
-        mJobSmart.finishLoadMore(1000);
         mJobSmart.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 list.clear();
-                getData();
-            }
-        });
-        mJobSmart.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 getData();
             }
         });
@@ -104,24 +86,21 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
             @Override
             public void run() {
                 super.run();
-                jobPresenter.getData("121");
+                jobPresenter.getData(courses,token);
             }
         }.start();
         mJobSmart.finishRefresh();
-        mJobSmart.finishLoadMore();
     }
     @Override
     public void Sucess(final StudentBean[] jobBean) {
-
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 list.addAll(Arrays.asList(jobBean));
-                tlak_size.setText(list.size()+"");
+                mTlakSize.setText("("+list.size()+")");
                 jobAdapter.notifyDataSetChanged();
             }
         });
-
     }
 }
 

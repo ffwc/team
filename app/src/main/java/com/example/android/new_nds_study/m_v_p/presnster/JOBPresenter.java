@@ -18,8 +18,8 @@ public class JOBPresenter {
         this.jobPresenterLisnner = jobPresenterLisnner;
     }
 
-    public void getData(String Courses) {
-        jobModel.getData(Courses, new JOBModelLisnner() {
+    public void getData(String courses,String token) {
+        jobModel.getData(courses,token, new JOBModelLisnner() {
             @Override
             public void Sucess(StudentBean[] jobBean) {
                 jobPresenterLisnner.Sucess(jobBean);
