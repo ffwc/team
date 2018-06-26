@@ -52,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
         MyApp.setTitFlag(this);
         registerPresenter = new RegisterPresenter(this);
 
-
     }
 
     @OnClick({R.id.regist_iv_back, R.id.register_btn_register, R.id.regist_ed_note})
@@ -88,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterPrese
     //返回的数据安这也
     @Override
     public void success(String s) {
-        LogUtil.i(TAG, s);
+        LogUtil.i(TAG,s);
         if (("OK").equals(s)) {
             Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
             finish();

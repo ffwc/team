@@ -32,6 +32,8 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
     private QuizAdapter quizAdapter;
     private TextView tlak_size;
     private TextView titleText;
+    private String token;
+    private String unit_id;
 
     @Nullable
     @Override
@@ -51,7 +53,10 @@ public class QuizFragment extends Fragment implements QuizPresenterListener {
         recycle.setAdapter(quizAdapter);
 
         ClassQuizPresenter classQuizPresenter = new ClassQuizPresenter(this);
-        classQuizPresenter.getData("A304","25d66c30859f7bc0f241435c85fc5445ce8c4734");
+
+        token = MyApp.sp.getString("token", null);
+        unit_id = MyApp.sp.getString("unit_id", null);
+        classQuizPresenter.getData("A304",token);
 
     }
 

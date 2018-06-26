@@ -1,9 +1,9 @@
 package com.example.android.new_nds_study.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
-import com.example.android.new_nds_study.util.LogUtil;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by dell on 2018/6/20.
  */
 
-public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecyAdapter.MyEemnetClassHolder> implements View.OnClickListener {
+public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecyAdapter.MyEemnetClassHolder> {
     private Context context;
     private List<EementClassBean.DataBean.ListBean> list;
 
@@ -54,22 +53,24 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
                 holder.item_each_class_study_type.setTextColor(Color.BLUE);
                 break;
         }
-        String[] split = list.get(position).getStart_time().split(" ");
-        String[] split1 = list.get(position).getEnd_time().split(" ");
-        holder.item_each_class_study_starttime.setText(split[0]);
-        holder.item_each_class_study_stoptime.setText(split[1] + "~" + split1[1]);
-        holder.item_each_class_study_g.setText("|");
-    holder.itemView.setOnClickListener(this);
+        if (!(TextUtils.isEmpty(list.get(position).getStart_time()) || TextUtils.isEmpty(list.get(position).getEnd_time()))){
+            String[] split = list.get(position).getStart_time().split(" ");
+            String[] split1 = list.get(position).getEnd_time().split(" ");
+            holder.item_each_class_study_starttime.setText(split[0]);
+            holder.item_each_class_study_stoptime.setText(split[1] + "~" + split1[1]);
+            holder.item_each_class_study_g.setText("|");
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return list.size() ;
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     class MyEemnetClassHolder extends RecyclerView.ViewHolder {

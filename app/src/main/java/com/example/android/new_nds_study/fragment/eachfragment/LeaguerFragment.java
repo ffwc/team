@@ -41,8 +41,10 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
     private TextView tlak_size;
     private TextView titleText;
     private List<UnitBean.DataBean.ListBean> list;
-    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
-    private int Courses = 121;
+//    private String token = "25d66c30859f7bc0f241435c85fc5445ce8c4734";
+    private String token;
+//    private int courses = 121;
+    private String course_id;
     private SmartRefreshLayout leaguer_smart;
     private ClassUnitPresenter classUnitPresenter;
     private int page=1;
@@ -64,7 +66,7 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
         titleText.setText("成员");
         recycle.setLayoutManager(manager);
         recycle.setAdapter(leaguerAdapter);
-                getData();
+        getData();
 
         leaguer_smart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
@@ -87,7 +89,10 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
 
     private void getData() {
 //        LogUtil.i("page", page + "");
-        classUnitPresenter.getData(Courses, page, token);
+        token = MyApp.sp.getString("token", null);
+        course_id = MyApp.sp.getString("course_id", null);
+
+        classUnitPresenter.getData(Integer.valueOf(course_id), page, token);
     }
 
 
@@ -106,9 +111,9 @@ public class LeaguerFragment extends Fragment implements UnitPresenterListener {
             unitList.addAll(list);
             tlak_size.setText("(" + total + ")");
             leaguerAdapter.notifyDataSetChanged();
-            leaguer_smart.finishRefresh();
-            leaguer_smart.finishLoadMore();
         }
+        leaguer_smart.finishRefresh();
+        leaguer_smart.finishLoadMore();
     }
 
     static class MyHandler extends Handler {

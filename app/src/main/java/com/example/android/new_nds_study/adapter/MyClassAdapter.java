@@ -3,7 +3,6 @@ package com.example.android.new_nds_study.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.MyCoursesBean;
 import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +25,9 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     //清除数据
     public void setDataClear(List<MyCoursesBean.DataBean.ListBean> list){
         this.list.clear();
-        this.list.addAll(list);
+        if (list!=null){
+            this.list.addAll(list);
+        }
         notifyDataSetChanged();
     }
     //获取数据
@@ -40,7 +42,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MyViewHolder mHolder=(MyViewHolder)holder;
         String cover = list.get(position).getCover();
         Uri uri = Uri.parse(cover);
@@ -57,14 +59,17 @@ public class MyClassAdapter extends RecyclerView.Adapter {
         mHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnItemClickListener.onItemClick(v,(String) v.getTag());
+                mOnItemClickListener.onItemClick(v,list.get(position).getTitle(),list.get(position).getCourse_id(),list.get(position).getUnit().getUnit_id());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        Log.e("MyClassAdapter", "getItemCount: "+list.size() );
+//        Log.e("MyClassAdapter", "getItemCount: "+list.size() );
+        if (list==null){
+            return 0;
+        }
         return list.size();
     }
     
@@ -86,6 +91,6 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     }
     //自定义接口
     public static interface OnItemClickListener {
-        void onItemClick(View view, String position);
+        void onItemClick(View view, String title,String course_id,String unit_id);
     }
 }

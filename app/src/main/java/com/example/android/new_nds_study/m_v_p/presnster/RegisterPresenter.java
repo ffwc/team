@@ -27,7 +27,7 @@ public class RegisterPresenter {
     public void getData(String nickname, String phone, String note, String password, String toPassword) {
         if (Verification.isNickName(nickname) && Verification.isPhone(phone) && Verification.isNote(note) && Verification.isPassWord(password) && Verification.isPassWordEquality(password, toPassword)) {
 
-//调用m层的数据
+            //调用m层的数据
             registerModule.getData(nickname, phone, password,note, new RegModuleListener() {
                 @Override
                 public void success(RegisterBean registerBean) {
@@ -39,8 +39,6 @@ public class RegisterPresenter {
                 }
             });
         }
-
-
     }
 
     //防止内存泄露

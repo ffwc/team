@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/include_head_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_10"
@@ -36,5 +37,6 @@
         app:xTabSelectedTextColor="@color/textview_color_yellow"
         app:xTabSelectedTextSize="@dimen/dp_18"
         app:xTabTextColor="@color/textview_color_black"
-        app:xTabTextSize="@dimen/dp_14"></com.androidkun.xtablayout.XTabLayout>
+        app:xTabTextSize="@dimen/dp_14">
+    </com.androidkun.xtablayout.XTabLayout>
 </LinearLayout>
