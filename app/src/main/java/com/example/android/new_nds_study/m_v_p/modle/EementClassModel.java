@@ -1,5 +1,6 @@
 package com.example.android.new_nds_study.m_v_p.modle;
 
+import com.example.android.new_nds_study.MyApp;
 import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
 import com.example.android.new_nds_study.m_v_p.view.EementModelListener;
 import com.example.android.new_nds_study.network.API;
@@ -20,7 +21,12 @@ public class EementClassModel {
         Map<String, String> map = new HashMap<>();
         String str = API.LEAGERPATH+Courses+"/units/limit/"+limit+"/page/"+ page;
         LogUtil.i("ssss",str);
-        map.put("token", "25d66c30859f7bc0f241435c85fc5445ce8c4734");
+        if(MyApp.sp.getString("token","")==null){
+
+        }else{
+            map.put("token", "25d66c30859f7bc0f241435c85fc5445ce8c4734");
+        }
+
         RetrofitManagerAPI.get(str, map, new BaseObserver<EementClassBean>() {
             @Override
             public void success(EementClassBean eementClassBean) {

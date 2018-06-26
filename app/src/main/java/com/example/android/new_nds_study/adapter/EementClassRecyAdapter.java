@@ -1,6 +1,7 @@
 package com.example.android.new_nds_study.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
+import com.example.android.new_nds_study.activity.EementItemActivity;
 import com.example.android.new_nds_study.m_v_p.bean.EementClassBean;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
     }
 
     @Override
-    public void onBindViewHolder(MyEemnetClassHolder holder, int position) {
+    public void onBindViewHolder(MyEemnetClassHolder holder, final int position) {
 
         holder.item_each_class_study_title.setText(list.get(position).getTitle());
         int type = Integer.parseInt(list.get(position).getStatus());
@@ -63,7 +65,7 @@ public class EementClassRecyAdapter extends RecyclerView.Adapter<EementClassRecy
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            context.startActivity(new Intent(context,EementItemActivity.class).putExtra("data",list.get(position)));
             }
         });
     }
