@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 import static android.content.ContentValues.TAG;
 
-public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyJOBHodler> implements View.OnClickListener {
+public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyJOBHodler>   {
     private Context context;
     private List<StudentBean> list;
 
@@ -44,7 +44,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyJOBHodler> imp
 
     @TargetApi(Build.VERSION_CODES.N)
     @Override
-    public void onBindViewHolder(MyJOBHodler holder, int position) {
+    public void onBindViewHolder(MyJOBHodler holder, final int position) {
         /**
          * 根据请求过来的数据改变背景及状态
          * 这里我简单的让他相隔一个改变
@@ -64,21 +64,18 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyJOBHodler> imp
         holder.jobitemType.setText("类别注明:" + list.get(position).getGrading_type());
         holder.jobitemTime.setText("日期时间:" + startTime);
         holder.jobitemContent.setText("内容" + list.get(position).getDescription());
-        holder.itemView.setOnClickListener(this);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, AssignmentActivity.class).putExtra("AssignMent",list.get(position)));
+            }
+        });
 
     }
-
     @Override
     public int getItemCount() {
-
         return list.size();
     }
-
-    @Override
-    public void onClick(View v) {
-        context.startActivity(new Intent(context, AssignmentActivity.class));
-    }
-
     class MyJOBHodler extends RecyclerView.ViewHolder {
 
         @BindView(R.id.jobitem_state)

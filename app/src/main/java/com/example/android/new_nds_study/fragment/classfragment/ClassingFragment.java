@@ -47,6 +47,7 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.classingfragment, container, false);
         classListPresenter = new ClassListPresenter(this);
+
         initview();
         if (NetWorkUtil.isNetWorkEnable(MyApp.applicationInstance())){
             getData();
@@ -56,7 +57,11 @@ public class ClassingFragment extends Fragment implements ClassPresenterListener
     }
 
     private void getData() {
-        classListPresenter.getData(limit, page);
+        if(MyApp.applicationInstance().isNetworkConnected(getActivity())) {
+            classListPresenter.getData(limit, page);
+        }else{
+            ToastUtils.showLong(getActivity(),R.string.NetWork_Err);
+        }
     }
 
     @Override

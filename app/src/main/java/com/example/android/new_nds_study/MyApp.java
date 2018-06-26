@@ -2,7 +2,10 @@ package com.example.android.new_nds_study;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -50,4 +53,14 @@ public class MyApp extends Application {
         //attributes.flags |= flagTranslucentNavigation;
         window.setAttributes(attributes);
     }
+    public boolean isNetworkConnected(Context context) {
+             if (context != null) {
+                    ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                    if (mNetworkInfo != null) {
+                            return mNetworkInfo.isAvailable();
+                       }
+                }
+            return false;
+         }
 }

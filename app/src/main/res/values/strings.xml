@@ -31,4 +31,5 @@
     <string name="tlakstr_zan">赞</string>
     <string name="tlakedit_string">我也有话说</string>
     <string name="title_eachclass_right">关于课程</string>
+    <string name="NetWork_Err">检查网络</string>
 </resources>

@@ -51,8 +51,12 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     }
 
     private void initData() {
+
         myClassPresenter = new MyClassPresenter(this);
-        myClassAdapter = new MyClassAdapter(getActivity());
+
+        if(MyApp.applicationInstance().isNetworkConnected(getActivity())){
+            myClassAdapter = new MyClassAdapter(getActivity());
+        }
         mMyclassfragmentRecycler.setAdapter(myClassAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -71,7 +75,10 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 page=1;
-                myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                if(MyApp.applicationInstance().isNetworkConnected(getActivity())) {
+                    myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+
+                }
             }
         });
         //上拉加载
@@ -80,7 +87,10 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 ++page;
                 if (page <= ((total+4)/5)){
-                    myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                    if(MyApp.applicationInstance().isNetworkConnected(getActivity())){
+                        myClassPresenter.getMyClassPresenter(""+page,"25d66c30859f7bc0f241435c85fc5445ce8c4734");
+                    }
+
                 }else {
                     myclassfragment_smart.finishLoadMore();
                 }
