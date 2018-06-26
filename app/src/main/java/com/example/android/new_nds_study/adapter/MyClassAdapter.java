@@ -92,5 +92,7 @@ public class MyClassAdapter extends RecyclerView.Adapter {
     //自定义接口
     public static interface OnItemClickListener {
         void onItemClick(View view, String title,String course_id,String unit_id);
+
+        void onItemClick(View view, String position);
     }
 }
