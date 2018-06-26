@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
                 String password = loginPasswordEdittext.getText().toString().trim();
                 loginPresenter.getData(loginid, password);
 
-            break;
+                break;
 
             case R.id.login_forget_password:
 
@@ -86,19 +86,18 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
 
     @Override
     public void success(LoginBean loginBean) {
-        LogUtil.i(TAG,"-----------------");
+        LogUtil.i(TAG, "-----------------");
         LoginBean.DataEntity data = loginBean.getData();
         String access_token = data.getAccess_token();
 
-        LogUtil.i(TAG + "access_token", access_token);
-        System.out.print(access_token);
+        MyApp.edit.putString("token", access_token).commit();
+
     }
 
     @Override
     public void uSuccess(UserinfoBean userinfoBean) {
 
     }
-
 
 
     @Override
@@ -117,25 +116,24 @@ public class LoginActivity extends AppCompatActivity implements LoginModuleListe
 
     @Override
     public void onUsuccess(UserinfoBean userinfoBean) {
-        if (userinfoBean!=null) {
+        if (userinfoBean != null) {
             String uid = userinfoBean.getUid();
             MyApp.edit.putString("uid", uid).commit();
-            Log.e(TAG, "onUsuccess: "+uid );
+            Log.e(TAG, "onUsuccess: " + uid);
             finish();
         }
 
     }
 
 
-
     @Override
     public void onSuccess(LoginBean loginBean) {
         LoginBean.DataEntity data = loginBean.getData();
         String errmsg = loginBean.getErrmsg();
-        if (("OK").equals(errmsg)){
+        if (("OK").equals(errmsg)) {
             String access_token = data.getAccess_token();
-            MyApp.edit.putString("token",access_token).commit();
-            Log.e(TAG, "onSuccess: "+ access_token);
+            MyApp.edit.putString("token", access_token).commit();
+            Log.e(TAG, "onSuccess: " + access_token);
             MessageEvent messageEvent = new MessageEvent();
             messageEvent.setLogin(1);
             EventBus.getDefault().postSticky(messageEvent);
