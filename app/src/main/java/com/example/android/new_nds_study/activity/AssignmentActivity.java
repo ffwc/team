@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import com.example.android.new_nds_study.R;
 import com.example.android.new_nds_study.m_v_p.bean.StudentBean;
-import com.example.android.new_nds_study.util.ToastUtils;
-
-import java.io.Serializable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +64,7 @@ public class AssignmentActivity extends AppCompatActivity {
     private void initData() {
     if(getIntent().getSerializableExtra("AssignMent")!=null){
         studentBean = (StudentBean) getIntent().getSerializableExtra("AssignMent");
-        ToastUtils.showLong(this,studentBean.toString());
+//        ToastUtils.showLong(this,studentBean.toString());
         assignmentDataTitle.setText(studentBean.getName());
         assignmentState.setText("待完成");
         assignmentState.setBackground(new ColorDrawable(R.drawable.course_icon_done));

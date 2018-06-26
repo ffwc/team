@@ -98,58 +98,50 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             }
         });
         //监听RecyclerView 滑动事件
-        mMyclassfragmentRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-//             Log.e(TAG, "onScrolled: "+dy);
-                if(dy>0){
-                    //上拉
-                    if (a!=1){
-                        MessageEvent messageEvent = new MessageEvent();
-                        messageEvent.setFlag(1);
-                        EventBus.getDefault().postSticky(messageEvent);
-                        a=1;
-                    }
-                }else {
-                    //下拉
-                    if (a!=2){
-                        MessageEvent messageEvent = new MessageEvent();
-                        messageEvent.setFlag(2);
-                        EventBus.getDefault().postSticky(messageEvent);
-                        a=2;
-                    }
-                }
-            }
-        });
-
-//        mMyclassfragmentRecycler.addOnScrollListener(new HidingScrollListener() {
+//        mMyclassfragmentRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
-//            public void onHide() {
-////                if (a!=1){
-//                     MessageEvent messageEvent = new MessageEvent();
-//                     messageEvent.setFlag(1);
-//                     EventBus.getDefault().postSticky(messageEvent);
-////                     a=1;
-////                 }
-//            }
-//            @Override
-//            public void onShow() {
-////                if (a!=2){
-//                     MessageEvent messageEvent = new MessageEvent();
-//                     messageEvent.setFlag(2);
-//                     EventBus.getDefault().postSticky(messageEvent);
-////                     a=2;
-////                 }
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+////             Log.e(TAG, "onScrolled: "+dy);
+//                if(dy>0){
+//                    //上拉
+//                    if (a!=1){
+//                        MessageEvent messageEvent = new MessageEvent();
+//                        messageEvent.setFlag(1);
+//                        EventBus.getDefault().postSticky(messageEvent);
+//                        a=1;
+//                    }
+//                }else {
+//                    //下拉
+//                    if (a!=2){
+//                        MessageEvent messageEvent = new MessageEvent();
+//                        messageEvent.setFlag(2);
+//                        EventBus.getDefault().postSticky(messageEvent);
+//                        a=2;
+//                    }
+//                }
 //            }
 //        });
+
+        mMyclassfragmentRecycler.addOnScrollListener(new HidingScrollListener() {
+            @Override
+            public void onHide() {
+                MessageEvent messageEvent = new MessageEvent();
+                messageEvent.setFlag(1);
+                EventBus.getDefault().postSticky(messageEvent);
+            }
+            @Override
+            public void onShow() {
+                MessageEvent messageEvent = new MessageEvent();
+                messageEvent.setFlag(2);
+                EventBus.getDefault().postSticky(messageEvent);
+            }
+        });
     }
     public abstract class HidingScrollListener extends RecyclerView.OnScrollListener {
         private static final int HIDE_THRESHOLD = 20; //移动多少距离后显示隐藏
         private int scrolledDistance = 0; //移动的中距离
         private boolean controlsVisible = true; //显示或隐藏
-
-
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
@@ -168,10 +160,7 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
             }
 
         }
-
-
         public abstract void onHide();
-
         public abstract void onShow();
     }
     //订阅者
