@@ -177,8 +177,12 @@ public class MyclassFragment extends Fragment implements MyClassPresenterListene
     //订阅者
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onMessageEvent(MessageEvent event) {
-        if (event.getLogin()==1 || event.getLogin()==2){
+        if (event.getLogin()==1){
             initGetData();
+            EventBus.getDefault().removeStickyEvent(event);
+        }else if (event.getLogin()==2){
+            access_token = null;
+            myClassAdapter.setDataClear(null);
             EventBus.getDefault().removeStickyEvent(event);
         }
     }

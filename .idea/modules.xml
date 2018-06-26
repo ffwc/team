@@ -3,13 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://G:\MyApp\test\sbb250.iml" filepath="G:\MyApp\test\sbb250.iml" />
-      <module fileurl="file://G:\github\team\.idea\team.iml" filepath="G:\github\team\.idea\team.iml" />
-      <module fileurl="file://G:\MyApp\test\team.iml" filepath="G:\MyApp\test\team.iml" />
-      <module fileurl="file://C:\Users\dell\AndroidStudioProjects\newpr\team\.idea\team.iml" filepath="C:\Users\dell\AndroidStudioProjects\newpr\team\.idea\team.iml" />
-      <module fileurl="file://C:\Users\dell\AndroidStudioProjects\newpr\team\.idea\team1.iml" filepath="C:\Users\dell\AndroidStudioProjects\newpr\team\.idea\team1.iml" />
+      <module fileurl="file://G:/MyApp/test/sbb250.iml" filepath="G:/MyApp/test/sbb250.iml" />
+      <module fileurl="file://G:/MyApp/test/team.iml" filepath="G:/MyApp/test/team.iml" />
+      <module fileurl="file://C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team.iml" filepath="C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team.iml" />
+      <module fileurl="file://G:/github/team/.idea/team.iml" filepath="G:/github/team/.idea/team.iml" />
+      <module fileurl="file://C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team1.iml" filepath="C:/Users/dell/AndroidStudioProjects/newpr/team/.idea/team1.iml" />
       <module fileurl="file://$PROJECT_DIR$/test.iml" filepath="$PROJECT_DIR$/test.iml" />
-      <module fileurl="file://G:\MyApp\test\wag.iml" filepath="G:\MyApp\test\wag.iml" />
+      <module fileurl="file://G:/MyApp/test/wag.iml" filepath="G:/MyApp/test/wag.iml" />
     </modules>
   </component>
 </project>
