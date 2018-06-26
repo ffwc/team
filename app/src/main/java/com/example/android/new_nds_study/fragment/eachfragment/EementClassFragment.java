@@ -63,7 +63,6 @@ public class EementClassFragment extends Fragment implements EementPresenterList
         classRecyAdapter = new EementClassRecyAdapter(getActivity(), list);
         recycle.setLayoutManager(linearLayoutManager);
         recycle.setAdapter(classRecyAdapter);
-
         eementClassPresenter = new EementClassPresenter(this);
         eementClassPresenter.getData(courses + "", limit + "", page + "");
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
