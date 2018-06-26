@@ -11,6 +11,7 @@
             android:layout_height="wrap_content"
             android:text="×"
             android:textSize="@dimen/sp_25"
+            android:layout_centerVertical="true"
             android:gravity="center_vertical"
             />
         <TextView
@@ -24,6 +25,7 @@
             android:layout_marginBottom="@dimen/dp_10"
             />
         <View
+            android:layout_marginTop="@dimen/dp_20"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_1"
             android:background="@color/color_gray"

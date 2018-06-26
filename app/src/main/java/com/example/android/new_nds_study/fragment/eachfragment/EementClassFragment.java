@@ -66,7 +66,6 @@ public class EementClassFragment extends Fragment implements EementPresenterList
         classRecyAdapter = new EementClassRecyAdapter(getActivity(), beanList);
         recycle.setLayoutManager(linearLayoutManager);
         recycle.setAdapter(classRecyAdapter);
-
         eementClassPresenter = new EementClassPresenter(this);
         courses =Integer.valueOf(MyApp.sp.getString("course_id", null));
         eementClassPresenter.getData(courses + "", limit + "", page + "");

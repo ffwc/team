@@ -1,12 +1,110 @@
 package com.example.android.new_nds_study.m_v_p.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by dell on 2018/6/24.
  */
 
-public class StudentBean {
+public class StudentBean implements Serializable {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StudentBean)) return false;
+
+        StudentBean that = (StudentBean) o;
+
+        if (getId() != that.getId()) return false;
+        if (getPoints_possible() != that.getPoints_possible()) return false;
+        if (getAssignment_group_id() != that.getAssignment_group_id()) return false;
+        if (isPeer_reviews() != that.isPeer_reviews()) return false;
+        if (isAutomatic_peer_reviews() != that.isAutomatic_peer_reviews()) return false;
+        if (getPosition() != that.getPosition()) return false;
+        if (isGrade_group_students_individually() != that.isGrade_group_students_individually())
+            return false;
+        if (isAnonymous_peer_reviews() != that.isAnonymous_peer_reviews()) return false;
+        if (isPost_to_sis() != that.isPost_to_sis()) return false;
+        if (isModerated_grading() != that.isModerated_grading()) return false;
+        if (isOmit_from_final_grade() != that.isOmit_from_final_grade()) return false;
+        if (isIntra_group_peer_reviews() != that.isIntra_group_peer_reviews()) return false;
+        if (isAnonymous_instructor_annotations() != that.isAnonymous_instructor_annotations())
+            return false;
+        if (getCourse_id() != that.getCourse_id()) return false;
+        if (isHas_submitted_submissions() != that.isHas_submitted_submissions()) return false;
+        if (isDue_date_required() != that.isDue_date_required()) return false;
+        if (getMax_name_length() != that.getMax_name_length()) return false;
+        if (isIn_closed_grading_period() != that.isIn_closed_grading_period()) return false;
+        if (isIs_quiz_assignment() != that.isIs_quiz_assignment()) return false;
+        if (isMuted() != that.isMuted()) return false;
+        if (getQuiz_id() != that.getQuiz_id()) return false;
+        if (isAnonymous_submissions() != that.isAnonymous_submissions()) return false;
+        if (isPublished() != that.isPublished()) return false;
+        if (isOnly_visible_to_overrides() != that.isOnly_visible_to_overrides()) return false;
+        if (isLocked_for_user() != that.isLocked_for_user()) return false;
+        if (!getDescription().equals(that.getDescription())) return false;
+        if (!getDue_at().equals(that.getDue_at())) return false;
+        if (!getUnlock_at().equals(that.getUnlock_at())) return false;
+        if (!getLock_at().equals(that.getLock_at())) return false;
+        if (!getGrading_type().equals(that.getGrading_type())) return false;
+        if (!getGrading_standard_id().equals(that.getGrading_standard_id())) return false;
+        if (!getCreated_at().equals(that.getCreated_at())) return false;
+        if (!getUpdated_at().equals(that.getUpdated_at())) return false;
+        if (!getGroup_category_id().equals(that.getGroup_category_id())) return false;
+        if (!getSecure_params().equals(that.getSecure_params())) return false;
+        if (!getName().equals(that.getName())) return false;
+        if (!getHtml_url().equals(that.getHtml_url())) return false;
+        if (!getSubmissions_download_url().equals(that.getSubmissions_download_url())) return false;
+        if (!getLock_info().equals(that.getLock_info())) return false;
+        if (!getLock_explanation().equals(that.getLock_explanation())) return false;
+        return getSubmission_types().equals(that.getSubmission_types());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getDescription().hashCode();
+        result = 31 * result + getDue_at().hashCode();
+        result = 31 * result + getUnlock_at().hashCode();
+        result = 31 * result + getLock_at().hashCode();
+        result = 31 * result + getPoints_possible();
+        result = 31 * result + getGrading_type().hashCode();
+        result = 31 * result + getAssignment_group_id();
+        result = 31 * result + getGrading_standard_id().hashCode();
+        result = 31 * result + getCreated_at().hashCode();
+        result = 31 * result + getUpdated_at().hashCode();
+        result = 31 * result + (isPeer_reviews() ? 1 : 0);
+        result = 31 * result + (isAutomatic_peer_reviews() ? 1 : 0);
+        result = 31 * result + getPosition();
+        result = 31 * result + (isGrade_group_students_individually() ? 1 : 0);
+        result = 31 * result + (isAnonymous_peer_reviews() ? 1 : 0);
+        result = 31 * result + getGroup_category_id().hashCode();
+        result = 31 * result + (isPost_to_sis() ? 1 : 0);
+        result = 31 * result + (isModerated_grading() ? 1 : 0);
+        result = 31 * result + (isOmit_from_final_grade() ? 1 : 0);
+        result = 31 * result + (isIntra_group_peer_reviews() ? 1 : 0);
+        result = 31 * result + (isAnonymous_instructor_annotations() ? 1 : 0);
+        result = 31 * result + getSecure_params().hashCode();
+        result = 31 * result + getCourse_id();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + (isHas_submitted_submissions() ? 1 : 0);
+        result = 31 * result + (isDue_date_required() ? 1 : 0);
+        result = 31 * result + getMax_name_length();
+        result = 31 * result + (isIn_closed_grading_period() ? 1 : 0);
+        result = 31 * result + (isIs_quiz_assignment() ? 1 : 0);
+        result = 31 * result + (isMuted() ? 1 : 0);
+        result = 31 * result + getHtml_url().hashCode();
+        result = 31 * result + getQuiz_id();
+        result = 31 * result + (isAnonymous_submissions() ? 1 : 0);
+        result = 31 * result + (isPublished() ? 1 : 0);
+        result = 31 * result + (isOnly_visible_to_overrides() ? 1 : 0);
+        result = 31 * result + (isLocked_for_user() ? 1 : 0);
+        result = 31 * result + getSubmissions_download_url().hashCode();
+        result = 31 * result + getLock_info().hashCode();
+        result = 31 * result + getLock_explanation().hashCode();
+        result = 31 * result + getSubmission_types().hashCode();
+        return result;
+    }
 
     @Override
     public String toString() {
@@ -469,7 +567,27 @@ public class StudentBean {
         this.submission_types = submission_types;
     }
 
-    public static class LockInfoBean {
+    public static class LockInfoBean implements Serializable{
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof LockInfoBean)) return false;
+
+            LockInfoBean that = (LockInfoBean) o;
+
+            if (isCan_view() != that.isCan_view()) return false;
+            if (!getAsset_string().equals(that.getAsset_string())) return false;
+            return getLock_at().equals(that.getLock_at());
+        }
+
+        @Override
+        public int hashCode() {
+            int result = getAsset_string().hashCode();
+            result = 31 * result + getLock_at().hashCode();
+            result = 31 * result + (isCan_view() ? 1 : 0);
+            return result;
+        }
+
         /**
          * asset_string : assignment_89
          * lock_at : 2018-06-23T15:59:00Z

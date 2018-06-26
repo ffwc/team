@@ -70,7 +70,7 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         jobAdapter = new JobAdapter(getActivity(), list);
         mJobRecycler.setLayoutManager(linearLayoutManager);
-
+        tlak_size.setText(list.size()+"");
         mJobRecycler.setAdapter(jobAdapter);
         /**
          * 网络连接放在子线程里面，避免ANR
@@ -98,11 +98,7 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
                 getData();
             }
         });
-
-
     }
-
-
     public void getData() {
         new Thread() {
             @Override
@@ -114,14 +110,14 @@ public class JobFragment extends Fragment implements JOBPresenterLisnner {
         mJobSmart.finishRefresh();
         mJobSmart.finishLoadMore();
     }
-
-
     @Override
     public void Sucess(final StudentBean[] jobBean) {
+
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 list.addAll(Arrays.asList(jobBean));
+                tlak_size.setText(list.size()+"");
                 jobAdapter.notifyDataSetChanged();
             }
         });
