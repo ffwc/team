@@ -24,4 +24,5 @@
     <color name="line">#F7F7F7</color>
     <color name="assignment_color">#FF9767</color>
     <color name="assignment_select">#6ED4BE</color>
+    <color name="class_price">#FF3F3F</color>
 </resources>
